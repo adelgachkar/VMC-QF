@@ -186,16 +186,7 @@ The reference execution operates in the single-excitation subspace (6 basis stat
 
 **Important limitation:** the reference test does not show that the chosen defect increases the lifetime of $Q$; therefore the S-02 stability-acceptance criterion is **not confirmed**, and the data must be read as a negative/non-supporting test result, not as evidence of success. A different modeling of the deficit (e.g., the D04 edge phase) requires a separate protocol. The validity threshold for $Q$ is a minimum link-coherence magnitude of $10^{-3}$.
 
-*(Navigation pointer: this limitation was superseded on 2026-09-30 by Record VMC-QF-Vault-11 — the exact CPTP execution of section 3 — which confirms the criterion for both registered defect implementations. Section 8 is retained as a historical record.)*
-
-Output files (relative paths from the vault root):
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]]
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]]
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]]
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]]
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]]
-
-In the trajectory CSVs, population and coherence columns are registered; $Q_{eff}$ has a value only when all ring edges pass the threshold. The sweep CSV reports coherence lifetime and the last cadence with valid $Q$ for $\gamma=0.01$ to $0.5$.
+*(Navigation pointer: this limitation was superseded on 2026-09-30 by Record VMC-QF-Vault-11 — the exact CPTP execution of section 3 — which confirms the criterion for both registered defect implementations. Section 8 is retained as a historical record. The current output-file inventory is consolidated in the Execution Register below.)*
 
 ## Execution register (merged simulation records)
 
@@ -203,7 +194,7 @@ In the trajectory CSVs, population and coherence columns are registered; $Q_{eff
 
 **Reconciliation note (registered):** the reference execution of section 8 and record VMC-QF-Vault-10 use different defect implementations (site detuning vs. susceptibility reduction) and reach different verdicts on the S-02 advantage criterion. The honest registered state is: **the acceptance criterion "defect doubles the lifetime" is model-dependent and unconfirmed**; both runs are retained as separate registered records, and the decisive test is the full 64-dimensional CPTP simulation with the D04 edge-phase defect — flagged as the pending decisive protocol. **(Executed 2026-09-30 — see Record VMC-QF-Vault-11 below.)**
 
-Five data files: [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]]. Trajectories use $\tau=0…100$ at $\Delta\tau=0.5$ (201 rows). Gamma-sweep status thresholds: lifetime $\ge 100$ Stable, $20<\text{lifetime}<100$ Metastable, $\le 20$ Critical Collapse.
+Trajectory/sweep conventions shared by every registered record: $\varepsilon_{cut}=10^{-3}$; $\tau=0…100$ at $\Delta\tau=0.5$ (201 rows per trajectory); sweeps run $\gamma=0.01$ to $0.50$; gamma-sweep status thresholds — lifetime $\ge 100$ Stable, $20<\text{lifetime}<100$ Metastable, $\le 20$ Critical Collapse.
 
 **Record VMC-QF-Vault-11 — exact CPTP execution (section 3 protocol, decisive D04 edge-phase test included; run 2026-09-30).** Script: [[_data/03_DYNAMICS_SOLITON/D05/simulate_D05_cptp.py]]; full log [[_data/03_DYNAMICS_SOLITON/D05/run_output.txt]], verification log [[_data/03_DYNAMICS_SOLITON/D05/verify_output.txt]].
 
@@ -221,13 +212,15 @@ Five data files: [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]], [[_da
 
 **Verdict (registered):** the acceptance criterion "the defect at least doubles the coherence lifetime" (ratio $>2$) is **confirmed** under the exact CPTP protocol for both registered defect implementations at $\gamma=0.1$: site detuning 2.042, edge-phase flux 2.083. This closes the pending decisive protocol flagged by the reconciliation note: the D04 edge-phase defect, executed exactly, also satisfies the criterion. Two honest qualifications are registered with the verdict: (i) the confirmation is at the single reference $\gamma=0.1$; the accompanying sweeps ($\gamma=0.01$–$0.50$ for S-03 and S-04) register the full $\gamma$-dependence for further analysis rather than a claimed universal ratio; (ii) this remains an in-silico, model-level result — no experimental claim is made (consistent with the vault Epistemic Status). Notably, $Q$ remains valid to $\tau=25.0$ under the edge-phase defect versus $10.0$ under the site defect — the D04 implementation preserves link coherence longer even though both cross the lifetime threshold together within measurement resolution ($24.5$ vs $25.0$).
 
-*Output files (replacing the phenomenological CSVs; all 201-row trajectories at $\gamma=0.1$):*
+## Output inventory (single consolidated list — supersedes all earlier file lists)
+
+*Output files (all relative to the vault root; produced by the exact CPTP execution, Record VMC-QF-Vault-11; 201-row trajectories at $\gamma=0.1$):*
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]] — S-01, no defect
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]] — S-02, site detuning
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_edge_phase_trajectory.csv]] — S-04, edge-phase flux (new)
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_edge_phase_trajectory.csv]] — S-04, edge-phase flux
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]] — S-03 sweep, $\gamma=0.01$–$0.50$
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_gamma_sweep.csv]] — S-04 sweep, $\gamma=0.01$–$0.50$ (new)
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_gamma_sweep.csv]] — S-04 sweep, $\gamma=0.01$–$0.50$
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]] — side-by-side key rows (S-01/S-02/S-04)
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]] — per-scenario summary (three scenarios)
 
-CSV columns: $\tau$, $\gamma$, $Q_{\text{winding}}$, $Q_{\text{wrapped}}$ (both zeroed outside the validity window, with min-link-coherence recorded so the window is reconstructible), ring/center populations, local coherences $C_0…C_5$, mean/min link coherence, and the five link phases. The phenomenological scripts and their records (section 8, Vault-10) are retained unchanged as historical registered records.
+CSV columns (current schema, replacing the older $Q_{eff}$ description): $\tau$, $\gamma$, $Q_{\text{winding}}$, $Q_{\text{wrapped}}$ (both zeroed outside the validity window; min-link-coherence is recorded in every row so the window is reconstructible), ring/center populations, local coherences $C_0…C_5$, mean/min link coherence, and the five link phases. The phenomenological scripts and their records (section 8, Vault-10) are retained unchanged as historical registered records.

@@ -11,8 +11,11 @@
 
 ## Architecture (reading order)
 
+> **Start here:** [[00_MOC/Index]] — the full map of content (14 notes, statuses, data map, and three suggested paths through the vault).
+
 | Layer | Note | Content |
 |---|---|---|
+| **00 MOC** | [[00_MOC/Index]] Index | navigation, per-note statuses, data map, falsification chain | 
 | **00 Core Axioms** | [[A01]] Manifold-Free Substrate | graph substrate, finite local Hilbert space, coupling budget, cadence time, metric emergence |
 | | [[A02]] Microcavity Quantization | truncated oscillator, Pegg–Barnett phase, phase debt, reactive energy |
 | | [[A03]] Balance Principle | edge-flux accounting law, regional conservation, saturation control |
