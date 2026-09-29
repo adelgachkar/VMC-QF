@@ -46,7 +46,7 @@ language: en
 
 | # | Note | Status | What it registers |
 |---|---|---|---|
-| 5 | [[G01_Five_Around_One_Deficit\|G01 — Five-Around-One Deficit]] | revised-draft | angular deficit δθ = 7.356103° = 0.1284 rad; per-cell fractional charge δθ/2π ≈ 0.02044; loop holonomy; frustration potential; self-induced chirality |
+| 5 | [[G01_Five_Around_One_Deficit\|G01 — Five-Around-One Deficit]] | audited | complete derivation δθ = 2π − 5·arccos(1/3) = 7.356103° = 0.1284 rad (§3, machine-verified); per-cell fractional charge 0.0204336; loop holonomy gauge invariance + sector quantization; frustration potential; self-induced chirality |
 
 ### Layer 03 — Dynamics & Soliton (the carrier)
 
@@ -90,7 +90,7 @@ Current headline (Record VMC-QF-Vault-11): lifetime ratio vs S-01 = **2.042** (s
 
 ## The falsification chain (how the layers bind)
 
-1. **Axiom-level:** A01–A04 each state what would refute the substrate postulates (coupling-budget violation, balance-law break, cadence-leak scaling failure).
+1. **Axiom/geometry-level:** A01–A04 state what would refute the substrate postulates (coupling-budget violation, balance-law break, cadence-leak scaling failure); G01 adds the arithmetic criterion — an independent recomputation must reproduce δθ = 2π − 5·arccos(1/3) (`_data/02_GEOMETRY_TOPOLOGY/G01/verify_G01_deficit.py`).
 2. **Simulation-level:** D05 §6 — if the five-fold defect played no pinning role (Φ_ℓ decays as in the flat cluster), the minimal-model hypothesis is refuted. Current status: criterion confirmed at the reference γ (Vault-11), sweeps registered.
 3. **Scale-level:** S04 — four explicit criteria (R_τ, v_ratio, S_Q, percolation) that the bridge to mesoscopics must pass; currently untested (registered as open).
 

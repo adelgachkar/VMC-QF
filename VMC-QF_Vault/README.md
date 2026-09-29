@@ -36,7 +36,7 @@ Data: `_data/03_DYNAMICS_SOLITON/D05/` — exact CPTP trajectories and sweeps (S
 ## Epistemic status (read first)
 
 - **No empirical cosmological or experimental claim is made.** All quantitative results are model-level outputs of explicitly labeled simulation protocols (see the Execution Register in D05).
-- The registered constants (δθ = 7.356103° ≈ 0.1284 rad; per-cell fractional charge δθ/2π ≈ 0.02044) are **structural inputs of the five-around-one packing**, used consistently across G01–S04.
+- The registered constants are **derived structural inputs of the five-around-one packing**: δθ = 2π − 5·arccos(1/3) = 7.356103° ≈ 0.1284 rad (complete tetrahedral derivation and machine verification in G01 §3); per-cell fractional charge δθ/2π = 0.0204336 (family label 0.02044). Used consistently across G01–S04.
 - The D05 **exact CPTP execution (Record VMC-QF-Vault-11, 2026-09-30) confirms the "defect at least doubles the coherence lifetime" acceptance criterion at γ = 0.1** for both registered defect implementations: site detuning ratio 2.042, D04 edge-phase flux ratio 2.083 (verified block==full to ~10⁻¹³). The earlier negative reference run (section 8) and the phenomenological record (Vault-10) are retained as historical records. This remains an in-silico, model-level result — no experimental claim.
 - Every layer carries its own explicit falsification criteria.
 
@@ -44,8 +44,8 @@ Data: `_data/03_DYNAMICS_SOLITON/D05/` — exact CPTP trajectories and sweeps (S
 
 | Constant | Value | Registered in |
 |---|---|---|
-| Angular deficit δθ | 7.356103° = 0.1284 rad | G01, D01, D02, D03, S02 |
-| Per-cell fractional charge | δθ/2π ≈ 0.02044 | G01 |
+| Angular deficit δθ | **2π − 5·arccos(1/3)** = 7.356103° = 0.1284 rad (derived, machine-verified) | G01 §3 |
+| Per-cell fractional charge | δθ/2π = 0.0204336 (family label 0.02044) | G01 §4.3 |
 | Coherence cutoff ε_cut | 10⁻³ | S01, D05, S04 |
 | Defect percolation threshold ρ_c | ≈ 0.382 | S03 |
 | Critical scaling exponent α | ≈ 1.42 (model-level) | S03 |
