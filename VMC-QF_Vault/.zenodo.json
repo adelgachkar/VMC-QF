@@ -1,0 +1,35 @@
+{
+  "title": "VMC-QF — Vacuum Microcavity Quantum Foam: A Manifold-Free Quantum Substrate with Cadence Time and Topological Solitons",
+  "version": "0.1.0",
+  "doi": "",
+  "publication_date": "2026-09-29",
+  "creators": [
+    {
+      "name": "Gachkar, Adel",
+      "orcid": "https://orcid.org/0009-0006-7713-6004"
+    }
+  ],
+  "description": "VMC-QF is a self-contained theoretical vault constructing emergent spacetime structure — metric, causality, and particles — from a discrete graph of finite-dimensional quantum microcavities with intrinsic cadence time. Four core axioms define the substrate, quantization, balance law, and cadence phase-leak; a five-around-one geometric frustration (angular deficit δθ = 7.356103°) anchors topological soliton formation; scale-bridge documents carry the dynamics to mesoscopic effective equations and phase hydrodynamics. All results are model-level with explicit falsification criteria; no empirical claim is made.",
+  "access_right": "open",
+  "license": "mit",
+  "upload_type": "publication",
+  "publication_type": "workingpaper",
+  "keywords": [
+    "quantum foam",
+    "manifold-free",
+    "microcavity network",
+    "cadence time",
+    "topological soliton",
+    "Lieb-Robinson",
+    "five-around-one",
+    "angular deficit",
+    "emergent spacetime"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/adelgachkar/VMC-QF",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

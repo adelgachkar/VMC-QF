@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "208951acef0d3391",
+    "type": "split",
+    "children": [
+      {
+        "id": "bd6e8bf8ed4e9cb8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f247a7522554edaf",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4bfae55022237e86",
+    "type": "split",
+    "children": [
+      {
+        "id": "745baee26cafa29e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9133ab7a15e5537f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "bf7e52013bd70707",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "02a78d19e9a984a2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 464.5
+  },
+  "right": {
+    "id": "c5b47b258161f14d",
+    "type": "split",
+    "children": [
+      {
+        "id": "1abe566e7b635f58",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bcb7a427eb1c80f7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "89975755d8089e9e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "c6198938701d4a2b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "25d6920950265fd1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "bdc275a32e157c8a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "9133ab7a15e5537f",
+  "lastOpenFiles": [
+    "D05_scenario_summary.csv",
+    "D05_S01_trajectory.csv",
+    "D05_S02_trajectory.csv",
+    "D05_S03_gamma_sweep.csv",
+    "D05_key_times_comparison.csv",
+    "_data/03_DYNAMICS_SOLITON/D05/Untitled 2.md",
+    "_data/03_DYNAMICS_SOLITON/D05/Untitled 3.md",
+    "_data/03_DYNAMICS_SOLITON/D05/Untitled 1.md",
+    "_data/03_DYNAMICS_SOLITON/D05/Untitled.md",
+    "03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md",
+    "_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv.md",
+    "_data/03_DYNAMICS_SOLITON/Untitled.md",
+    "04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md",
+    "04_SCALE_TRANSITION/S03_Topological_and_Memory_Scaling.md",
+    "04_SCALE_TRANSITION/S02_Effective_Dynamics_and_Causality.md",
+    "04_SCALE_TRANSITION/S01_Scale_Bridge_Definitions.md",
+    "03_DYNAMICS_SOLITON/D04_Minimal_Simulatable_Soliton_Model.md",
+    "03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md",
+    "03_DYNAMICS_SOLITON/D02_Causal_Bounds_and_Lieb_Robinson.md",
+    "03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md",
+    "02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md",
+    "00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md",
+    "00_CORE_AXIOMS/A03_Balance_Principle.md",
+    "00_CORE_AXIOMS/A02_Microcavity_Quantization.md",
+    "00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md",
+    "Welcome.md",
+    "04_SCALE_TRANSITION",
+    "03_DYNAMICS_SOLITON",
+    "02_GEOMETRY_TOPOLOGY",
+    "00_CORE_AXIOMS"
+  ]
+}

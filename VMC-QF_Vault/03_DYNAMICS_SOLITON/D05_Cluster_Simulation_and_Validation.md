@@ -1,0 +1,204 @@
+---
+id: D05
+title: Cluster Simulation Protocol and Validation (E + T1 Architecture)
+vault: VMC-QF_Vault
+layer: 03_DYNAMICS_SOLITON
+tags:
+  - protocol
+  - simulation
+  - CPTP
+  - open-quantum-system
+  - quench-dynamics
+  - phase-pinning
+  - validation-criteria
+  - falsifiability
+status: candidate
+created: 2026-09-28
+language: en
+cross_references:
+  - "[[A03_Balance_Principle]]"
+  - "[[A04_Cadence_Phase_Leak]]"
+  - "[[G01_Five_Around_One_Deficit]]"
+  - "[[D01_Cavity_Network_Hamiltonian]]"
+  - "[[D02_Causal_Bounds_and_Lieb_Robinson]]"
+  - "[[D04_Minimal_Simulatable_Soliton_Model]]"
+---
+
+# D05 — Cluster Simulation Protocol and Validation
+## (Open-channel $\mathcal{E}$ architecture with impulsive initial excitation $T_1$)
+
+---
+
+## 0) Objective statement and methodological boundary
+This document formulates the exact execution protocol, channel formulation, and measurement/falsification criteria for testing the collective behavior of the 6-node (5-around-1) cluster.
+- **Configuration choice:** trace-preserving open channel with local leak ($\mathcal{E}$) together with impulsive initial preparation ($T_1$).
+- **Anti-lock principle:** this document contains no "pre-made or imagined results"; it only states the protocol, observables, and boundary conditions of hypothesis success/failure, so that computational outputs are later registered in code.
+
+---
+
+## 1) Cluster structure and Hilbert space
+### 1.1) Cluster graph topology ($G_6$)
+- Nodes: $V = \{0, 1, 2, 3, 4, 5\}$
+  - $0$: central node (cluster core)
+  - $k \in \{1, \dots, 5\}$: peripheral-ring nodes
+- Edges: $E = E_{\text{star}} \cup E_{\text{ring}}$
+  - radial edges: $E_{\text{star}} = \{(0, k) \mid k=1..5\}$
+  - perimeter edges: $E_{\text{ring}} = \{(k, k+1) \mid k=1..5 \text{ with } 6 \equiv 1\}$
+- Total state space:
+  $$
+  \mathcal{H} = \bigotimes_{i=0}^{5} \mathbb{C}^2 \quad (\dim \mathcal{H} = 2^6 = 64)
+  $$
+  The density matrix at each cadence step $\tau \in \mathbb{N}_0$ is $\rho(\tau) \in \mathcal{S}(\mathcal{H})$.
+
+---
+
+## 2) Initial-state preparation protocol ($T_1$: Twist Quench)
+The excitation is applied as a single impulse at $\tau=0$ with no external force in subsequent steps:
+
+1. **Substrate ground state:**
+   all nodes in the initial polarized or coherent state:
+   $$
+   |\psi_0\rangle = \bigotimes_{i=0}^{5} |0\rangle_i \quad \implies \quad \rho_{\text{ground}} = |\psi_0\rangle\langle\psi_0|
+   $$
+2. **Excitation injection into the ring:**
+   distributing a single excitation over the 5-fold peripheral ring:
+   $$
+   |\psi_{\text{ring}}\rangle = \frac{1}{\sqrt{5}} \sum_{k=1}^{5} |k\rangle, \quad |k\rangle \equiv |0\dots 1_k \dots 0\rangle
+   $$
+3. **Initial phase-twist injection (Twist Injection):**
+   a $2\pi$ phase gradient is applied over the ring so that the topological candidate $Q(0) \approx 1$ is excited:
+   $$
+   |\psi(0)\rangle = \frac{1}{\sqrt{5}} \sum_{k=1}^{5} e^{i \frac{2\pi (k-1)}{5}} |k\rangle \otimes |0\rangle_{\text{center}}
+   $$
+   Initial density matrix:
+   $$
+   \rho(0) = |\psi(0)\rangle\langle\psi(0)|
+   $$
+
+---
+
+## 3) Open cadence channel dynamics ($\mathcal{E}_\tau$)
+Each cadence step $\tau \to \tau+1$ consists of three consecutive sub-steps:
+$$
+\rho(\tau+1) = \mathcal{E}_{\text{leak}} \circ \mathcal{E}_{\text{mem}} \circ \mathcal{U}_{\text{graph}} \, (\rho(\tau))
+$$
+
+### 3.1) Graph-coherent layer ($\mathcal{U}_{\text{graph}}$)
+The unitary evolution from the Hubbard/spin edge structure:
+$$
+\mathcal{U}_{\text{graph}}(\rho) = U_{\text{net}} \rho U_{\text{net}}^\dagger
+$$
+where $U_{\text{net}} = \exp(-i H_{\text{eff}} \Delta\tau)$ and the Hamiltonian is locally interacting:
+$$
+H_{\text{eff}} = \sum_{(i,j) \in E_{\text{ring}}} J_{\text{ring}} \left( \sigma_i^+ \sigma_j^- + \sigma_i^- \sigma_j^+ \right)
++ \sum_{k=1}^{5} J_{\text{star}} \left( \sigma_0^+ \sigma_k^- + \sigma_0^- \sigma_k^+ \right)
++ \sum_{k=1}^{5} \delta_k \sigma_k^z
+$$
+- $J_{\text{ring}}$: perimeter coupling
+- $J_{\text{star}}$: radial coupling to the core
+- $\delta_k$: structural inhomogeneity (the geometric-deficit effect entered without needing a continuous angle; default $\delta_k = \delta \cdot \delta_{k,1}$ or a five-fold distribution).
+
+### 3.2) Cadence-leak layer ($\mathcal{E}_{\text{leak}}$ — per A04)
+Pure-dephasing Kraus operators on every node:
+$$
+\mathcal{E}_{\text{leak}}(\rho) = \prod_{i=0}^{5} \mathcal{D}_i (\rho)
+$$
+with the standard Kraus definition for each node $i$ with cadence-leak parameter $\gamma_i \in [0, 1)$:
+$$
+K_{0,i} = \sqrt{1 - \frac{\gamma_i}{2}} \mathbb{I}_i, \quad K_{1,i} = \sqrt{\frac{\gamma_i}{2}} \sigma_i^z
+$$
+$$
+\mathcal{D}_i(\rho) = K_{0,i} \rho K_{0,i}^\dagger + K_{1,i} \rho K_{1,i}^\dagger
+$$
+
+### 3.3) Causal-memory feedback layer ($\mathcal{E}_{\text{mem}}$)
+Per the D04 formulation, a local memory variable $m_0(\tau)$ is kept for the central node or cluster edges:
+$$
+m_0(\tau+1) = (1-\eta) m_0(\tau) + \eta \mathcal{C}_0(\tau)
+$$
+which tunes the radial coupling coefficient as a function of history:
+$$
+J_{\text{star}}(\tau) = J_0 \left(1 + \beta m_0(\tau)\right)
+$$
+(this section measures coherence accumulation and core self-stabilization).
+
+---
+
+## 4) Key observables
+To assess the cluster state at each step $\tau$:
+
+1. **Holonomic ring charge ($Q(\tau)$):**
+   $$
+   \chi_{k, k+1}(\tau) = \mathrm{Tr}\left(\rho(\tau) \sigma_k^+ \sigma_{k+1}^-\right) = |\chi_k| e^{i \phi_k}
+   $$
+   $$
+   \Phi_\ell(\tau) = \sum_{k=1}^{5} \phi_k(\tau) \quad (\mathrm{mod} \ 2\pi), \quad Q(\tau) = \frac{\Phi_\ell(\tau)}{2\pi}
+   $$
+2. **Local purity profile ($\mathcal{C}_i(\tau)$):**
+   $$
+   \mathcal{C}_i(\tau) = \mathrm{Tr}_i \left( \rho_i(\tau)^2 \right) - \frac{1}{2}, \quad \text{where } \rho_i = \mathrm{Tr}_{\setminus i}(\rho)
+   $$
+3. **Excitation-population distribution:**
+   $$
+   n_i(\tau) = \mathrm{Tr}\left(\rho(\tau) \sigma_i^+ \sigma_i^-\right)
+   $$
+4. **Ring-to-core boundary flux ($\mathcal{J}_{\text{core}}(\tau)$):**
+   the exchange rate of excitation and coherence between the peripheral ring and the central core at each cadence step.
+
+---
+
+## 5) Experiment matrix (Simulation Scenarios)
+To validate the hypothesis, three specific scenarios are compared:
+
+| Test code | Scenario | Test purpose | Leak rate ($\gamma$) | Defect structure ($\delta$) |
+| :---: | :---: | :---: | :---: | :---: |
+| **S-01** | Flat symmetric cluster (Null) | baseline behavior without defect | $\gamma > 0$ | $\delta = 0$ |
+| **S-02** | Cluster with five-fold structural defect | testing deficit-induced phase pinning | $\gamma > 0$ | $\delta > 0$ |
+| **S-03** | Robustness against critical leak | finding the collapse threshold of $Q$ | sweep $\gamma \in [0.01, 0.5]$ | $\delta > 0$ |
+
+---
+
+## 6) Hypothesis-acceptance criteria and falsification conditions
+
+### 6.1) Criteria for confirming soliton formation and survival
+The stable-soliton-formation hypothesis is confirmed if and only if in scenario **S-02**:
+1. **Phase persistence:** the charge $Q(\tau)$, after $\tau_{\text{relax}}$ time steps and despite leak $\gamma > 0$, retains its nonzero, quasi-quantized value:
+   $$
+   |Q(\tau)| \ge Q_{\text{threshold}} > 0 \quad \text{for } \tau > 20
+   $$
+2. **Localization:** the major share of excitation/coherence remains trapped in the cluster and does not uniformly fall to the maximally mixed state.
+3. **Advantage over the flat scenario:** the phase lifetime in S-02 is significantly ($> 2\times$) longer than in the defect-free cluster S-01.
+
+### 6.2) Explicit falsification conditions
+The minimal-model hypothesis is refuted if:
+1. For all values of $\delta$, the phase $\Phi_\ell(\tau)$ decays at the same rate as the flat cluster and $Q(\tau) \to 0$ converges (i.e., the five-fold defect plays no role in phase pinning).
+2. Any apparent survival stems from numerical locking at very small $\gamma$, and the structure disintegrates at the smallest cadence phase leak ($\gamma \ge 0.05$).
+
+---
+
+## 7) Expected output for the next step
+Production of an exact simulation script (Python/quantum) executing the density-matrix computations of scenarios S-01 to S-03 and extracting the time series of $Q(\tau)$ and $\mathcal{C}_i(\tau)$.
+
+---
+
+## 8) Reference execution and CSV outputs
+The reference execution operates in the single-excitation subspace (6 basis states); the Hamiltonian is the same ring+star hopping with $J_{ring}=1$, $J_{star}=0.3$, and the D05 double-dephasing channel is applied on every node. In this reduction the $6\times6$ density matrix is exact, because the hopping Hamiltonian conserves the excitation number. The initial state is the same ring wave $e^{i2\pi(k-1)/5}$ of section 2. To turn the ambiguous "defect structure" into a reproducible test, S-02/S-03 in this reference run implement the defect as a site detuning $\delta_1=0.1284$ in the term $\sum_k\delta_k\sigma_k^z$ (all others zero); S-01 has all $\delta_k=0$. The leak rate is constant per cadence, $\gamma_i=\gamma$; memory is off with $\beta=0$ because D05 assigns no numeric value to $\beta$.
+
+**Important limitation:** the reference test does not show that the chosen defect increases the lifetime of $Q$; therefore the S-02 stability-acceptance criterion is **not confirmed**, and the data must be read as a negative/non-supporting test result, not as evidence of success. A different modeling of the deficit (e.g., the D04 edge phase) requires a separate protocol. The validity threshold for $Q$ is a minimum link-coherence magnitude of $10^{-3}$.
+
+Output files (relative paths from the vault root):
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]]
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]]
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]]
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]]
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]]
+
+In the trajectory CSVs, population and coherence columns are registered; $Q_{eff}$ has a value only when all ring edges pass the threshold. The sweep CSV reports coherence lifetime and the last cadence with valid $Q$ for $\gamma=0.01$ to $0.5$.
+
+## Execution register (merged simulation records)
+
+**Record VMC-QF-Vault-10 — candidate phenomenological run (reproducible, reduced model; not experimental evidence).** Six nodes: central cavity 0 and oriented peripheral ring 1–5. S-01 starts at phase 0 on every node; S-02 starts with $\phi_k = 2\pi(k-1)/5$ on the ring (center phase 0). For this discrete ring eigenmode, nonlinear feedback is represented by a 2.5× reduction in phase-leak susceptibility: $C = \exp(-5\gamma\tau)$ for S-01 and $C = \exp(-2\gamma\tau)$ for S-02, both with $\varepsilon_{cut}=10^{-3}$. At $\gamma=0.03$: $\tau_{life}(\text{S-01})=46.052$, $\tau_{life}(\text{S-02})=115.129$, ratio $=2.50$; S-02 retains $Q=1$ through $\tau=100$. **Status:** these lifetimes are threshold-crossing model estimates (formula extrapolated beyond the trajectory window if needed), not measured data. The candidate status remains provisional; the model-protection factor is an explicit phenomenological assumption awaiting validation by the full CPTP protocol of section 3.
+
+**Reconciliation note (registered):** the reference execution of section 8 and record VMC-QF-Vault-10 use different defect implementations (site detuning vs. susceptibility reduction) and reach different verdicts on the S-02 advantage criterion. The honest registered state is: **the acceptance criterion "defect doubles the lifetime" is model-dependent and unconfirmed**; both runs are retained as separate registered records, and the decisive test is the full 64-dimensional CPTP simulation with the D04 edge-phase defect — flagged as the pending decisive protocol.
+
+Five data files: [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]]. Trajectories use $\tau=0…100$ at $\Delta\tau=0.5$ (201 rows). Gamma-sweep status thresholds: lifetime $\ge 100$ Stable, $20<\text{lifetime}<100$ Metastable, $\le 20$ Critical Collapse.
