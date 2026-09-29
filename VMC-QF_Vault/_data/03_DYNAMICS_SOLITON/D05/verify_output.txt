@@ -1,0 +1,14 @@
+[verify] H hermitian (no defect): True
+[verify] H hermitian (site defect): True
+[verify] excitation number conserved by U: True
+[verify] dephasing: trace preserved True, diagonal preserved True, hermitian True
+[verify] 50 CPTP steps: min eigenvalue >= -1.64e-16 (positivity True)
+[verify] block==full max diff (unitary step): 5.55e-16
+[verify] H hermitian (edge-phase defect): True
+[verify] S-02 t=0 populations: ring=1.000000 center=0.000000 (expect 1 / 0)
+[verify] S-01 t=0 populations: ring=1.000000 center=0.000000 (expect 1 / 0)
+[verify] S-02 t=0: Q_winding=1.000000000000 (expect 1), C0=0.500000 (expect 0.5), mean|chi|=0.200000 (expect 0.2)
+[verify] S-01 t=0: Q_winding=0.000000000000 (expect 0), mean|chi|=0.200000 (expect 0.2)
+[verify] block==full over 300 steps (S-01): max diff = 2.25e-14
+[verify] block==full over 300 steps (S-02): max diff = 1.84e-13
+[verify] ALL CHECKS PASSED: True

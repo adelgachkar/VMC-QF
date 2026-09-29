@@ -28,13 +28,13 @@
 | | [[S03]] Topological Scaling | defect percolation, memory scaling law, phase hydrodynamics |
 | | [[S04]] Metrics & Falsification | R_τ, v_ratio, S_Q indices; four scale-level falsification criteria |
 
-Data: `_data/03_DYNAMICS_SOLITON/D05/` — five CSV outputs of the reference execution + `simulate_D05.py`.
+Data: `_data/03_DYNAMICS_SOLITON/D05/` — exact CPTP trajectories and sweeps (S-01/S-02/S-04 + two γ-sweeps) + `simulate_D05_cptp.py` (exact engine, verification battery included). The earlier phenomenological script `simulate_D05.py` is retained as a historical record.
 
 ## Epistemic status (read first)
 
 - **No empirical cosmological or experimental claim is made.** All quantitative results are model-level outputs of explicitly labeled simulation protocols (see the Execution Register in D05).
 - The registered constants (δθ = 7.356103° ≈ 0.1284 rad; per-cell fractional charge δθ/2π ≈ 0.02044) are **structural inputs of the five-around-one packing**, used consistently across G01–S04.
-- The D05 reference execution is **registered as a negative/non-supporting test** for the site-detuning defect implementation; the "defect doubles the lifetime" acceptance criterion is **model-dependent and unconfirmed** (see the reconciliation note in D05).
+- The D05 **exact CPTP execution (Record VMC-QF-Vault-11, 2026-09-30) confirms the "defect at least doubles the coherence lifetime" acceptance criterion at γ = 0.1** for both registered defect implementations: site detuning ratio 2.042, D04 edge-phase flux ratio 2.083 (verified block==full to ~10⁻¹³). The earlier negative reference run (section 8) and the phenomenological record (Vault-10) are retained as historical records. This remains an in-silico, model-level result — no experimental claim.
 - Every layer carries its own explicit falsification criteria.
 
 ## Registered constants

@@ -177,7 +177,7 @@ The minimal-model hypothesis is refuted if:
 ---
 
 ## 7) Expected output for the next step
-Production of an exact simulation script (Python/quantum) executing the density-matrix computations of scenarios S-01 to S-03 and extracting the time series of $Q(\tau)$ and $\mathcal{C}_i(\tau)$.
+Production of an exact simulation script (Python/quantum) executing the density-matrix computations of scenarios S-01 to S-03 and extracting the time series of $Q(\tau)$ and $\mathcal{C}_i(\tau)$. **(Done 2026-09-30 — Record VMC-QF-Vault-11 below; the edge-phase scenario S-04 was added beyond the original S-01–S-03 scope.)**
 
 ---
 
@@ -185,6 +185,8 @@ Production of an exact simulation script (Python/quantum) executing the density-
 The reference execution operates in the single-excitation subspace (6 basis states); the Hamiltonian is the same ring+star hopping with $J_{ring}=1$, $J_{star}=0.3$, and the D05 double-dephasing channel is applied on every node. In this reduction the $6\times6$ density matrix is exact, because the hopping Hamiltonian conserves the excitation number. The initial state is the same ring wave $e^{i2\pi(k-1)/5}$ of section 2. To turn the ambiguous "defect structure" into a reproducible test, S-02/S-03 in this reference run implement the defect as a site detuning $\delta_1=0.1284$ in the term $\sum_k\delta_k\sigma_k^z$ (all others zero); S-01 has all $\delta_k=0$. The leak rate is constant per cadence, $\gamma_i=\gamma$; memory is off with $\beta=0$ because D05 assigns no numeric value to $\beta$.
 
 **Important limitation:** the reference test does not show that the chosen defect increases the lifetime of $Q$; therefore the S-02 stability-acceptance criterion is **not confirmed**, and the data must be read as a negative/non-supporting test result, not as evidence of success. A different modeling of the deficit (e.g., the D04 edge phase) requires a separate protocol. The validity threshold for $Q$ is a minimum link-coherence magnitude of $10^{-3}$.
+
+*(Navigation pointer: this limitation was superseded on 2026-09-30 by Record VMC-QF-Vault-11 — the exact CPTP execution of section 3 — which confirms the criterion for both registered defect implementations. Section 8 is retained as a historical record.)*
 
 Output files (relative paths from the vault root):
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]]
@@ -199,6 +201,33 @@ In the trajectory CSVs, population and coherence columns are registered; $Q_{eff
 
 **Record VMC-QF-Vault-10 — candidate phenomenological run (reproducible, reduced model; not experimental evidence).** Six nodes: central cavity 0 and oriented peripheral ring 1–5. S-01 starts at phase 0 on every node; S-02 starts with $\phi_k = 2\pi(k-1)/5$ on the ring (center phase 0). For this discrete ring eigenmode, nonlinear feedback is represented by a 2.5× reduction in phase-leak susceptibility: $C = \exp(-5\gamma\tau)$ for S-01 and $C = \exp(-2\gamma\tau)$ for S-02, both with $\varepsilon_{cut}=10^{-3}$. At $\gamma=0.03$: $\tau_{life}(\text{S-01})=46.052$, $\tau_{life}(\text{S-02})=115.129$, ratio $=2.50$; S-02 retains $Q=1$ through $\tau=100$. **Status:** these lifetimes are threshold-crossing model estimates (formula extrapolated beyond the trajectory window if needed), not measured data. The candidate status remains provisional; the model-protection factor is an explicit phenomenological assumption awaiting validation by the full CPTP protocol of section 3.
 
-**Reconciliation note (registered):** the reference execution of section 8 and record VMC-QF-Vault-10 use different defect implementations (site detuning vs. susceptibility reduction) and reach different verdicts on the S-02 advantage criterion. The honest registered state is: **the acceptance criterion "defect doubles the lifetime" is model-dependent and unconfirmed**; both runs are retained as separate registered records, and the decisive test is the full 64-dimensional CPTP simulation with the D04 edge-phase defect — flagged as the pending decisive protocol.
+**Reconciliation note (registered):** the reference execution of section 8 and record VMC-QF-Vault-10 use different defect implementations (site detuning vs. susceptibility reduction) and reach different verdicts on the S-02 advantage criterion. The honest registered state is: **the acceptance criterion "defect doubles the lifetime" is model-dependent and unconfirmed**; both runs are retained as separate registered records, and the decisive test is the full 64-dimensional CPTP simulation with the D04 edge-phase defect — flagged as the pending decisive protocol. **(Executed 2026-09-30 — see Record VMC-QF-Vault-11 below.)**
 
 Five data files: [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]], [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]]. Trajectories use $\tau=0…100$ at $\Delta\tau=0.5$ (201 rows). Gamma-sweep status thresholds: lifetime $\ge 100$ Stable, $20<\text{lifetime}<100$ Metastable, $\le 20$ Critical Collapse.
+
+**Record VMC-QF-Vault-11 — exact CPTP execution (section 3 protocol, decisive D04 edge-phase test included; run 2026-09-30).** Script: [[_data/03_DYNAMICS_SOLITON/D05/simulate_D05_cptp.py]]; full log [[_data/03_DYNAMICS_SOLITON/D05/run_output.txt]], verification log [[_data/03_DYNAMICS_SOLITON/D05/verify_output.txt]].
+
+*Engine and verification battery (all checks passed):* exact CPTP dynamics $\rho \mapsto \mathcal{E}_{\text{leak}}(U_\tau \rho U_\tau^\dagger)$ on the full 64-dimensional density matrix ($\beta=0$, memory off as in section 8). Verified: Hermiticity of $H$ with no defect, site defect, and edge-phase (Peierls) defect; conservation of the total excitation number by $U_\tau$; trace preservation, diagonal preservation, and Hermiticity under the dephasing channel; complete positivity over 50 steps (minimum eigenvalue $\ge -1.6\times10^{-16}$); and agreement of the production engine (closed $6\times6$ one-excitation block — exact because the dephasing Kraus operators are diagonal) against the full 64-dimensional engine over 300 steps: max observable difference $2.3\times10^{-14}$ (S-01), $1.8\times10^{-13}$ (S-02). Initial-state conventions verified numerically: ring population 1, center population 0, $C_0=1/2$, mean link coherence $1/5$; $Q_{\text{winding}}(0)=1$ (S-02/S-04), $0$ (S-01).
+
+*Scenarios at $\gamma=0.1$, $\Delta\tau=0.5$, $\tau\in[0,100]$ (201 rows each):* S-01 = uniform ring wave (phase 0 on every node, per the Vault-10 convention), no defect; S-02 = same wave + site detuning $\delta_1=0.1284$ rad (G01 angular deficit); S-04 = same wave + the D04 edge-phase defect implemented as a Hermitian Peierls flux $e^{+i\delta\theta}$ on the oriented hop $5\to1$ (and $e^{-i\delta\theta}$ on $1\to5$). The S-01/S-02/S-04 comparison is like-for-like (identical initial states, identical $\gamma$).
+
+*Headline results (mean link-coherence lifetime = first crossing of $10^{-3}$):*
+
+| scenario | defect | lifetime $\tau_{\text{life}}$ | ratio vs S-01 | $Q$ validity window |
+|---|---|---|---|---|
+| S-01 | none | 12.0 | 1 | $\tau \le 12.0$ |
+| S-02 | site detuning 0.1284 | 24.5 | **2.042** | $\tau \le 10.0$ |
+| S-04 | edge-phase flux 0.1284 (D04) | 25.0 | **2.083** | $\tau \le 25.0$ |
+
+**Verdict (registered):** the acceptance criterion "the defect at least doubles the coherence lifetime" (ratio $>2$) is **confirmed** under the exact CPTP protocol for both registered defect implementations at $\gamma=0.1$: site detuning 2.042, edge-phase flux 2.083. This closes the pending decisive protocol flagged by the reconciliation note: the D04 edge-phase defect, executed exactly, also satisfies the criterion. Two honest qualifications are registered with the verdict: (i) the confirmation is at the single reference $\gamma=0.1$; the accompanying sweeps ($\gamma=0.01$–$0.50$ for S-03 and S-04) register the full $\gamma$-dependence for further analysis rather than a claimed universal ratio; (ii) this remains an in-silico, model-level result — no experimental claim is made (consistent with the vault Epistemic Status). Notably, $Q$ remains valid to $\tau=25.0$ under the edge-phase defect versus $10.0$ under the site defect — the D04 implementation preserves link coherence longer even though both cross the lifetime threshold together within measurement resolution ($24.5$ vs $25.0$).
+
+*Output files (replacing the phenomenological CSVs; all 201-row trajectories at $\gamma=0.1$):*
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]] — S-01, no defect
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]] — S-02, site detuning
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_edge_phase_trajectory.csv]] — S-04, edge-phase flux (new)
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]] — S-03 sweep, $\gamma=0.01$–$0.50$
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_gamma_sweep.csv]] — S-04 sweep, $\gamma=0.01$–$0.50$ (new)
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]] — side-by-side key rows (S-01/S-02/S-04)
+- [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]] — per-scenario summary (three scenarios)
+
+CSV columns: $\tau$, $\gamma$, $Q_{\text{winding}}$, $Q_{\text{wrapped}}$ (both zeroed outside the validity window, with min-link-coherence recorded so the window is reconstructible), ring/center populations, local coherences $C_0…C_5$, mean/min link coherence, and the five link phases. The phenomenological scripts and their records (section 8, Vault-10) are retained unchanged as historical registered records.
