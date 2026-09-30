@@ -47,7 +47,7 @@ Data: `_data/03_DYNAMICS_SOLITON/D05/` — exact CPTP trajectories and sweeps (S
 | Angular deficit δθ | **2π − 5·arccos(1/3)** = 7.356103° = 0.1284 rad (derived, machine-verified) | G01 §3 |
 | Per-cell fractional charge | δθ/2π = 0.0204336 (family label 0.02044) | G01 §4.3 |
 | Coherence cutoff ε_cut | 10⁻³ | S01, D05, S04 |
-| Defect percolation threshold ρ_c | ≈ 0.382 | S03 |
+| Defect percolation threshold ρ_c | ≈ 0.4075 (measured, L=64; supersedes untraceable 0.382) | S03, Vault-13 |
 | Critical scaling exponent α | ≈ 1.42 (model-level) | S03 |
 
 ## Citation

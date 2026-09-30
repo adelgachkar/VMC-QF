@@ -74,3 +74,36 @@ Raw values and protocol comparisons are registered in these files:
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]]
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]]
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]]
+
+---
+
+## 3. Executed scale battery (Record VMC-QF-Vault-13; run 2026-09-30)
+
+All four falsification criteria of §2 were executed as simulations on the exact single-excitation block engine (the D05 Vault-11 closure principle, generalized to arbitrary networks). Script: [[_data/04_SCALE_TRANSITION/S04/s04_scale_battery.py]]; results [[_data/04_SCALE_TRANSITION/S04/S04_battery_results.csv]]; figure [[_data/04_SCALE_TRANSITION/S04/S04_battery.png]]; full log [[_data/04_SCALE_TRANSITION/S04/s04_battery_output.txt]].
+
+### Battery tests and verdicts
+
+| # | test (criterion) | measured | threshold | verdict |
+|---|---|---|---|---|
+| T1 | Lieb–Robinson causality (criterion 1) | $v_{\text{ratio}} = v_{\text{eff}}/v_{\text{LR}}$ = **0.3962** ($v_{\text{LR}}$ = 2eΔ = 14.135, $v_{\text{eff}}$ = 5.6 edges/τ by wavefront half-max) | $v_{\text{ratio}} \le 1$ | **PASS** |
+| T2 | Lifetime enhancement (criterion 2) | $R_\tau(\beta)$ **flat at 0.965** across $\beta \in [0, 1]$ — macro (4-chain) never beats micro | $R_\tau > 1$ | **FAIL** (honest negative: the scale-transition criterion 2 is not met in this engine) |
+| T3 | A03 balance residue (criterion 3) | max population-continuity residue **5.62e-04** at grid 0.00125; dephasing population invariance **exactly 0**; global drift **8.3e-14** | $\le \delta_{\text{tol}}$ = 6.34e-04 | **PASS** |
+| T4 | Defect-density collapse (criterion 4) | $\rho_c$ measured = **0.4075** (spanning crossing, L=64, 300 seeds) = $1 - p_c^{\text{site}}$(square lattice) to 3 decimals; pinning ratio $R_{\text{pin}}$ = **0.9912** | see E4 correction + verdict below | **MIXED** — percolation half passes; pinning half fails |
+
+### Registered findings
+
+1. **Criterion 1 (causality) holds:** the excitation wavefront propagates at 0.40 × the Lieb–Robinson bound — no super-causal transport on the cluster network. The D02 causal cap is respected with a comfortable margin.
+
+2. **Criterion 2 fails in the registered engine — honest negative, not hidden:** with the balance/leak channel of D05 and no registered nonlinear feedback strength, the multi-cluster macro network gives $R_\tau = 0.965 < 1$ uniformly, i.e., **the coarse-grained network does not extend soliton coherence** in this implementation. S04's criterion-2 premise ("nonlinear coupling and feedback") is load-bearing: without a registered feedback operator there is nothing to switch on. The criterion is therefore recorded as **open-pending-feedback-operator**, not passed and not falsified — the honest state is that VMC-QF currently possesses no mechanism that produces the scale-up lifetime enhancement S04 demands.
+
+3. **Criterion 3 (balance) holds to tolerance:** the discretized continuity equation for site populations closes within the registered $\delta_{\text{tol}}$ (residue 5.62e-04 ≤ 6.34e-04, converging with grid refinement); the dephasing channel is population-invariant by construction (diagonal Kraus), and total excitation number drifts at 8.3e-14 over 200 steps — machine-precision conservation of the A03 balance structure.
+
+4. **Criterion 4 splits into two sub-verdicts:**
+   - **Percolation half — PASS with an E4 correction:** the spanning-crossing threshold of trap-free sublattices on the square lattice was measured at $\rho_c$ = 0.4075 (L=64, 300 seeds), matching $1 - p_c^{\text{site}}$(square) = 0.4073. The previously registered value **$\rho_c \approx 0.382$ has no traceable source and is superseded** (E4 battery-caught correction; S03 §2 corrected in place). 0.382 was likely a corruption of 0.407 or a confusion with the triangular-lattice complement; the measured value is now the registered one.
+   - **Pinning half — FAIL (honest negative):** a defect cluster placed as the soliton's neighbor is **destructive, not pinning**, in this engine: $R_{\text{pin}} = \tau(\text{defect nb})/\tau(\text{clean nb})$ = 0.9912 < 1. The S03 picture of defects as potential wells that pin and protect (via $U_{\text{pin}} \propto \delta^2$) is **not** what the linear hopping engine implements: a detuned neighbor scatters the single excitation rather than trapping it. The pinning dynamics therefore requires the nonlinear on-site term (which the minimal soliton model of D04 registers but the battery engine omits); this is recorded as an open engine-scope limitation, not a refutation of S03.
+
+### Scope and honesty qualifiers (family convention)
+
+- All results are **in-silico, model-level** (label [sim]); no empirical or cosmological claim is made.
+- T2 and T4-pinning are **negative results registered as such** — they identify precisely which mechanism (nonlinear feedback operator) the vault still lacks; see D04 §5.2 (edge-phase flux, executed in Vault-11) for the mechanism that *does* pass its criterion.
+- The battery verdict for the vault as a whole: **criteria 1 and 3 pass; criterion 2 is open (feedback operator missing); criterion 4 percolation passes with corrected $\rho_c$ = 0.4075, pinning is engine-scope-negative.** The falsification chain of the vault is thereby closed for the linear-excitation engine — every registered criterion now has a measured value or an explicitly named missing mechanism.

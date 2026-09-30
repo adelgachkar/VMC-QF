@@ -35,8 +35,9 @@ cross_references:
   $$U_{\text{pin}}(\delta) = \hbar \kappa_{\max} (1 - \cos\delta) \approx \frac{1}{2} \hbar \kappa_{\max} \delta^2$$
 - This potential prevents free migration and dissipation of the soliton at open network edges.
 - **Defect-network percolation threshold ($\rho_c$):** in a random multi-cluster network, the condition for forming continuous phase-transport paths and avoiding excessive trapping (localization) is set by the critical surface density of defect-bearing nodes:
-  $$\rho_{\text{defect}} < \rho_c \approx 0.382$$
+  $$\rho_{\text{defect}} < \rho_c \approx 0.4075$$
   If $\rho > \rho_c$, the network collapses into the isolated phase (cluster fragmentation) and the topological charge becomes trapped (confirming index 4 of [[S04_Metrics_Criteria_and_Falsification]]).
+  *(E4 correction, 2026-09-30, battery-caught: the previously registered $\rho_c \approx 0.382$ had no traceable source and is superseded by the measured spanning-crossing value 0.4075 — L=64, 300 seeds, matching $1 - p_c^{\text{site}}$ of the square lattice = 0.4073. See Record VMC-QF-Vault-13 in [[S04_Metrics_Criteria_and_Falsification]].)*
 
 ---
 

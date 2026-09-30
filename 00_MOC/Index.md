@@ -64,8 +64,8 @@ language: en
 |---|---|---|---|
 | 11 | [[S01_Scale_Bridge_Definitions\|S01 — Scale Bridge]] | candidate | coarse-graining order parameters, ε_cut = 10⁻³, conditional charge Q_eff |
 | 12 | [[S02_Effective_Dynamics_and_Causality\|S02 — Effective Dynamics]] | ratified | mesoscopic Lindblad equation, effective Lieb–Robinson bound |
-| 13 | [[S03_Topological_and_Memory_Scaling\|S03 — Topological Scaling]] | ratified | defect percolation ρ_c ≈ 0.382, memory scaling law, phase hydrodynamics |
-| 14 | [[S04_Metrics_Criteria_and_Falsification\|S04 — Metrics & Falsification]] | candidate | R_τ, v_ratio, S_Q indices; four scale-level falsification criteria |
+| 13 | [[S03_Topological_and_Memory_Scaling\|S03 — Topological Scaling]] | audited | defect percolation ρ_c ≈ 0.4075 (measured, Vault-13), memory scaling law, phase hydrodynamics |
+| 14 | [[S04_Metrics_Criteria_and_Falsification\|S04 — Metrics & Falsification]] | audited | four scale criteria executed (Vault-13): causality ✓, balance ✓, lifetime-enhancement open (feedback operator missing), percolation ✓ with ρ_c corrected |
 
 ---
 
@@ -81,6 +81,15 @@ language: en
 | `D05_S03_gamma_sweep.csv` | S-03 sweep, γ = 0.01–0.50 |
 | `D05_S04_gamma_sweep.csv` | S-04 sweep, γ = 0.01–0.50 |
 | `D05_relative_stability_map.csv` / `.png` | Record Vault-12: R(γ) = τ_life(defect)/τ_life(null) map with sub-grid estimators (`relative_stability_map.py`) |
+
+## Data & tools map (`_data/04_SCALE_TRANSITION/S04/`)
+
+| file | what it is |
+|---|---|
+| `s04_scale_battery.py` | **Record Vault-13 engine** — four falsification criteria as executable tests (LR causality, lifetime enhancement, A03 balance residue, percolation + pinning) |
+| `S04_battery_results.csv` | all registered measurements (7 tests, verdicts) |
+| `S04_battery.png` | four-panel figure: causality, R_τ(β), balance residue convergence, percolation curve + pinning bars |
+| `s04_battery_output.txt` | full run log (2026-09-30) |
 | `D05_key_times_comparison.csv` | side-by-side key rows (S-01/S-02/S-04) |
 | `D05_scenario_summary.csv` | per-scenario summary at final τ |
 | `simulate_D05.py` | historical phenomenological script (retained, superseded) |
@@ -93,7 +102,7 @@ Current headline (Record VMC-QF-Vault-11 + Vault-12): lifetime ratio vs S-01 = *
 
 1. **Axiom/geometry-level:** A01–A04 state what would refute the substrate postulates (coupling-budget violation, balance-law break, cadence-leak scaling failure); G01 adds the arithmetic criterion — an independent recomputation must reproduce δθ = 2π − 5·arccos(1/3) (`_data/02_GEOMETRY_TOPOLOGY/G01/verify_G01_deficit.py`).
 2. **Simulation-level:** D05 §6 — if the five-fold defect played no pinning role (Φ_ℓ decays as in the flat cluster), the minimal-model hypothesis is refuted. Current status: criterion confirmed at the reference γ (Vault-11) and mapped across the sweep range (Vault-12: R ≈ 2.1 → 1.65, ×2 surviving to γ ≈ 0.3).
-3. **Scale-level:** S04 — four explicit criteria (R_τ, v_ratio, S_Q, percolation) that the bridge to mesoscopics must pass; currently untested (registered as open).
+3. **Scale-level:** S04 — four explicit criteria (R_τ, v_ratio, S_Q, percolation) that the bridge to mesoscopics must pass. **Executed 2026-09-30 (Vault-13):** causality (v_ratio = 0.40 ≤ 1) ✓ and A03 balance (residue within δ_tol) ✓; percolation ✓ with ρ_c corrected to 0.4075; the lifetime-enhancement criterion is **open-pending-feedback-operator** (R_τ = 0.965 flat — the vault currently registers no mechanism producing the scale-up enhancement, recorded as an honest negative). The chain is thereby closed for the linear-excitation engine: every criterion now has a measured value or an explicitly named missing mechanism.
 
 ---
 

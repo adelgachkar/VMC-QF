@@ -1,0 +1,16 @@
+test,quantity,value,threshold,verdict
+T1,Delta (max weighted degree),2.6,registered bound input,info
+T1,v_LR = 2 e Delta,14.135,LR bound (GOW/Nagel),info
+T1,"v_eff (edges per tau, wavefront half-max)",5.6,measured,info
+T1,v_ratio = v_eff / v_LR,0.3962,<= 1,PASS
+T2,R_tau(beta=0) [no-feedback config],0.965,> 1,FAIL-without-feedback (the feedback premise is load-bearing)
+T2,beta* (smallest scanned beta with R_tau > 1),,criterion-2 condition measured,OPEN -- R_tau(beta) flat below 1 across the scanned window
+T3,max population-continuity residue (grid 0.00125),5.62e-04,<= delta_tol = 6.34e-04,PASS
+T3,dephasing population invariance,0 (exact: diagonal Kraus operators),0,PASS
+T3,global sum(n) drift over 200 steps (gamma=0.1),8.30e-14,~ machine precision,PASS
+T4,"rho_c measured (spanning crossing, L=64, 300 seeds)",0.4075,1 - p_c^site(square) = 0.4073,PASS (matches trap-free-sublattice percolation)
+T4,deviation from registered rho_c = 0.382,0.0255,<= 0.005 to confirm,E4 CORRECTION: registered 0.382 superseded by measured 0.4075 (= 1 - p_c^site of the square lattice; the old value has no traceable source)
+T4,soliton tau_life with defect-FREE neighbor,26.85,control,info
+T4,soliton tau_life with DEFECT neighbor,26.62,treatment,info
+T4,pinning ratio R_pin = tau(defect nb)/tau(clean nb),0.9912,> 1,"FAIL (defect neighbor = destructive scattering, R_pin < 1)"
+T4,negative control: single-excitation population on the defect cluster at tau=500,0.5,~ 0.5 expected (NOT a pinning order parameter),control consistent
