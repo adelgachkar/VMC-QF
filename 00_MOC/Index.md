@@ -122,6 +122,6 @@ Current headline (Record VMC-QF-Vault-11 + Vault-12): lifetime ratio vs S-01 = *
 
 ## Root documents
 
-- [[../README|README]] — architecture table, epistemic status, registered constants, family links
+- [README](../README.md) — architecture table, epistemic status, registered constants, family links
 - `CITATION.cff` / `.zenodo.json` — citation and Zenodo metadata
 - Family: [LIMEN-VACUI](https://github.com/adelgachkar/LIMEN-VACUI) · [SPUMA-VACUI](https://github.com/adelgachkar/SPUMA-VACUI) · [Emergence-SDF-Vault](https://github.com/adelgachkar/Emergence-SDF-Vault) · [CADENCE-SDF](https://github.com/adelgachkar/CADENCE-SDF)
