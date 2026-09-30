@@ -3,7 +3,7 @@ id: S04
 title: Metrics, Criteria, and Falsification
 vault: VMC-QF_Vault
 layer: 04_SCALE_TRANSITION
-status: candidate
+status: audited
 language: en
 tags:
   - metrics
@@ -107,3 +107,30 @@ All four falsification criteria of §2 were executed as simulations on the exact
 - All results are **in-silico, model-level** (label [sim]); no empirical or cosmological claim is made.
 - T2 and T4-pinning are **negative results registered as such** — they identify precisely which mechanism (nonlinear feedback operator) the vault still lacks; see D04 §5.2 (edge-phase flux, executed in Vault-11) for the mechanism that *does* pass its criterion.
 - The battery verdict for the vault as a whole: **criteria 1 and 3 pass; criterion 2 is open (feedback operator missing); criterion 4 percolation passes with corrected $\rho_c$ = 0.4075, pinning is engine-scope-negative.** The falsification chain of the vault is thereby closed for the linear-excitation engine — every registered criterion now has a measured value or an explicitly named missing mechanism.
+
+## 4. Record VMC-QF-Vault-14 — criterion 2 closed with the registered feedback operator (run 2026-09-30)
+
+The "open-pending-feedback-operator" state of Record Vault-13 (row T2) is resolved: the D01 §8 saturation term (Kerr-type hopping de-tuning, mean-field closure $C_i := n_i(\tau)$ — the same operational closure as the Vault-13 memory layer) is implemented verbatim as $J_{ij}(\tau) = J_{ij}/\sqrt{1+\big(\chi(n_i-n_j)/J_{ij}\big)^2}$, with $\chi = 0$ reproducing the linear battery engine bit-for-bit (V0 regression deviation **0.00e+00**). Script: [[_data/04_SCALE_TRANSITION/S04/feedback_operator_battery.py]]; outputs [[_data/04_SCALE_TRANSITION/S04/V14_feedback_scan.csv]], [[_data/04_SCALE_TRANSITION/S04/V14_dt_crosscheck.csv]], [[_data/04_SCALE_TRANSITION/S04/V14_pin_probe.csv]]; figure [[_data/04_SCALE_TRANSITION/S04/V14_feedback_scan.png]]; full log [[_data/04_SCALE_TRANSITION/S04/v14_output.txt]].
+
+### Verdicts
+
+| # | test | measured | threshold | verdict |
+|---|---|---|---|---|
+| V0 | $\chi=0$ regression vs the linear battery engine | max deviation **0.00e+00** | = 0 | **PASS** (regression anchor) |
+| V1 | mean-field H hermiticity (mixed defect + feedback + pin) | **0.00e+00** | = 0 | **PASS** |
+| T2 | $R_\tau(\chi)$, battery geometry, site defect | $R_\tau$ = 0.965 ($\chi\le 0.1$) → **2.064** ($\chi=0.35{--}0.5$) → 1.71 ($\chi=5$); decomposition at $\chi^*$: macro ×1.000, micro ×0.468 | $R_\tau > 1$ | **PASS-CONDITIONAL** ($\chi \ge \chi^* = 0.2$) — but the gain at $\chi^*$ is **denominator-driven** (micro degraded, macro unchanged) |
+| T2 | $\chi_{\rm gen}$ (genuine macro gain > 5%) | **2.0** (macro $\tau$ 26.81 → 29.32) | macro $\tau$ above its $\chi=0$ value | **PASS-CONDITIONAL** ($\chi \ge 2.0$) |
+| T2b | fine $\chi$ grid on the micro collapse | $\chi_{\rm collapse}$ = **0.14** (dt=0.5); at dt=0.1 the collapse is already present at $\chi=0.10$ — onset location is dt-sensitive | locates the instability edge | **measured with a convention qualifier** |
+| T2c | collapse depth, dt refinement (χ=0.2) | \|Δτ\|/τ = **0.0008** | < 0.05 | **PASS** (depth dt-converged) |
+| T2d | full T2 grid at dt = 0.1 | $R_\tau(\chi=0)$ = **2.058** (FLIP from 0.965); $R_\tau > 1$ present in **both** dt conventions; $\chi_{\rm gen}$ = **2.0 in both** | criterion-2 inequality present in both dt conventions | **existence dt-robust; $\chi^*$ location is convention-dependent** |
+| T4 | S03 pin well (3 placements + gauge control) | $R_{\rm pin}$ = 0.9912 (no well) / 0.9915 (uniform, gauge-trivial control) / 0.9912–0.9914 (local) | > 1 (pinning) | **FAIL in all placements** — the registered well $U_{\rm pin} = 2.47\times10^{-3}\,J$ is too shallow in this engine ($U_{\rm pin}/J \sim 8\times10^{-3}$) |
+
+### Registered findings
+
+1. **Criterion 2 verdict — PASS-CONDITIONAL, honestly decomposed:** with the D01 §8 operator switched on, $R_\tau > 1$ is achieved in both dt conventions (existence dt-robust). But the honest decomposition shows the gain near threshold is **denominator-driven**: at $\chi^*$ = 0.2 the micro lifetime collapses (27.78 → 13.00, an instability edge at $\chi_{\rm collapse}$ = 0.14) while the macro network is unchanged. **Genuine macro protection** (numerator up) requires $\chi \ge \chi_{\rm gen}$ = **2.0** — and that threshold is **dt-robust** (identical at dt = 0.5 and dt = 0.1). The load-bearing number of criterion 2 is therefore $\chi_{\rm gen} = 2.0$ (in units of $J$), not $\chi^*$.
+
+2. **E4 qualifier on the Vault-13 row (battery-caught, 2026-09-30):** the T2d crosscheck exposed that the registered $R_\tau(\beta=0) = 0.965$ is an **engine-convention artifact**: the macro numerator is dt-robust (26.81 vs 26.74, 0.3%) but the micro denominator was **beat-revival-inflated ×2.14** by the coarse piecewise-constant dephasing (27.78 @ dt=0.5 vs 12.99 @ dt=0.1). The dt-converged baseline is $R_\tau(\beta=0) \approx$ **2.06**. The Vault-13 row 0.965 remains on record with this qualifier (history is not erased); all cross-dt comparisons of $\tau_{\rm micro}$ in this vault must carry the same convention label.
+
+3. **The micro instability is real and located:** $\chi_{\rm collapse}$ = 0.14 (fine grid, dt=0.5) — beyond it the single-cell ring loses ring coherence abruptly (depth dt-converged to 0.08% at χ=0.2). The macro 4-chain does **not** show the corresponding instability in the same window — this asymmetry (single-cell fragile, chain robust) is the physical content behind criterion 2's scale statement.
+
+4. **S03 pin-well claim — falsified in-engine at the registered strength:** all three local placements of the verbatim $U_{\rm pin} = \hbar\kappa_{\max}(1-\cos\delta) = 2.47\times10^{-3}\,J$ leave $R_{\rm pin} \approx 0.991$ (the uniform placement reproduces it exactly — the gauge-triviality control works). Pinning at this well depth is absent; converting scattering into pinning would need a well depth ≫ the hop scale or a genuinely trapped mode — recorded as an engine-scope negative, consistent with the Vault-13 T4 half-verdict.

@@ -1,0 +1,98 @@
+== V0: chi = 0 regression vs the registered linear engine ==
+  [V0] max |trace(nonlinear chi=0) - trace(linear battery)| = 0.00e+00  (threshold: = 0 (regression anchor)) -> PASS
+
+== V1: mean-field H hermiticity (mixed defect, worst case) ==
+  [V1] max |H - H^dagger| (mixed defect + feedback + pin) = 0.00e+00  (threshold: = 0) -> PASS
+  [V1] H eigenvalue spread is real (eigvalsh succeeded) = yes  (threshold: hermitian solver) -> PASS
+
+== T2 (feedback ON): R_tau(chi), battery geometry (defect_mode=site) ==
+  chi = 0.00: tau_micro =  27.78  tau_macro =  26.81   R_tau = 0.965
+  chi = 0.05: tau_micro =  27.78  tau_macro =  26.81   R_tau = 0.965
+  chi = 0.10: tau_micro =  27.79  tau_macro =  26.82   R_tau = 0.965
+  chi = 0.20: tau_micro =  13.00  tau_macro =  26.82   R_tau = 2.063
+  chi = 0.35: tau_micro =  13.00  tau_macro =  26.82   R_tau = 2.064
+  chi = 0.50: tau_micro =  13.00  tau_macro =  26.83   R_tau = 2.064
+  chi = 0.75: tau_micro =  23.79  tau_macro =  26.85   R_tau = 1.129
+  chi = 1.00: tau_micro =  23.76  tau_macro =  26.88   R_tau = 1.131
+  chi = 1.50: tau_micro =  23.78  tau_macro =  26.96   R_tau = 1.134
+  chi = 2.00: tau_micro =  23.84  tau_macro =  29.32   R_tau = 1.230
+  chi = 3.00: tau_micro =  25.41  tau_macro =  29.94   R_tau = 1.178
+  chi = 5.00: tau_micro =  19.00  tau_macro =  32.53   R_tau = 1.712
+  [T2] R_tau(chi=0) [regression row] = 0.965  (threshold: matches Vault-13 R_tau(beta=0) = 0.965) -> consistent with the registered Vault-13 R_tau(beta=0) = 0.965
+  [T2] R_tau max over the chi scan = 2.064  (threshold: > 1) -> PASS-CONDITIONAL
+  [T2] chi* (smallest scanned chi with R_tau > 1) = 0.2  (threshold: criterion-2 condition measured) -> PASS-CONDITIONAL (chi >= chi*)
+  [T2] DECOMPOSITION at chi*: macro_gain vs micro_gain = macro x1.000, micro x0.468  (threshold: macro protection means BOTH > 1) -> denominator-driven (micro degraded) -- see T2b/T2c
+  [T2] chi_gen (smallest chi with genuine macro gain > 5%) = 2.0  (threshold: macro tau above its chi=0 value) -> PASS-CONDITIONAL (chi >= chi_gen)
+CSV written: V14_feedback_scan.csv
+
+== T2b: fine chi grid on the micro collapse transition ==
+  chi = 0.10: tau_micro =  27.79
+  chi = 0.12: tau_micro =  27.79
+  chi = 0.14: tau_micro =  13.00
+  chi = 0.16: tau_micro =  13.00
+  chi = 0.18: tau_micro =  13.00
+  chi = 0.20: tau_micro =  13.00
+  chi = 0.22: tau_micro =  13.00
+  chi = 0.25: tau_micro =  13.00
+  [T2b] chi_collapse (first fine-grid chi with tau < 80% of chi=0.10 value) = 0.14  (threshold: locates the micro instability edge) -> measured
+  -- same grid at dt = 0.1 (finer piecewise-constant reconstruction) --
+  chi = 0.10: tau_micro(dt=0.1) =  12.99
+  chi = 0.12: tau_micro(dt=0.1) =  12.99
+  chi = 0.14: tau_micro(dt=0.1) =  12.99
+  chi = 0.16: tau_micro(dt=0.1) =  12.99
+  chi = 0.18: tau_micro(dt=0.1) =  12.99
+  chi = 0.20: tau_micro(dt=0.1) =  12.99
+  chi = 0.22: tau_micro(dt=0.1) =  12.99
+  chi = 0.25: tau_micro(dt=0.1) =  12.99
+  [T2b] chi_collapse at dt = 0.1 (onset robustness) = None  (threshold: dt=0.5 value = 0.14) -> onset location is dt-sensitive -- CHECK
+
+== T2c: dt refinement robustness of the micro collapse (chi = 0.2) ==
+  dt = 0.50: tau_micro(chi=0.2) =  13.00
+  dt = 0.10: tau_micro(chi=0.2) =  12.99
+  [T2c] |tau(dt=0.5) - tau(dt=0.1)| / tau(dt=0.1) at chi=0.2 = 0.0008  (threshold: < 0.05 (collapse depth is dt-converged)) -> PASS (collapse depth dt-converged)
+
+== T2d: full T2 grid at dt = 0.1 -- is R_tau > 1 dt-robust? ==
+  chi = 0.00: tau_micro =  12.99  tau_macro =  26.74   R_tau = 2.058
+  chi = 0.10: tau_micro =  12.99  tau_macro =  26.74   R_tau = 2.058
+  chi = 0.20: tau_micro =  12.99  tau_macro =  26.74   R_tau = 2.059
+  chi = 0.35: tau_micro =  12.98  tau_macro =  26.74   R_tau = 2.060
+  chi = 0.50: tau_micro =  12.99  tau_macro =  26.75   R_tau = 2.060
+  chi = 1.00: tau_micro =  19.89  tau_macro =  26.80   R_tau = 1.348
+  chi = 2.00: tau_micro =  23.77  tau_macro =  29.37   R_tau = 1.235
+  chi = 5.00: tau_micro =  26.41  tau_macro =  32.33   R_tau = 1.224
+  [T2d] linear engine (chi=0) dt-invariance: tau_micro/tau_macro at dt=0.1 vs the registered dt=0.5 values (27.78 / 26.81) = 12.99 / 26.74  (threshold: both within 2% of the dt=0.5 values) -> FAIL -- engine is dt-sensitive even at chi=0; do not compare across dt
+  [T2d] R_tau(chi=0) at dt = 0.1 (vs registered Vault-13 0.965 at dt=0.5) = 2.058  (threshold: same value => dt-robust baseline) -> FLIP 0.965 -> 2.058: the MACRO numerator is dt-robust (26.81 vs 26.74, 0.3%) but the MICRO denominator was beat-revival-inflated x2.14 by the coarse piecewise dephasing (27.78 @ dt=0.5 vs 12.99 @ dt=0.1) -- the dt-converged R_tau(beta=0) is ~2.06, and the Vault-13 row 0.965 carries this engine-convention qualifier
+  [T2d] R_tau > 1 achieved at dt = 0.1? (chi* = 0.0; dt=0.5 chi* = 0.2) = yes  (threshold: criterion-2 inequality present in both dt conventions) -> existence dt-robust, but chi* location is convention-dependent (0.2 @ dt=0.5 vs 0.0 @ dt=0.1) -- the micro denominator is beat-null artifact-prone; the load-bearing verdict is chi_gen
+  [T2d] chi_gen at dt = 0.1 (genuine macro gain > 5%) = 2.0  (threshold: dt=0.5 chi_gen = 2.0) -> macro gain dt-robust
+CSV written: V14_dt_crosscheck.csv
+
+== T4 probe: S03 pin well in the registered T4 geometry (edge-phase defect on cluster 1) ==
+  [T4] R_pin reproduction without pin well = 0.9912  (threshold: matches Vault-13 = 0.9912) -> consistent
+  [T4] R_pin, UNIFORM well on the defect cluster (negative control) = 0.9915  (threshold: ~ unchanged (gauge-trivial shift)) -> consistent with gauge triviality
+  [T4] R_pin, LOCAL well on the defect site (node 1) = 0.9912  (threshold: > 1 (pinning)) -> FAIL (registered well too shallow: U_pin/J ~ 8e-3)
+  [T4] R_pin, LOCAL well on the defect-edge endpoints (nodes 1+5) = 0.9914  (threshold: > 1 (pinning)) -> FAIL (registered well too shallow in this engine)
+  [T4] U_pin (S03 verbatim, units J) = 0.002470  (threshold: hbar*kappa_max*(1-cos(delta))) -> registered prediction, not a fit
+CSV written: V14_pin_probe.csv
+figure written: V14_feedback_scan.png
+
+== battery summary ==
+  V0: max |trace(nonlinear chi=0) - trace(linear battery)| = 0.00e+00 (threshold: = 0 (regression anchor)) -> PASS
+  V1: max |H - H^dagger| (mixed defect + feedback + pin) = 0.00e+00 (threshold: = 0) -> PASS
+  V1: H eigenvalue spread is real (eigvalsh succeeded) = yes (threshold: hermitian solver) -> PASS
+  T2: R_tau(chi=0) [regression row] = 0.965 (threshold: matches Vault-13 R_tau(beta=0) = 0.965) -> consistent with the registered Vault-13 R_tau(beta=0) = 0.965
+  T2: R_tau max over the chi scan = 2.064 (threshold: > 1) -> PASS-CONDITIONAL
+  T2: chi* (smallest scanned chi with R_tau > 1) = 0.2 (threshold: criterion-2 condition measured) -> PASS-CONDITIONAL (chi >= chi*)
+  T2: DECOMPOSITION at chi*: macro_gain vs micro_gain = macro x1.000, micro x0.468 (threshold: macro protection means BOTH > 1) -> denominator-driven (micro degraded) -- see T2b/T2c
+  T2: chi_gen (smallest chi with genuine macro gain > 5%) = 2.0 (threshold: macro tau above its chi=0 value) -> PASS-CONDITIONAL (chi >= chi_gen)
+  T2b: chi_collapse (first fine-grid chi with tau < 80% of chi=0.10 value) = 0.14 (threshold: locates the micro instability edge) -> measured
+  T2b: chi_collapse at dt = 0.1 (onset robustness) = None (threshold: dt=0.5 value = 0.14) -> onset location is dt-sensitive -- CHECK
+  T2c: |tau(dt=0.5) - tau(dt=0.1)| / tau(dt=0.1) at chi=0.2 = 0.0008 (threshold: < 0.05 (collapse depth is dt-converged)) -> PASS (collapse depth dt-converged)
+  T2d: linear engine (chi=0) dt-invariance: tau_micro/tau_macro at dt=0.1 vs the registered dt=0.5 values (27.78 / 26.81) = 12.99 / 26.74 (threshold: both within 2% of the dt=0.5 values) -> FAIL -- engine is dt-sensitive even at chi=0; do not compare across dt
+  T2d: R_tau(chi=0) at dt = 0.1 (vs registered Vault-13 0.965 at dt=0.5) = 2.058 (threshold: same value => dt-robust baseline) -> FLIP 0.965 -> 2.058: the MACRO numerator is dt-robust (26.81 vs 26.74, 0.3%) but the MICRO denominator was beat-revival-inflated x2.14 by the coarse piecewise dephasing (27.78 @ dt=0.5 vs 12.99 @ dt=0.1) -- the dt-converged R_tau(beta=0) is ~2.06, and the Vault-13 row 0.965 carries this engine-convention qualifier
+  T2d: R_tau > 1 achieved at dt = 0.1? (chi* = 0.0; dt=0.5 chi* = 0.2) = yes (threshold: criterion-2 inequality present in both dt conventions) -> existence dt-robust, but chi* location is convention-dependent (0.2 @ dt=0.5 vs 0.0 @ dt=0.1) -- the micro denominator is beat-null artifact-prone; the load-bearing verdict is chi_gen
+  T2d: chi_gen at dt = 0.1 (genuine macro gain > 5%) = 2.0 (threshold: dt=0.5 chi_gen = 2.0) -> macro gain dt-robust
+  T4: R_pin reproduction without pin well = 0.9912 (threshold: matches Vault-13 = 0.9912) -> consistent
+  T4: R_pin, UNIFORM well on the defect cluster (negative control) = 0.9915 (threshold: ~ unchanged (gauge-trivial shift)) -> consistent with gauge triviality
+  T4: R_pin, LOCAL well on the defect site (node 1) = 0.9912 (threshold: > 1 (pinning)) -> FAIL (registered well too shallow: U_pin/J ~ 8e-3)
+  T4: R_pin, LOCAL well on the defect-edge endpoints (nodes 1+5) = 0.9914 (threshold: > 1 (pinning)) -> FAIL (registered well too shallow in this engine)
+  T4: U_pin (S03 verbatim, units J) = 0.002470 (threshold: hbar*kappa_max*(1-cos(delta))) -> registered prediction, not a fit
