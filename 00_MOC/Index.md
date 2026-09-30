@@ -80,18 +80,19 @@ language: en
 | `D05_S04_edge_phase_trajectory.csv` | S-04 (D04 edge-phase Peierls flux), γ = 0.1 |
 | `D05_S03_gamma_sweep.csv` | S-03 sweep, γ = 0.01–0.50 |
 | `D05_S04_gamma_sweep.csv` | S-04 sweep, γ = 0.01–0.50 |
+| `D05_relative_stability_map.csv` / `.png` | Record Vault-12: R(γ) = τ_life(defect)/τ_life(null) map with sub-grid estimators (`relative_stability_map.py`) |
 | `D05_key_times_comparison.csv` | side-by-side key rows (S-01/S-02/S-04) |
 | `D05_scenario_summary.csv` | per-scenario summary at final τ |
 | `simulate_D05.py` | historical phenomenological script (retained, superseded) |
 
-Current headline (Record VMC-QF-Vault-11): lifetime ratio vs S-01 = **2.042** (site detuning) and **2.083** (edge-phase flux) at γ = 0.1 — the "defect at least doubles the coherence lifetime" criterion is confirmed in-silico; see D05 §Execution Register for the verdict and its qualifications.
+Current headline (Record VMC-QF-Vault-11 + Vault-12): lifetime ratio vs S-01 = **2.042** (site detuning) and **2.083** (edge-phase flux) at γ = 0.1 — the "defect at least doubles the coherence lifetime" criterion is confirmed in-silico, and the Vault-12 map bounds it honestly: R(γ) erodes from ≈2.1 to ≈1.65 across the sweep, with the ×2 criterion surviving to γ ≈ 0.3; see D05 §Execution Register for the verdicts and qualifications.
 
 ---
 
 ## The falsification chain (how the layers bind)
 
 1. **Axiom/geometry-level:** A01–A04 state what would refute the substrate postulates (coupling-budget violation, balance-law break, cadence-leak scaling failure); G01 adds the arithmetic criterion — an independent recomputation must reproduce δθ = 2π − 5·arccos(1/3) (`_data/02_GEOMETRY_TOPOLOGY/G01/verify_G01_deficit.py`).
-2. **Simulation-level:** D05 §6 — if the five-fold defect played no pinning role (Φ_ℓ decays as in the flat cluster), the minimal-model hypothesis is refuted. Current status: criterion confirmed at the reference γ (Vault-11), sweeps registered.
+2. **Simulation-level:** D05 §6 — if the five-fold defect played no pinning role (Φ_ℓ decays as in the flat cluster), the minimal-model hypothesis is refuted. Current status: criterion confirmed at the reference γ (Vault-11) and mapped across the sweep range (Vault-12: R ≈ 2.1 → 1.65, ×2 surviving to γ ≈ 0.3).
 3. **Scale-level:** S04 — four explicit criteria (R_τ, v_ratio, S_Q, percolation) that the bridge to mesoscopics must pass; currently untested (registered as open).
 
 ---

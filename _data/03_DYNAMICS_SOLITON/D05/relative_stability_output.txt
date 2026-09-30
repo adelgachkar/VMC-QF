@@ -1,0 +1,19 @@
+[check] null engine equivalence at gamma=0.1: site=12.0 edge-phase=12.0
+[check] null engine equivalence at gamma=0.25: site=4.5 edge-phase=4.5
+
+== sweep null ==
+
+== sweep site ==
+
+== sweep edge ==
+
+== estimator comparison (uncensored window, n=48) ==
+  raw  : R_site = 1.872 +- 0.177 | R_edge = 1.874 +- 0.201 | R>=2 up to gamma = 0.31 / 0.31
+  linear: R_site = 1.897 +- 0.175 | R_edge = 1.910 +- 0.195 | R>=2 up to gamma = 0.28 / 0.28
+  loglin: R_site = 1.914 +- 0.163 | R_edge = 1.926 +- 0.183 | R>=2 up to gamma = 0.29 / 0.29
+  endpoint contrast (mean of weakest 12 vs strongest 12 gammas):
+    linear : weak 2.075/2.117   strong 1.659/1.643
+    loglin : weak 2.078/2.119   strong 1.692/1.676
+
+CSV written: D05_relative_stability_map.csv
+figure written: D05_relative_stability_map.png

@@ -224,3 +224,22 @@ Trajectory/sweep conventions shared by every registered record: $\varepsilon_{cu
 - [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]] — per-scenario summary (three scenarios)
 
 CSV columns (current schema, replacing the older $Q_{eff}$ description): $\tau$, $\gamma$, $Q_{\text{winding}}$, $Q_{\text{wrapped}}$ (both zeroed outside the validity window; min-link-coherence is recorded in every row so the window is reconstructible), ring/center populations, local coherences $C_0…C_5$, mean/min link coherence, and the five link phases. The phenomenological scripts and their records (section 8, Vault-10) are retained unchanged as historical registered records.
+
+**Record VMC-QF-Vault-12 — relative-stability map $R(\gamma) = \tau_{\text{life}}(\text{defect})/\tau_{\text{life}}(\text{null})$ across the full sweep range (run 2026-09-30).** Script: [[_data/03_DYNAMICS_SOLITON/D05/relative_stability_map.py]]; data [[_data/03_DYNAMICS_SOLITON/D05/D05_relative_stability_map.csv]]; figure [[_data/03_DYNAMICS_SOLITON/D05/D05_relative_stability_map.png]]; log [[_data/03_DYNAMICS_SOLITON/D05/relative_stability_output.txt]]. This closes qualification (i) of the Vault-11 verdict: the γ-dependence of the "defect at least doubles the lifetime" criterion is now mapped, not left open.
+
+*Protocol.* The S-01 null sweep (48 uncensored gammas, 0.03–0.50; γ = 0.01–0.02 right-censored) against the registered S-02 (site detuning) and S-04 (edge-phase flux) sweeps, same engines and thresholds as Vault-11. Null-engine equivalence asserted numerically (the defect implementations agree on the S-01 initial state at γ = 0.1 and 0.25). Because the cadence grid $\Delta\tau = 0.5$ makes raw crossing times coarse (quotients of half-integers), **two sub-grid estimators** were added and registered side by side with the raw quotients: Linear (linear interpolation of the coherence trace to the exact crossing) and Loglinear (log-space interpolation). Conclusions below survive the estimator choice.
+
+*Result (estimator | mean ± sd over the 48-point window | $R \ge 2$ up to):*
+
+| estimator | $R_{\text{site}}$ | $R_{\text{edge}}$ | $R\ge2$ up to $\gamma$ |
+|---|---|---|---|
+| raw (coarse grid) | 1.872 ± 0.177 | 1.874 ± 0.201 | 0.31 / 0.31 |
+| Linear (primary) | 1.897 ± 0.175 | 1.910 ± 0.195 | 0.28 / 0.28 |
+| Loglinear | 1.914 ± 0.163 | 1.926 ± 0.183 | 0.29 / 0.29 |
+
+**Verdict (registered):**
+1. **The map is not flat — the protection ratio erodes monotonically with $\gamma$:** from $R \approx 2.08$–$2.12$ over the weak-$\gamma$ window ($0.03 \le \gamma \le 0.14$, weakest 12 gammas) down to $R \approx 1.64$–$1.69$ over the strong-$\gamma$ window ($0.39 \le \gamma \le 0.50$); both estimators agree within 0.03. The ×2 confirmation of Vault-11 at $\gamma = 0.1$ therefore sits on a **plateau that extends to $\gamma \approx 0.3$**, beyond which the criterion fails gradually — no sharp transition, and no universal constant ratio. A "the defect always doubles the lifetime" claim would be false and is not made.
+2. **The falsification bound 6.2.2 is comfortably cleared:** the criterion holds to $\gamma \approx 0.28$–$0.31$ (estimator-dependent), far beyond the $\gamma \ge 0.05$ disintegration bound registered in section 6.2.
+3. **The two defect implementations remain indistinguishable in relative terms:** $R_{\text{edge}}$ tracks $R_{\text{site}}$ within noise across the entire range (a consistent hair above it), consistent with the Vault-11 headline (2.083 vs 2.042 at $\gamma = 0.1$); the edge-phase advantage registered there (longer $Q$ validity window) is a window effect, not a lifetime effect.
+
+*Status:* in-silico, model-level (no experimental claim); single-cluster geometry, γ-independent Hamiltonian parameters as registered in section 3.
