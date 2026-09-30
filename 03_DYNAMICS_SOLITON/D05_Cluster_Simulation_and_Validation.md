@@ -16,12 +16,12 @@ status: candidate
 created: 2026-09-28
 language: en
 cross_references:
-  - "[[A03_Balance_Principle]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[G01_Five_Around_One_Deficit]]"
-  - "[[D01_Cavity_Network_Hamiltonian]]"
-  - "[[D02_Causal_Bounds_and_Lieb_Robinson]]"
-  - "[[D04_Minimal_Simulatable_Soliton_Model]]"
+  - "[A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)"
+  - "[A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
+  - "[D01_Cavity_Network_Hamiltonian](D01_Cavity_Network_Hamiltonian.md)"
+  - "[D02_Causal_Bounds_and_Lieb_Robinson](D02_Causal_Bounds_and_Lieb_Robinson.md)"
+  - "[D04_Minimal_Simulatable_Soliton_Model](D04_Minimal_Simulatable_Soliton_Model.md)"
 ---
 
 # D05 — Cluster Simulation Protocol and Validation
@@ -196,7 +196,7 @@ The reference execution operates in the single-excitation subspace (6 basis stat
 
 Trajectory/sweep conventions shared by every registered record: $\varepsilon_{cut}=10^{-3}$; $\tau=0…100$ at $\Delta\tau=0.5$ (201 rows per trajectory); sweeps run $\gamma=0.01$ to $0.50$; gamma-sweep status thresholds — lifetime $\ge 100$ Stable, $20<\text{lifetime}<100$ Metastable, $\le 20$ Critical Collapse.
 
-**Record VMC-QF-Vault-11 — exact CPTP execution (section 3 protocol, decisive D04 edge-phase test included; run 2026-09-30).** Script: [[_data/03_DYNAMICS_SOLITON/D05/simulate_D05_cptp.py]]; full log [[_data/03_DYNAMICS_SOLITON/D05/run_output.txt]], verification log [[_data/03_DYNAMICS_SOLITON/D05/verify_output.txt]].
+**Record VMC-QF-Vault-11 — exact CPTP execution (section 3 protocol, decisive D04 edge-phase test included; run 2026-09-30).** Script: [simulate_D05_cptp.py](../_data/03_DYNAMICS_SOLITON/D05/simulate_D05_cptp.py); full log [run_output.txt](../_data/03_DYNAMICS_SOLITON/D05/run_output.txt), verification log [verify_output.txt](../_data/03_DYNAMICS_SOLITON/D05/verify_output.txt).
 
 *Engine and verification battery (all checks passed):* exact CPTP dynamics $\rho \mapsto \mathcal{E}_{\text{leak}}(U_\tau \rho U_\tau^\dagger)$ on the full 64-dimensional density matrix ($\beta=0$, memory off as in section 8). Verified: Hermiticity of $H$ with no defect, site defect, and edge-phase (Peierls) defect; conservation of the total excitation number by $U_\tau$; trace preservation, diagonal preservation, and Hermiticity under the dephasing channel; complete positivity over 50 steps (minimum eigenvalue $\ge -1.6\times10^{-16}$); and agreement of the production engine (closed $6\times6$ one-excitation block — exact because the dephasing Kraus operators are diagonal) against the full 64-dimensional engine over 300 steps: max observable difference $2.3\times10^{-14}$ (S-01), $1.8\times10^{-13}$ (S-02). Initial-state conventions verified numerically: ring population 1, center population 0, $C_0=1/2$, mean link coherence $1/5$; $Q_{\text{winding}}(0)=1$ (S-02/S-04), $0$ (S-01).
 
@@ -215,17 +215,17 @@ Trajectory/sweep conventions shared by every registered record: $\varepsilon_{cu
 ## Output inventory (single consolidated list — supersedes all earlier file lists)
 
 *Output files (all relative to the vault root; produced by the exact CPTP execution, Record VMC-QF-Vault-11; 201-row trajectories at $\gamma=0.1$):*
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv]] — S-01, no defect
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv]] — S-02, site detuning
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_edge_phase_trajectory.csv]] — S-04, edge-phase flux
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv]] — S-03 sweep, $\gamma=0.01$–$0.50$
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_S04_gamma_sweep.csv]] — S-04 sweep, $\gamma=0.01$–$0.50$
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv]] — side-by-side key rows (S-01/S-02/S-04)
-- [[_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv]] — per-scenario summary (three scenarios)
+- [D05_S01_trajectory.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_S01_trajectory.csv) — S-01, no defect
+- [D05_S02_trajectory.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_S02_trajectory.csv) — S-02, site detuning
+- [D05_S04_edge_phase_trajectory.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_S04_edge_phase_trajectory.csv) — S-04, edge-phase flux
+- [D05_S03_gamma_sweep.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_S03_gamma_sweep.csv) — S-03 sweep, $\gamma=0.01$–$0.50$
+- [D05_S04_gamma_sweep.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_S04_gamma_sweep.csv) — S-04 sweep, $\gamma=0.01$–$0.50$
+- [D05_key_times_comparison.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_key_times_comparison.csv) — side-by-side key rows (S-01/S-02/S-04)
+- [D05_scenario_summary.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_scenario_summary.csv) — per-scenario summary (three scenarios)
 
 CSV columns (current schema, replacing the older $Q_{eff}$ description): $\tau$, $\gamma$, $Q_{\text{winding}}$, $Q_{\text{wrapped}}$ (both zeroed outside the validity window; min-link-coherence is recorded in every row so the window is reconstructible), ring/center populations, local coherences $C_0…C_5$, mean/min link coherence, and the five link phases. The phenomenological scripts and their records (section 8, Vault-10) are retained unchanged as historical registered records.
 
-**Record VMC-QF-Vault-12 — relative-stability map $R(\gamma) = \tau_{\text{life}}(\text{defect})/\tau_{\text{life}}(\text{null})$ across the full sweep range (run 2026-09-30).** Script: [[_data/03_DYNAMICS_SOLITON/D05/relative_stability_map.py]]; data [[_data/03_DYNAMICS_SOLITON/D05/D05_relative_stability_map.csv]]; figure [[_data/03_DYNAMICS_SOLITON/D05/D05_relative_stability_map.png]]; log [[_data/03_DYNAMICS_SOLITON/D05/relative_stability_output.txt]]. This closes qualification (i) of the Vault-11 verdict: the γ-dependence of the "defect at least doubles the lifetime" criterion is now mapped, not left open.
+**Record VMC-QF-Vault-12 — relative-stability map $R(\gamma) = \tau_{\text{life}}(\text{defect})/\tau_{\text{life}}(\text{null})$ across the full sweep range (run 2026-09-30).** Script: [relative_stability_map.py](../_data/03_DYNAMICS_SOLITON/D05/relative_stability_map.py); data [D05_relative_stability_map.csv](../_data/03_DYNAMICS_SOLITON/D05/D05_relative_stability_map.csv); figure [D05_relative_stability_map.png](../_data/03_DYNAMICS_SOLITON/D05/D05_relative_stability_map.png); log [relative_stability_output.txt](../_data/03_DYNAMICS_SOLITON/D05/relative_stability_output.txt). This closes qualification (i) of the Vault-11 verdict: the γ-dependence of the "defect at least doubles the lifetime" criterion is now mapped, not left open.
 
 *Protocol.* The S-01 null sweep (48 uncensored gammas, 0.03–0.50; γ = 0.01–0.02 right-censored) against the registered S-02 (site detuning) and S-04 (edge-phase flux) sweeps, same engines and thresholds as Vault-11. Null-engine equivalence asserted numerically (the defect implementations agree on the S-01 initial state at γ = 0.1 and 0.25). Because the cadence grid $\Delta\tau = 0.5$ makes raw crossing times coarse (quotients of half-integers), **two sub-grid estimators** were added and registered side by side with the raw quotients: Linear (linear interpolation of the coherence trace to the exact crossing) and Loglinear (log-space interpolation). Conclusions below survive the estimator choice.
 

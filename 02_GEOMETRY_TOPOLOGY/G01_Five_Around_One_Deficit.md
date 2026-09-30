@@ -15,15 +15,15 @@ created: 2026-09-28
 updated: 2026-09-30
 language: en
 cross_references:
-  - "[[A01_Manifold_Free_Substrate]]"
-  - "[[A02_Microcavity_Quantization]]"
-  - "[[A03_Balance_Principle]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[D01_Cavity_Network_Hamiltonian]]"
-  - "[[D03_Topological_Soliton_Formation]]"
-  - "[[D04_Minimal_Simulatable_Soliton_Model]]"
-  - "[[D05_Cluster_Simulation_and_Validation]]"
-  - "[[S03_Topological_and_Memory_Scaling]]"
+  - "[A01_Manifold_Free_Substrate](../00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md)"
+  - "[A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md)"
+  - "[A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)"
+  - "[A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)"
+  - "[D01_Cavity_Network_Hamiltonian](../03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md)"
+  - "[D03_Topological_Soliton_Formation](../03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md)"
+  - "[D04_Minimal_Simulatable_Soliton_Model](../03_DYNAMICS_SOLITON/D04_Minimal_Simulatable_Soliton_Model.md)"
+  - "[D05_Cluster_Simulation_and_Validation](../03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md)"
+  - "[S03_Topological_and_Memory_Scaling](../04_SCALE_TRANSITION/S03_Topological_and_Memory_Scaling.md)"
 ---
 
 # G01: Five-Around-One Topological Deficit and Structural Frustration
@@ -33,9 +33,9 @@ cross_references:
 ### 1. Purpose and place in the VMC-QF architecture
 
 In the preceding documents:
-- The substrate was defined as a discrete manifold-free hypergraph ([[A01_Manifold_Free_Substrate]]).
-- Nodes carry finite phase capacity and intrinsic cadence ([[A02_Microcavity_Quantization]], [[A04_Cadence_Phase_Leak]]).
-- Exchanges obey the closed-flux balance law ([[A03_Balance_Principle]]).
+- The substrate was defined as a discrete manifold-free hypergraph ([A01_Manifold_Free_Substrate](../00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md)).
+- Nodes carry finite phase capacity and intrinsic cadence ([A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md), [A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)).
+- Exchanges obey the closed-flux balance law ([A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)).
 
 This document introduces the root of **intrinsic frustration** in the network:
 
@@ -76,7 +76,7 @@ $$
 
 Glue five regular tetrahedra of edge 1 around a common edge $AB$: tetrahedron $k$ has vertices $(A, B, c_k, d_k)$... — only the apex orbit $\{c_k\}$ matters here, since the second apex pair repeats the same construction on the far side of $AB$. Each apex $c_k$ satisfies $|AB| = |Ac_k| = |Bc_k| = |c_k c_{k+1}| = 1$ (all faces equilateral).
 
-Because the construction is invariant under rotation by $2\pi/5$ about $AB$, the apex orbit **exactly closes in $\mathbb{R}^3$**: $c_6 \equiv c_1$ by construction. The five-around-one complex exists in 3D with **zero geometric residue** — consistent with the manifold-free substrate of [[A01_Manifold_Free_Substrate]], which never demands an ambient plane. The deficit computed below is therefore a failure of *planar* closure only, and this is precisely why it can reappear as a **phase** constraint on the graph: link phases on $\mathcal{S}_5$ live on the cycle, not in an embedding.
+Because the construction is invariant under rotation by $2\pi/5$ about $AB$, the apex orbit **exactly closes in $\mathbb{R}^3$**: $c_6 \equiv c_1$ by construction. The five-around-one complex exists in 3D with **zero geometric residue** — consistent with the manifold-free substrate of [A01_Manifold_Free_Substrate](../00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md), which never demands an ambient plane. The deficit computed below is therefore a failure of *planar* closure only, and this is precisely why it can reappear as a **phase** constraint on the graph: link phases on $\mathcal{S}_5$ live on the cycle, not in an embedding.
 
 #### 3.2 Sector angle: two independent computations
 
@@ -118,7 +118,7 @@ The superseded draft of this note derived the deficit as $2\pi - 5\arccos(7/8)$,
 
 #### 3.5 Honest structural remarks (registered, not smoothed over)
 
-1. **Chirality doubling.** $\;360^\circ / 7.356103^\circ = 48.9390$ is **not an integer**: the 5-fold cell alone cannot build a full circulation out of $\delta\theta$ steps. Exact $2\pi$ closure of the *same-handed* chiral state requires **two cells** of opposite handedness (each contributing $7.356103^\circ \times 48.94 \approx 360^\circ$ in the statistically averaged sense) — see [[D03_Topological_Soliton_Formation]] for the paired-defect construction. This non-integer is registered as a structural fact, not rounded away.
+1. **Chirality doubling.** $\;360^\circ / 7.356103^\circ = 48.9390$ is **not an integer**: the 5-fold cell alone cannot build a full circulation out of $\delta\theta$ steps. Exact $2\pi$ closure of the *same-handed* chiral state requires **two cells** of opposite handedness (each contributing $7.356103^\circ \times 48.94 \approx 360^\circ$ in the statistically averaged sense) — see [D03_Topological_Soliton_Formation](../03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md) for the paired-defect construction. This non-integer is registered as a structural fact, not rounded away.
 2. **Winding accumulation scale.** One full $2\pi$ winding corresponds to $\approx 48.94$ frustrated cells; the fractional charge per cell is therefore genuinely fractional (Section 4.3).
 3. **Defect-localized, not global.** The residue binds to the elementary cell; an assembly of cells distributes it without cancellation when cells are same-handed (Section 6).
 
@@ -152,7 +152,7 @@ $$
 Q_{\Omega} \;=\; \frac{\Phi(\ell_5)}{2\pi} \;=\; \frac{m\,\delta\theta}{2\pi} \;\neq\; 0 \quad \text{for } m \neq 0.
 $$
 Two consistency statements, both proven rather than assumed:
-- **$Q_\Omega$ is gauge-invariant** (Section 4.1) and **conserved under the closed dynamics**: the generator of [[D01_Cavity_Network_Hamiltonian]] is number- and connectivity-preserving, and the leakage channel of [[A04_Cadence_Phase_Leak]] is phase-diagonal — so $\Phi(\ell_5)$ can only change through an event that erases a link's coherence entirely (this is exactly the "$Q$ validity window" registered in [[D05_Cluster_Simulation_and_Validation]]).
+- **$Q_\Omega$ is gauge-invariant** (Section 4.1) and **conserved under the closed dynamics**: the generator of [D01_Cavity_Network_Hamiltonian](../03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md) is number- and connectivity-preserving, and the leakage channel of [A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md) is phase-diagonal — so $\Phi(\ell_5)$ can only change through an event that erases a link's coherence entirely (this is exactly the "$Q$ validity window" registered in [D05_Cluster_Simulation_and_Validation](../03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md)).
 - **Distinct $m$ are distinct superselection sectors:** no local gauge transformation connects $m$ to $m'$ (they differ by the invariant $\Phi$), so charge $Q_\Omega$ is a genuine topological label of the cell, not a dynamical variable.
 
 #### 4.3 The minimal sector and the per-cell fractional charge
@@ -173,7 +173,7 @@ $$
 $$
 - The minimum of this potential lies at $\Phi_{\text{loop}} = \delta\theta$, **not** at $\Phi_{\text{loop}} = 0$: the flat, zero-flux configuration is not the ground state.
 - In the quantum regime the ground state carries a persistent chiral phase circulation with two degenerate orientations ($m = +1$, $m = -1$) — spontaneous chirality with no explicit chiral term in the Hamiltonian (the symmetry-breaking pattern of Section 3.5: the Hamiltonian is orientation-blind, the frustrated cell is not).
-- Pinning of topological solitons ([[D03_Topological_Soliton_Formation]]) onto this frustrated cell is energetically favored: $V_{\text{pinning}} \propto -\cos(\Phi(\ell_5) - \delta\theta)$.
+- Pinning of topological solitons ([D03_Topological_Soliton_Formation](../03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md)) onto this frustrated cell is energetically favored: $V_{\text{pinning}} \propto -\cos(\Phi(\ell_5) - \delta\theta)$.
 
 ---
 
@@ -181,7 +181,7 @@ $$
 
 When many 5-around-1 cells assemble:
 1. Each cell contributes an independent frustration well (a pinned phase-vortex site).
-2. The network-level defect density $\rho_{\text{defect}}$ controls percolation of phase-transport paths (threshold registered in [[S03_Topological_and_Memory_Scaling]]: $\rho_c \approx 0.382$).
+2. The network-level defect density $\rho_{\text{defect}}$ controls percolation of phase-transport paths (threshold registered in [S03_Topological_and_Memory_Scaling](../04_SCALE_TRANSITION/S03_Topological_and_Memory_Scaling.md): $\rho_c \approx 0.382$).
 3. The cumulative holonomy distribution inherits the universal signature $\delta\theta/2\pi = 0.02044$ per elementary cell — an observable fingerprint of the five-fold packing.
 
 ---
@@ -200,8 +200,8 @@ This document is falsified if:
 
 | consumer | role of $\delta\theta$ | status |
 |---|---|---|
-| [[D01_Cavity_Network_Hamiltonian]] | site-detuning implementation $\delta_k\sigma_k^z$ | registered |
-| [[D04_Minimal_Simulatable_Soliton_Model]] | edge-phase (Peierls flux) implementation $e^{\pm i\delta\theta}$ | registered |
-| [[D05_Cluster_Simulation_and_Validation]] | both implementations executed exactly (Record VMC-QF-Vault-11): lifetime ratio $2.042$ (site) / $2.083$ (edge-phase) at $\gamma=0.1$ — the "defect doubles the coherence lifetime" criterion confirmed in-silico | executed 2026-09-30 |
+| [D01_Cavity_Network_Hamiltonian](../03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md) | site-detuning implementation $\delta_k\sigma_k^z$ | registered |
+| [D04_Minimal_Simulatable_Soliton_Model](../03_DYNAMICS_SOLITON/D04_Minimal_Simulatable_Soliton_Model.md) | edge-phase (Peierls flux) implementation $e^{\pm i\delta\theta}$ | registered |
+| [D05_Cluster_Simulation_and_Validation](../03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md) | both implementations executed exactly (Record VMC-QF-Vault-11): lifetime ratio $2.042$ (site) / $2.083$ (edge-phase) at $\gamma=0.1$ — the "defect doubles the coherence lifetime" criterion confirmed in-silico | executed 2026-09-30 |
 
 The two D05 implementations are the two faces of this note's two mathematical objects: the site detuning realizes the *scalar* deficit (Section 3.3), the edge phase realizes the *holonomy* (Section 4.2).

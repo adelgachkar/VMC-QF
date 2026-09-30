@@ -18,13 +18,13 @@ created: 2026-09-27
 audited: 2026-09-28
 language: en
 cross_references:
-  - "[[A02_Microcavity_Quantization]]"
-  - "[[A03_Balance_Principle]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[G01_Five_Around_One_Deficit]]"
-  - "[[D01_Cavity_Network_Hamiltonian]]"
-  - "[[D02_Causal_Bounds_and_Lieb_Robinson]]"
-  - "[[D03_Topological_Soliton_Formation]]"
+  - "[A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md)"
+  - "[A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)"
+  - "[A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
+  - "[D01_Cavity_Network_Hamiltonian](D01_Cavity_Network_Hamiltonian.md)"
+  - "[D02_Causal_Bounds_and_Lieb_Robinson](D02_Causal_Bounds_and_Lieb_Robinson.md)"
+  - "[D03_Topological_Soliton_Formation](D03_Topological_Soliton_Formation.md)"
 ---
 
 # D04: Minimal Simulatable Soliton Model
@@ -136,7 +136,7 @@ $$
 \phi_{5, 1}^{(0)} = \delta\theta \approx 7.356^{\circ} \approx 0.1284 \ \text{rad}
 $$
 
-> **Execution pointer (2026-09-30 — Record VMC-QF-Vault-11, [[D05_Cluster_Simulation_and_Validation]]):** this edge-phase implementation was executed exactly in the 64-dimensional CPTP simulation as the hermitian Peierls flux $e^{+i\delta\theta}$ on the oriented hop $5 \to 1$ (and $e^{-i\delta\theta}$ on $1 \to 5$), alongside the scalar site-detuning realization of the same $\delta\theta$. Both satisfy the criterion-4 separation $\tau_{\text{life}}(\text{twist}) > 2\,\tau_{\text{life}}(\text{baseline})$ at $\gamma = 0.1$: ratio **2.083** (this edge-phase channel) vs **2.042** (site detuning); this channel additionally holds the $Q$ validity window to $\tau = 25.0$ vs $10.0$ (site). The γ-dependence of both ratios is mapped in Record VMC-QF-Vault-12 ($\times 2$ survives to $\gamma \approx 0.3$). Implementation: `simulate_D05_cptp.py` (defect = `edge-phase`).
+> **Execution pointer (2026-09-30 — Record VMC-QF-Vault-11, [D05_Cluster_Simulation_and_Validation](D05_Cluster_Simulation_and_Validation.md)):** this edge-phase implementation was executed exactly in the 64-dimensional CPTP simulation as the hermitian Peierls flux $e^{+i\delta\theta}$ on the oriented hop $5 \to 1$ (and $e^{-i\delta\theta}$ on $1 \to 5$), alongside the scalar site-detuning realization of the same $\delta\theta$. Both satisfy the criterion-4 separation $\tau_{\text{life}}(\text{twist}) > 2\,\tau_{\text{life}}(\text{baseline})$ at $\gamma = 0.1$: ratio **2.083** (this edge-phase channel) vs **2.042** (site detuning); this channel additionally holds the $Q$ validity window to $\tau = 25.0$ vs $10.0$ (site). The γ-dependence of both ratios is mapped in Record VMC-QF-Vault-12 ($\times 2$ survives to $\gamma \approx 0.3$). Implementation: `simulate_D05_cptp.py` (defect = `edge-phase`).
 
 ---
 

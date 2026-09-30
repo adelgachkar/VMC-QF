@@ -16,13 +16,13 @@ status: revised-draft
 created: 2026-09-28
 language: en
 cross_references:
-  - "[[A01_Manifold_Free_Substrate]]"
-  - "[[A02_Microcavity_Quantization]]"
-  - "[[A03_Balance_Principle]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[G01_Five_Around_One_Deficit]]"
-  - "[[D02_Causal_Bounds_and_Lieb_Robinson]]"
-  - "[[D03_Topological_Soliton_Formation]]"
+  - "[A01_Manifold_Free_Substrate](../00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md)"
+  - "[A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md)"
+  - "[A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)"
+  - "[A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
+  - "[D02_Causal_Bounds_and_Lieb_Robinson](D02_Causal_Bounds_and_Lieb_Robinson.md)"
+  - "[D03_Topological_Soliton_Formation](D03_Topological_Soliton_Formation.md)"
 ---
 
 # D01: Graph-Native Dynamics Generator for Microcavity Networks
@@ -30,17 +30,17 @@ cross_references:
 ---
 
 ### 1. Purpose and structural philosophy
-This document lays the mathematical framework of the microcavity-network dynamics on the irregular substrate hypergraph $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathcal{W})$ ([[A01_Manifold_Free_Substrate]]).
+This document lays the mathematical framework of the microcavity-network dynamics on the irregular substrate hypergraph $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathcal{W})$ ([A01_Manifold_Free_Substrate](../00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md)).
 
 To prevent premature locking to continuum geometry or invalid phenomenological fits:
 1. No continuous coordinates are imposed as a presupposition of space; all interactions are inherently **graph-local**.
-2. Time is defined dually: a **discrete cadence step** ($\Delta\tau_i$) aligned with the quantization axioms ([[A02_Microcavity_Quantization]], [[A04_Cadence_Phase_Leak]]) and an **effective continuous time** ($\tau$) for collective coarse scales.
-3. The evolution generator is built so that in the closed limit it is a Hermitian Hamiltonian with Heisenberg exchange, and in the open limit a completely positive trace-preserving (CPTP) map in explicit consistency with the balance law ([[A03_Balance_Principle]]).
+2. Time is defined dually: a **discrete cadence step** ($\Delta\tau_i$) aligned with the quantization axioms ([A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md), [A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)) and an **effective continuous time** ($\tau$) for collective coarse scales.
+3. The evolution generator is built so that in the closed limit it is a Hermitian Hamiltonian with Heisenberg exchange, and in the open limit a completely positive trace-preserving (CPTP) map in explicit consistency with the balance law ([A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)).
 
 ---
 
 ### 2. Network Hilbert space and physical dimensions
-Per axiom [[A02_Microcavity_Quantization]], every cavity $i \in \mathcal{V}$ carries a finite Hilbert space $\mathcal{H}_i$ of dimension $d_i < \infty$.
+Per axiom [A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md), every cavity $i \in \mathcal{V}$ carries a finite Hilbert space $\mathcal{H}_i$ of dimension $d_i < \infty$.
 The total network state space is the tensor product of local spaces:
 $$
 \mathcal{H} = \bigotimes_{i \in \mathcal{V}} \mathcal{H}_i, \quad \dim(\mathcal{H}) = \prod_{i \in \mathcal{V}} d_i < \infty
@@ -91,11 +91,11 @@ $$
 \frac{d\rho}{d\tau} = -i [\hat{G}, \rho] + \sum_{i \in \mathcal{V}} \gamma_{c,i} \mathcal{D}[\hat{L}_i]\rho + \sum_{(i,j) \in \mathcal{E}} \gamma_{ij} \mathcal{D}[\hat{L}_{ij}]\rho
 $$
 where the decoherence superoperator is $\mathcal{D}[\hat{L}]\rho = \hat{L}\rho\hat{L}^\dagger - \frac{1}{2}\{\hat{L}^\dagger\hat{L}, \rho\}$ and the collapse operators are:
-- **Local cadence leak ([[A04_Cadence_Phase_Leak]]):** $\hat{L}_i = \hat{a}_i$ or $\hat{L}_{i,\phi} = \hat{n}_i$ (dephasing).
+- **Local cadence leak ([A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)):** $\hat{L}_i = \hat{a}_i$ or $\hat{L}_{i,\phi} = \hat{n}_i$ (dephasing).
 - **Edge decay:** $\hat{L}_{ij} = \hat{a}_i - \hat{a}_j$.
 
 #### Regime 3: non-Markovian memory limit
-Per the memory axiom of [[A04_Cadence_Phase_Leak]], if the decoherence rate is comparable to the cavity bandwidth, the network's historical memory activates:
+Per the memory axiom of [A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md), if the decoherence rate is comparable to the cavity bandwidth, the network's historical memory activates:
 $$
 \frac{d\rho}{d\tau} = -i [\hat{G}, \rho] + \int_{0}^{\tau} \mathcal{K}(\tau - \tau') [\rho(\tau')] \, d\tau'
 $$
@@ -109,7 +109,7 @@ $$
 
 ### 5. Mathematical link with the balance axiom: explicit flux derivation (Closure to A03)
 
-For compatibility with the conservation law and local energy/charge balance ([[A03_Balance_Principle]]):
+For compatibility with the conservation law and local energy/charge balance ([A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)):
 $$
 \mathcal{B}_i(\tau) \equiv \mathrm{Tr}\big(\rho(\tau) \hat{B}_i\big)
 $$
@@ -159,7 +159,7 @@ This loop phase acts as a local pseudo-magnetic flux (Plaquette Flux) on the gra
 
 ### 7. Bridge G01 → D01: the 5-around-1 frustration potential
 
-Per [[G01_Five_Around_One_Deficit]], the 5-around-1 cluster carries a rigid angular deficit $\delta\theta = 7.356^{\circ}$ ($0.1284\ \text{rad}$). This geometric mismatch enters the edge generator as a preferred phase-tension potential $\Phi^\star$:
+Per [G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md), the 5-around-1 cluster carries a rigid angular deficit $\delta\theta = 7.356^{\circ}$ ($0.1284\ \text{rad}$). This geometric mismatch enters the edge generator as a preferred phase-tension potential $\Phi^\star$:
 
 $$
 \Phi^\star = \delta\theta = 2\pi - 5 \alpha_{\text{eff}} \approx 0.1284\ \text{rad}
@@ -170,7 +170,7 @@ $$
 \hat{G}_{\text{frust}} = -K_5 \cos\left( \sum_{k=1}^5 \chi_{k,k+1} - \Phi^\star \right)
 $$
 - The minimum of this interaction does **not** occur at $\Phi_{\text{loop}} = 0$; the system is forced in its ground state to maintain a permanent phase rotation with nonzero angular rate.
-- This tension is the definite grounding for the emergence of **spontaneous chiral currents** and the nucleation of topological solitons in [[D02_Causal_Bounds_and_Lieb_Robinson]] and [[D03_Topological_Soliton_Formation]].
+- This tension is the definite grounding for the emergence of **spontaneous chiral currents** and the nucleation of topological solitons in [D02_Causal_Bounds_and_Lieb_Robinson](D02_Causal_Bounds_and_Lieb_Robinson.md) and [D03_Topological_Soliton_Formation](D03_Topological_Soliton_Formation.md).
 
 ---
 
@@ -181,7 +181,7 @@ To prevent phase and energy divergence under continuous driving:
    $$
    |\kappa_{ij}^{\text{eff}}| = \frac{|\kappa_{ij}|}{\sqrt{1 + \left( \frac{\chi_i n_i - \chi_j n_j}{|\kappa_{ij}|} \right)^2}}
    $$
-   This guarantees that node capacities ([[A02_Microcavity_Quantization]]) are never violated.
+   This guarantees that node capacities ([A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md)) are never violated.
 
 ---
 

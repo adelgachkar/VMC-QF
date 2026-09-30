@@ -37,35 +37,35 @@ language: en
 
 | # | Note | Status | What it registers |
 |---|---|---|---|
-| 1 | [[A01_Manifold_Free_Substrate\|A01 — Manifold-Free Substrate]] | revised-draft | graph substrate, finite local Hilbert space, coupling budget, cadence time, metric-emergence protocol |
-| 2 | [[A02_Microcavity_Quantization\|A02 — Microcavity Quantization]] | revised-draft | truncated oscillator, Pegg–Barnett phase, phase debt, reactive energy |
-| 3 | [[A03_Balance_Principle\|A03 — Balance Principle]] | revised-draft | edge-flux accounting law, regional conservation, saturation control |
-| 4 | [[A04_Cadence_Phase_Leak\|A04 — Cadence & Phase Leak]] | revised-draft | memory kernel, bottleneck, reconstruction, effective cadence leak γ |
+| 1 | [A01 — Manifold-Free Substrate](../00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md) | revised-draft | graph substrate, finite local Hilbert space, coupling budget, cadence time, metric-emergence protocol |
+| 2 | [A02 — Microcavity Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md) | revised-draft | truncated oscillator, Pegg–Barnett phase, phase debt, reactive energy |
+| 3 | [A03 — Balance Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md) | revised-draft | edge-flux accounting law, regional conservation, saturation control |
+| 4 | [A04 — Cadence & Phase Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md) | revised-draft | memory kernel, bottleneck, reconstruction, effective cadence leak γ |
 
 ### Layer 02 — Geometry & Topology (the seed)
 
 | # | Note | Status | What it registers |
 |---|---|---|---|
-| 5 | [[G01_Five_Around_One_Deficit\|G01 — Five-Around-One Deficit]] | audited | complete derivation δθ = 2π − 5·arccos(1/3) = 7.356103° = 0.1284 rad (§3, machine-verified); per-cell fractional charge 0.0204336; loop holonomy gauge invariance + sector quantization; frustration potential; self-induced chirality |
+| 5 | [G01 — Five-Around-One Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md) | audited | complete derivation δθ = 2π − 5·arccos(1/3) = 7.356103° = 0.1284 rad (§3, machine-verified); per-cell fractional charge 0.0204336; loop holonomy gauge invariance + sector quantization; frustration potential; self-induced chirality |
 
 ### Layer 03 — Dynamics & Soliton (the carrier)
 
 | # | Note | Status | What it registers |
 |---|---|---|---|
-| 6 | [[D01_Cavity_Network_Hamiltonian\|D01 — Network Hamiltonian]] | revised-draft | graph-local generator, CPTP/Lindblad/memory regimes, U(1) gauge structure |
-| 7 | [[D02_Causal_Bounds_and_Lieb_Robinson\|D02 — Causal Bounds]] | audited | Lieb–Robinson velocity, causal/entanglement wedges, graph Shapiro delay |
-| 8 | [[D03_Topological_Soliton_Formation\|D03 — Soliton Formation]] | audited | four-fold soliton definition, three stabilization mechanisms, nucleation/fusion/decay |
-| 9 | [[D04_Minimal_Simulatable_Soliton_Model\|D04 — Minimal Model]] | audited | 6-node qubit cluster, discrete-step CPTP circuit, twist injection, edge-phase defect |
-| 10 | [[D05_Cluster_Simulation_and_Validation\|D05 — Simulation & Validation]] | candidate | open-channel protocol, experiment matrix S-01…S-04, acceptance criteria, Execution Register (Records Vault-10, Vault-11) |
+| 6 | [D01 — Network Hamiltonian](../03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md) | revised-draft | graph-local generator, CPTP/Lindblad/memory regimes, U(1) gauge structure |
+| 7 | [D02 — Causal Bounds](../03_DYNAMICS_SOLITON/D02_Causal_Bounds_and_Lieb_Robinson.md) | audited | Lieb–Robinson velocity, causal/entanglement wedges, graph Shapiro delay |
+| 8 | [D03 — Soliton Formation](../03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md) | audited | four-fold soliton definition, three stabilization mechanisms, nucleation/fusion/decay |
+| 9 | [D04 — Minimal Model](../03_DYNAMICS_SOLITON/D04_Minimal_Simulatable_Soliton_Model.md) | audited | 6-node qubit cluster, discrete-step CPTP circuit, twist injection, edge-phase defect |
+| 10 | [D05 — Simulation & Validation](../03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md) | candidate | open-channel protocol, experiment matrix S-01…S-04, acceptance criteria, Execution Register (Records Vault-10, Vault-11) |
 
 ### Layer 04 — Scale Transition (the exit)
 
 | # | Note | Status | What it registers |
 |---|---|---|---|
-| 11 | [[S01_Scale_Bridge_Definitions\|S01 — Scale Bridge]] | candidate | coarse-graining order parameters, ε_cut = 10⁻³, conditional charge Q_eff |
-| 12 | [[S02_Effective_Dynamics_and_Causality\|S02 — Effective Dynamics]] | ratified | mesoscopic Lindblad equation, effective Lieb–Robinson bound |
-| 13 | [[S03_Topological_and_Memory_Scaling\|S03 — Topological Scaling]] | audited | defect percolation ρ_c ≈ 0.4075 (measured, Vault-13), memory scaling law, phase hydrodynamics |
-| 14 | [[S04_Metrics_Criteria_and_Falsification\|S04 — Metrics & Falsification]] | audited | four scale criteria executed: Vault-13 (causality ✓, balance ✓, percolation ✓ with ρ_c corrected) + Vault-14 (criterion 2 closed: R_τ > 1 with the D01 §8 feedback operator, genuine macro gain at χ ≥ 2.0; Vault-13 R_τ(β=0) = 0.965 carries a dt-convention qualifier — dt-converged baseline ≈ 2.06) |
+| 11 | [S01 — Scale Bridge](../04_SCALE_TRANSITION/S01_Scale_Bridge_Definitions.md) | candidate | coarse-graining order parameters, ε_cut = 10⁻³, conditional charge Q_eff |
+| 12 | [S02 — Effective Dynamics](../04_SCALE_TRANSITION/S02_Effective_Dynamics_and_Causality.md) | ratified | mesoscopic Lindblad equation, effective Lieb–Robinson bound |
+| 13 | [S03 — Topological Scaling](../04_SCALE_TRANSITION/S03_Topological_and_Memory_Scaling.md) | audited | defect percolation ρ_c ≈ 0.4075 (measured, Vault-13), memory scaling law, phase hydrodynamics |
+| 14 | [S04 — Metrics & Falsification](../04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md) | audited | four scale criteria executed: Vault-13 (causality ✓, balance ✓, percolation ✓ with ρ_c corrected) + Vault-14 (criterion 2 closed: R_τ > 1 with the D01 §8 feedback operator, genuine macro gain at χ ≥ 2.0; Vault-13 R_τ(β=0) = 0.965 carries a dt-convention qualifier — dt-converged baseline ≈ 2.06) |
 
 ---
 

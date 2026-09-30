@@ -11,25 +11,25 @@
 
 ## Architecture (reading order)
 
-> **Start here:** [[00_MOC/Index]] — the full map of content (14 notes, statuses, data map, and three suggested paths through the vault).
+> **Start here:** [00_MOC/Index](00_MOC/Index.md) — the full map of content (14 notes, statuses, data map, and three suggested paths through the vault).
 
 | Layer | Note | Content |
 |---|---|---|
-| **00 MOC** | [[00_MOC/Index]] Index | navigation, per-note statuses, data map, falsification chain | 
-| **00 Core Axioms** | [[A01]] Manifold-Free Substrate | graph substrate, finite local Hilbert space, coupling budget, cadence time, metric emergence |
-| | [[A02]] Microcavity Quantization | truncated oscillator, Pegg–Barnett phase, phase debt, reactive energy |
-| | [[A03]] Balance Principle | edge-flux accounting law, regional conservation, saturation control |
-| | [[A04]] Cadence & Phase Leak | memory kernel, bottleneck, reconstruction, effective cadence leak |
-| **02 Geometry** | [[G01]] Five-Around-One Deficit | angular deficit δθ = 7.356103°, loop holonomy, frustration potential, topological charge |
-| **03 Dynamics** | [[D01]] Network Hamiltonian | graph-local generator, CPTP/Lindblad/memory regimes, U(1) gauge structure |
-| | [[D02]] Causal Bounds | Lieb–Robinson velocity, causal/entanglement wedges, graph Shapiro delay |
-| | [[D03]] Soliton Formation | four-fold soliton definition, three stabilization mechanisms, nucleation/fusion/decay |
-| | [[D04]] Minimal Model | 6-node qubit cluster, discrete-step CPTP circuit, twist injection |
-| | [[D05]] Simulation & Validation | open-channel protocol, experiment matrix S-01/02/03, falsification criteria |
-| **04 Scale Transition** | [[S01]] Scale Bridge | coarse-graining order parameters, conditional charge Q_eff |
-| | [[S02]] Effective Dynamics | mesoscopic Lindblad equation, effective Lieb–Robinson bound |
-| | [[S03]] Topological Scaling | defect percolation, memory scaling law, phase hydrodynamics |
-| | [[S04]] Metrics & Falsification | R_τ, v_ratio, S_Q indices; four scale-level falsification criteria |
+| **00 MOC** | [00_MOC/Index](00_MOC/Index.md) Index | navigation, per-note statuses, data map, falsification chain | 
+| **00 Core Axioms** | [A01](00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md) Manifold-Free Substrate | graph substrate, finite local Hilbert space, coupling budget, cadence time, metric emergence |
+| | [A02](00_CORE_AXIOMS/A02_Microcavity_Quantization.md) Microcavity Quantization | truncated oscillator, Pegg–Barnett phase, phase debt, reactive energy |
+| | [A03](00_CORE_AXIOMS/A03_Balance_Principle.md) Balance Principle | edge-flux accounting law, regional conservation, saturation control |
+| | [A04](00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md) Cadence & Phase Leak | memory kernel, bottleneck, reconstruction, effective cadence leak |
+| **02 Geometry** | [G01](02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md) Five-Around-One Deficit | angular deficit δθ = 7.356103°, loop holonomy, frustration potential, topological charge |
+| **03 Dynamics** | [D01](03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md) Network Hamiltonian | graph-local generator, CPTP/Lindblad/memory regimes, U(1) gauge structure |
+| | [D02](03_DYNAMICS_SOLITON/D02_Causal_Bounds_and_Lieb_Robinson.md) Causal Bounds | Lieb–Robinson velocity, causal/entanglement wedges, graph Shapiro delay |
+| | [D03](03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md) Soliton Formation | four-fold soliton definition, three stabilization mechanisms, nucleation/fusion/decay |
+| | [D04](03_DYNAMICS_SOLITON/D04_Minimal_Simulatable_Soliton_Model.md) Minimal Model | 6-node qubit cluster, discrete-step CPTP circuit, twist injection |
+| | [D05](03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md) Simulation & Validation | open-channel protocol, experiment matrix S-01/02/03, falsification criteria |
+| **04 Scale Transition** | [S01](04_SCALE_TRANSITION/S01_Scale_Bridge_Definitions.md) Scale Bridge | coarse-graining order parameters, conditional charge Q_eff |
+| | [S02](04_SCALE_TRANSITION/S02_Effective_Dynamics_and_Causality.md) Effective Dynamics | mesoscopic Lindblad equation, effective Lieb–Robinson bound |
+| | [S03](04_SCALE_TRANSITION/S03_Topological_and_Memory_Scaling.md) Topological Scaling | defect percolation, memory scaling law, phase hydrodynamics |
+| | [S04](04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md) Metrics & Falsification | R_τ, v_ratio, S_Q indices; four scale-level falsification criteria |
 
 Data: `_data/03_DYNAMICS_SOLITON/D05/` — exact CPTP trajectories and sweeps (S-01/S-02/S-04 + two γ-sweeps) + `simulate_D05_cptp.py` (exact engine, verification battery included). The earlier phenomenological script `simulate_D05.py` is retained as a historical record.
 

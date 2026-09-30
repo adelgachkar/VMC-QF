@@ -14,12 +14,12 @@ status: revised-draft
 created: 2026-09-28
 language: en
 cross_references:
-  - "[[A01_Manifold_Free_Substrate]]"
-  - "[[A02_Microcavity_Quantization]]"
-  - "[[A03_Balance_Principle]]"
-  - "[[G01_Five_Around_One_Deficit]]"
-  - "[[D01_Cavity_Network_Hamiltonian]]"
-  - "[[D02_Causal_Bounds_and_Lieb_Robinson]]"
+  - "[A01_Manifold_Free_Substrate](A01_Manifold_Free_Substrate.md)"
+  - "[A02_Microcavity_Quantization](A02_Microcavity_Quantization.md)"
+  - "[A03_Balance_Principle](A03_Balance_Principle.md)"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
+  - "[D01_Cavity_Network_Hamiltonian](../03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md)"
+  - "[D02_Causal_Bounds_and_Lieb_Robinson](../03_DYNAMICS_SOLITON/D02_Causal_Bounds_and_Lieb_Robinson.md)"
 ---
 
 # A04 — Cadence, Phase-Leak, and Memory in Discrete Microcavities
@@ -27,7 +27,7 @@ cross_references:
 ---
 
 ### 1. Purpose and place in VMC-QF
-Document [[A03_Balance_Principle]] defined the general framework of conservation and the accounting of phase/balance exchange, but did not specify the mechanism of the following phenomena:
+Document [A03_Balance_Principle](A03_Balance_Principle.md) defined the general framework of conservation and the accounting of phase/balance exchange, but did not specify the mechanism of the following phenomena:
 1. Why is the network's local response accompanied by **time delay and memory**?
 2. Why do **bottleneck** and redistribution phenomena occur in high-flux regimes?
 3. What is the mechanism of coherence **reconstruction** after passing through a bottleneck?
@@ -40,7 +40,7 @@ This document introduces the complementary cadence-behavior axiom and fixes the 
 ---
 
 ### 2. Local and network cadence definition
-Per [[A02_Microcavity_Quantization]], every cavity $v_i$ has a characteristic bandwidth $\Delta\omega_i$ and quality factor $Q_i$:
+Per [A02_Microcavity_Quantization](A02_Microcavity_Quantization.md), every cavity $v_i$ has a characteristic bandwidth $\Delta\omega_i$ and quality factor $Q_i$:
 
 1. **Local cadence time ($\tau_{c,i}$):**
    The minimal time scale required for establishing a stable phase response in the cavity:
@@ -138,7 +138,7 @@ Reconstruction occurs when, after passing through a bottleneck, the balance stor
 ---
 
 ### 7. Mapping phase debt to reactive residue
-The phase debt $\Pi_i$ defined in [[A02_Microcavity_Quantization]] directly represents the cavity's reactive load:
+The phase debt $\Pi_i$ defined in [A02_Microcavity_Quantization](A02_Microcavity_Quantization.md) directly represents the cavity's reactive load:
 $$
 \mathcal{B}_i^{\text{res}} = g_i(\Pi_i)
 $$

@@ -11,33 +11,33 @@ tags:
   - defect_network
   - phase_hydrodynamics
 cross_references:
-  - "[[G01_Five_Around_One_Deficit]]"
-  - "[[D03_Topological_Soliton_Formation]]"
-  - "[[D04_Minimal_Simulatable_Soliton_Model]]"
-  - "[[D05_Cluster_Simulation_and_Validation]]"
-  - "[[S01_Scale_Bridge_Definitions]]"
-  - "[[S02_Effective_Dynamics_and_Causality]]"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
+  - "[D03_Topological_Soliton_Formation](../03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md)"
+  - "[D04_Minimal_Simulatable_Soliton_Model](../03_DYNAMICS_SOLITON/D04_Minimal_Simulatable_Soliton_Model.md)"
+  - "[D05_Cluster_Simulation_and_Validation](../03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md)"
+  - "[S01_Scale_Bridge_Definitions](S01_Scale_Bridge_Definitions.md)"
+  - "[S02_Effective_Dynamics_and_Causality](S02_Effective_Dynamics_and_Causality.md)"
 ---
 
 # S03: Topological and Memory Scaling
 
 ## 1. Topological-charge transport and stability at the multi-cluster scale
-- The localized phase solitons introduced in [[D03_Topological_Soliton_Formation]] act as carriers of continuous topological charge ($Q_{\text{eff}}$) between clusters:
+- The localized phase solitons introduced in [D03_Topological_Soliton_Formation](../03_DYNAMICS_SOLITON/D03_Topological_Soliton_Formation.md) act as carriers of continuous topological charge ($Q_{\text{eff}}$) between clusters:
   $$Q_{\text{eff}} = \frac{1}{2\pi} \oint_{\mathcal{C}} \nabla \theta \cdot d\mathbf{r} \in \mathbb{Z}$$
-- **Memory scaling law:** the candidate-model simulation in [[D05_Cluster_Simulation_and_Validation]] showed that linear interactions without cadence feedback suffer instability at step 32. With self-consistent Kerr feedback ($\chi_{\text{eff}}$) and cadence feedback $\beta$, the stability time of the topological charge follows a power-law scale:
+- **Memory scaling law:** the candidate-model simulation in [D05_Cluster_Simulation_and_Validation](../03_DYNAMICS_SOLITON/D05_Cluster_Simulation_and_Validation.md) showed that linear interactions without cadence feedback suffer instability at step 32. With self-consistent Kerr feedback ($\chi_{\text{eff}}$) and cadence feedback $\beta$, the stability time of the topological charge follows a power-law scale:
   $$\tau_{\text{life}}(N, \beta) = \tau_0 \cdot N^{\alpha} \exp\left( \frac{\beta}{\beta_c} \right)$$
   where $N$ is the number of active clusters, $\alpha \approx 1.42$ the critical scaling exponent, and $\beta_c$ the error-correction activation threshold. *(Status: model-level scaling hypothesis derived from the candidate run; not yet validated by the full CPTP protocol.)*
 
 ---
 
 ## 2. Pinning dynamics on the defect network (Defect Pinning & Percolation)
-- Per the angular-defect geometry of [[G01_Five_Around_One_Deficit]] with deficit $\delta = 0.1284 \ \text{rad}$, each defect vertex produces a potential well for a soliton with winding number $W=1$:
+- Per the angular-defect geometry of [G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md) with deficit $\delta = 0.1284 \ \text{rad}$, each defect vertex produces a potential well for a soliton with winding number $W=1$:
   $$U_{\text{pin}}(\delta) = \hbar \kappa_{\max} (1 - \cos\delta) \approx \frac{1}{2} \hbar \kappa_{\max} \delta^2$$
 - This potential prevents free migration and dissipation of the soliton at open network edges.
 - **Defect-network percolation threshold ($\rho_c$):** in a random multi-cluster network, the condition for forming continuous phase-transport paths and avoiding excessive trapping (localization) is set by the critical surface density of defect-bearing nodes:
   $$\rho_{\text{defect}} < \rho_c \approx 0.4075$$
-  If $\rho > \rho_c$, the network collapses into the isolated phase (cluster fragmentation) and the topological charge becomes trapped (confirming index 4 of [[S04_Metrics_Criteria_and_Falsification]]).
-  *(E4 correction, 2026-09-30, battery-caught: the previously registered $\rho_c \approx 0.382$ had no traceable source and is superseded by the measured spanning-crossing value 0.4075 — L=64, 300 seeds, matching $1 - p_c^{\text{site}}$ of the square lattice = 0.4073. See Record VMC-QF-Vault-13 in [[S04_Metrics_Criteria_and_Falsification]].)*
+  If $\rho > \rho_c$, the network collapses into the isolated phase (cluster fragmentation) and the topological charge becomes trapped (confirming index 4 of [S04_Metrics_Criteria_and_Falsification](S04_Metrics_Criteria_and_Falsification.md)).
+  *(E4 correction, 2026-09-30, battery-caught: the previously registered $\rho_c \approx 0.382$ had no traceable source and is superseded by the measured spanning-crossing value 0.4075 — L=64, 300 seeds, matching $1 - p_c^{\text{site}}$ of the square lattice = 0.4073. See Record VMC-QF-Vault-13 in [S04_Metrics_Criteria_and_Falsification](S04_Metrics_Criteria_and_Falsification.md).)*
 
 ---
 

@@ -13,11 +13,11 @@ status: revised-draft
 created: 2026-09-28
 language: en
 cross_references:
-  - "[[A01_Manifold_Free_Substrate]]"
-  - "[[A02_Microcavity_Quantization]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[G01_Five_Around_One_Deficit]]"
-  - "[[D01_Cavity_Network_Hamiltonian]]"
+  - "[A01_Manifold_Free_Substrate](A01_Manifold_Free_Substrate.md)"
+  - "[A02_Microcavity_Quantization](A02_Microcavity_Quantization.md)"
+  - "[A04_Cadence_Phase_Leak](A04_Cadence_Phase_Leak.md)"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
+  - "[D01_Cavity_Network_Hamiltonian](../03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md)"
 ---
 
 # A03 — Balance Principle for Phase and Reactive Exchange
@@ -25,7 +25,7 @@ cross_references:
 ---
 
 ### 1. Role of the document in the VMC-QF structure
-Following axioms [[A01_Manifold_Free_Substrate]] and [[A02_Microcavity_Quantization]]:
+Following axioms [A01_Manifold_Free_Substrate](A01_Manifold_Free_Substrate.md) and [A02_Microcavity_Quantization](A02_Microcavity_Quantization.md):
 - The substrate network is a discrete collection of microcavities.
 - Every microcavity has a finite capacity for excitation, phase storage, and reactive-energy accumulation.
 
@@ -64,7 +64,7 @@ $$
 $$
 - $\mathcal{J}_{j \to i}$: the balance-transfer flux from node $j$ to node $i$ along edge $e_{ij}$.
 - $\mathcal{S}_i$: local injection or source term.
-- $\mathcal{L}_i$: decay or effective cadence leak to environmental degrees of freedom (leakage, per [[A04_Cadence_Phase_Leak]]).
+- $\mathcal{L}_i$: decay or effective cadence leak to environmental degrees of freedom (leakage, per [A04_Cadence_Phase_Leak](A04_Cadence_Phase_Leak.md)).
 - $\mathcal{M}_i$: the memory and non-instantaneous return contribution from the cavity's delayed response.
 
 ---
@@ -115,7 +115,7 @@ $$
 ---
 
 ### 7. Capacity control, saturation, and flux redistribution
-By the finite-dimension axiom of [[A02_Microcavity_Quantization]], every cavity has a saturation capacity $\mathcal{B}_{i,\max}(d_i)$. To control super-thermal accumulation, the effective flux is scaled by a local saturation factor $\sigma_i$:
+By the finite-dimension axiom of [A02_Microcavity_Quantization](A02_Microcavity_Quantization.md), every cavity has a saturation capacity $\mathcal{B}_{i,\max}(d_i)$. To control super-thermal accumulation, the effective flux is scaled by a local saturation factor $\sigma_i$:
 $$
 \mathcal{J}_{i \to j}^{\text{eff}} = \mathcal{J}_{i \to j} \cdot \sigma_i(\mathcal{B}_i)
 $$
@@ -127,7 +127,7 @@ This nonlinearity causes automatic flux redistribution toward peripheral edges, 
 
 ---
 
-### 8. Effect of the angular deficit and the 5-around-1 linkage ([[G01_Five_Around_One_Deficit]])
+### 8. Effect of the angular deficit and the 5-around-1 linkage ([G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md))
 In the presence of structural asymmetry or a local angular deficit $\delta\theta_i$:
 $$
 \mathcal{J}_{ij} = \mathcal{J}_{ij}^{(0)} + \Delta\mathcal{J}_{ij}(\delta\theta_i)
@@ -145,7 +145,7 @@ The stability of such loop circulation indicates local phase vortices; however, 
 
 ---
 
-### 10. Link with the memory effect and leak in [[A04_Cadence_Phase_Leak]]
+### 10. Link with the memory effect and leak in [A04_Cadence_Phase_Leak](A04_Cadence_Phase_Leak.md)
 Decay and memory terms are closed explicitly through cadence relations:
 $$
 \mathcal{L}_i = \mathcal{L}_i^{\text{phase}} + \mathcal{L}_i^{\text{react}}

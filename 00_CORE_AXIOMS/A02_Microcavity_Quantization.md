@@ -13,10 +13,10 @@ status: revised-draft
 created: 2026-09-28
 language: en
 cross_references:
-  - "[[A01_Manifold_Free_Substrate]]"
-  - "[[A03_Balance_Principle]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[D01_Cavity_Network_Hamiltonian]]"
+  - "[A01_Manifold_Free_Substrate](A01_Manifold_Free_Substrate.md)"
+  - "[A03_Balance_Principle](A03_Balance_Principle.md)"
+  - "[A04_Cadence_Phase_Leak](A04_Cadence_Phase_Leak.md)"
+  - "[D01_Cavity_Network_Hamiltonian](../03_DYNAMICS_SOLITON/D01_Cavity_Network_Hamiltonian.md)"
 ---
 
 # A02 — Microcavity Quantization and Finite Phase Capacity
@@ -24,7 +24,7 @@ cross_references:
 ---
 
 ### 1. Motivation and role in the theory (Role in VMC-QF)
-Following axiom [[A01_Manifold_Free_Substrate]], every node $v_i \in V$ of the network is a resonant, discrete physical entity called a **microcavity**. Microcavities have three fundamental properties:
+Following axiom [A01_Manifold_Free_Substrate](A01_Manifold_Free_Substrate.md), every node $v_i \in V$ of the network is a resonant, discrete physical entity called a **microcavity**. Microcavities have three fundamental properties:
 1. **Finite-dimensional local state space:** unbounded continuity of degrees of freedom inside a node is not allowed.
 2. **Finite storage and exchange capacity:** local phase and reactive energy are bounded, and their exchange through structural edges is subject to the coupling budget.
 3. **Non-instantaneous response (cadence):** due to frequency selectivity and limited bandwidth, every node has delayed/memory-keeping behavior.
@@ -69,7 +69,7 @@ Decay, cadence leak, and decoherence are not placed inside the Hamiltonian opera
 $$
 \frac{d\rho_i}{d\tau} = -\frac{i}{\hbar}[\hat{H}_i, \rho_i] + \mathcal{D}_{\text{leak}}[\rho_i]
 $$
-where the details of the jump operators and cadence damping are defined in [[A04_Cadence_Phase_Leak]].
+where the details of the jump operators and cadence damping are defined in [A04_Cadence_Phase_Leak](A04_Cadence_Phase_Leak.md).
 
 ---
 
@@ -102,7 +102,7 @@ governed by the physical maximum bound $\Pi_{\max}(d_i) \le 1$.
 ### 6. Cadence, bandwidth, and memory kernel (Bandwidth–Q–Cadence Structure)
 
 1. **Quality factor and time scale:**
-   For every microcavity with linewidth $\Delta\omega_i$, the effective quality factor is $Q_i = \omega_i / \Delta\omega_i$. The stable local response time, following [[A04_Cadence_Phase_Leak]], scales as $\tau_{c,i} \sim 1/\Delta\omega_i$.
+   For every microcavity with linewidth $\Delta\omega_i$, the effective quality factor is $Q_i = \omega_i / \Delta\omega_i$. The stable local response time, following [A04_Cadence_Phase_Leak](A04_Cadence_Phase_Leak.md), scales as $\tau_{c,i} \sim 1/\Delta\omega_i$.
 2. **Continuum approximation of the response kernel:**
    At time scales larger than the fundamental discrete steps, the delayed response kernel is formulated causally:
    $$
@@ -117,7 +117,7 @@ The finiteness of the local Hilbert space ($d_i$) and the bounded phase absorpti
 $$
 \sum_{j \in \mathcal{N}(i)} |\kappa_{ij}|^2 \le \kappa_{\max}^2(d_i) < \infty
 $$
-This consistency constraint is the bridge between the local cavity capacity (this document) and the structural coupling bound in [[A01_Manifold_Free_Substrate]].
+This consistency constraint is the bridge between the local cavity capacity (this document) and the structural coupling bound in [A01_Manifold_Free_Substrate](A01_Manifold_Free_Substrate.md).
 
 ---
 

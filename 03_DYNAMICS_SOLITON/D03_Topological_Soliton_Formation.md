@@ -17,13 +17,13 @@ created: 2026-09-27
 audited: 2026-09-28
 language: en
 cross_references:
-  - "[[A01_Manifold_Free_Substrate]]"
-  - "[[A02_Microcavity_Quantization]]"
-  - "[[A03_Balance_Principle]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[G01_Five_Around_One_Deficit]]"
-  - "[[D01_Cavity_Network_Hamiltonian]]"
-  - "[[D02_Causal_Bounds_and_Lieb_Robinson]]"
+  - "[A01_Manifold_Free_Substrate](../00_CORE_AXIOMS/A01_Manifold_Free_Substrate.md)"
+  - "[A02_Microcavity_Quantization](../00_CORE_AXIOMS/A02_Microcavity_Quantization.md)"
+  - "[A03_Balance_Principle](../00_CORE_AXIOMS/A03_Balance_Principle.md)"
+  - "[A04_Cadence_Phase_Leak](../00_CORE_AXIOMS/A04_Cadence_Phase_Leak.md)"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
+  - "[D01_Cavity_Network_Hamiltonian](D01_Cavity_Network_Hamiltonian.md)"
+  - "[D02_Causal_Bounds_and_Lieb_Robinson](D02_Causal_Bounds_and_Lieb_Robinson.md)"
 ---
 
 # D03: Topological Soliton Formation in a Microcavity Hypergraph

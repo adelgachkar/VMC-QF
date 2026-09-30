@@ -13,10 +13,10 @@ status: revised-draft
 created: 2026-09-28
 language: en
 cross_references:
-  - "[[A02_Microcavity_Quantization]]"
-  - "[[A03_Balance_Principle]]"
-  - "[[A04_Cadence_Phase_Leak]]"
-  - "[[G01_Five_Around_One_Deficit]]"
+  - "[A02_Microcavity_Quantization](A02_Microcavity_Quantization.md)"
+  - "[A03_Balance_Principle](A03_Balance_Principle.md)"
+  - "[A04_Cadence_Phase_Leak](A04_Cadence_Phase_Leak.md)"
+  - "[G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)"
 ---
 
 # A01 — Manifold-Free Quantum Substrate
@@ -80,4 +80,4 @@ Distance is not fundamental; it is a secondary structure that follows from local
 
 ## 5) Compact geometric structure and the angular deficit (the 5-around-1 hypothesis)
 - In a substrate with uniform connection degree, if the local edge arrangement forms a 5-fold cyclic symmetry around a central core, the network acquires a geometric coupling deficit relative to flat symmetric networks (such as the 6-fold honeycomb).
-- This geometric deficit produces an incomplete phase and holonomic deviation, which will be the basis of topological charge storage in the cluster (detailed derivation in [[G01_Five_Around_One_Deficit]]).
+- This geometric deficit produces an incomplete phase and holonomic deviation, which will be the basis of topological charge storage in the cluster (detailed derivation in [G01_Five_Around_One_Deficit](../02_GEOMETRY_TOPOLOGY/G01_Five_Around_One_Deficit.md)).
