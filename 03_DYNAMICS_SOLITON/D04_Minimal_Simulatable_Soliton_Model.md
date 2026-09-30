@@ -136,6 +136,8 @@ $$
 \phi_{5, 1}^{(0)} = \delta\theta \approx 7.356^{\circ} \approx 0.1284 \ \text{rad}
 $$
 
+> **Execution pointer (2026-09-30 — Record VMC-QF-Vault-11, [[D05_Cluster_Simulation_and_Validation]]):** this edge-phase implementation was executed exactly in the 64-dimensional CPTP simulation as the hermitian Peierls flux $e^{+i\delta\theta}$ on the oriented hop $5 \to 1$ (and $e^{-i\delta\theta}$ on $1 \to 5$), alongside the scalar site-detuning realization of the same $\delta\theta$. Both satisfy the criterion-4 separation $\tau_{\text{life}}(\text{twist}) > 2\,\tau_{\text{life}}(\text{baseline})$ at $\gamma = 0.1$: ratio **2.083** (this edge-phase channel) vs **2.042** (site detuning); this channel additionally holds the $Q$ validity window to $\tau = 25.0$ vs $10.0$ (site). The γ-dependence of both ratios is mapped in Record VMC-QF-Vault-12 ($\times 2$ survives to $\gamma \approx 0.3$). Implementation: `simulate_D05_cptp.py` (defect = `edge-phase`).
+
 ---
 
 ## 6. The four validation and soliton-falsification criteria
