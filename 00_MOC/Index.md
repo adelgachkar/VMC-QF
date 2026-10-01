@@ -65,7 +65,7 @@ language: en
 | 11 | [S01 — Scale Bridge](../04_SCALE_TRANSITION/S01_Scale_Bridge_Definitions.md) | candidate | coarse-graining order parameters, ε_cut = 10⁻³, conditional charge Q_eff |
 | 12 | [S02 — Effective Dynamics](../04_SCALE_TRANSITION/S02_Effective_Dynamics_and_Causality.md) | ratified | mesoscopic Lindblad equation, effective Lieb–Robinson bound |
 | 13 | [S03 — Topological Scaling](../04_SCALE_TRANSITION/S03_Topological_and_Memory_Scaling.md) | audited | defect percolation ρ_c ≈ 0.4075 (measured, Vault-13), memory scaling law, phase hydrodynamics |
-| 14 | [S04 — Metrics & Falsification](../04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md) | audited | four scale criteria executed: Vault-13 (causality ✓, balance ✓, percolation ✓ with ρ_c corrected) + Vault-14 (criterion 2 closed: R_τ > 1 with the D01 §8 feedback operator, genuine macro gain at χ ≥ 2.0; Vault-13 R_τ(β=0) = 0.965 carries a dt-convention qualifier — dt-converged baseline ≈ 2.06) |
+| 14 | [S04 — Metrics & Falsification](../04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md) | audited | four scale criteria executed: Vault-13 (causality ✓, balance ✓, percolation ✓ with ρ_c corrected) + Vault-14 (criterion 2 closed: R_τ > 1 with the D01 §8 feedback operator, genuine macro gain at χ ≥ 2.0; Vault-13 R_τ(β=0) = 0.965 carries a dt-convention qualifier — dt-converged baseline ≈ 2.06) + Vault-15 (joint (γ, χ) map: R_τ > 1 is a low-γ pocket γ ≈ 0.02–0.10, flat map for γ ≥ 0.10, boundaries under both dt contracts) |
 
 ---
 
@@ -96,6 +96,12 @@ language: en
 | `V14_pin_probe.csv` | S03 pin-well placements (no well / uniform control / site / edge) |
 | `V14_feedback_scan.png` | three-panel figure: R_τ decomposition, lifetimes vs χ, pin-well bars |
 | `v14_output.txt` | full Vault-14 run log (2026-09-30) |
+| `feedback_gamma_chi_sweep.py` | **Record Vault-15 engine host** — two-parameter (γ, χ) sweep on the imported Vault-14 engine (no re-implementation), boundary extraction χ*/χ_gen/χ_collapse per γ, dt=0.1 replica |
+| `V15_gamma_chi_map.csv` | primary 10×11 grid (γ, χ, τ_micro, τ_macro, R_τ, gains, censor flags) |
+| `V15_dt01_replica.csv` | dt=0.1 replica on the coarse χ grid |
+| `V15_boundary_curves.csv` | χ*/χ_gen/χ_collapse per γ under both dt contracts |
+| `V15_gamma_chi_map.png` | two-panel figure: R_τ heatmap with R_τ=1 contour + the three boundary curves |
+| `v15_output.txt` | full Vault-15 run log (2026-09-30) |
 | `D05_key_times_comparison.csv` | side-by-side key rows (S-01/S-02/S-04) |
 | `D05_scenario_summary.csv` | per-scenario summary at final τ |
 | `simulate_D05.py` | historical phenomenological script (retained, superseded) |
@@ -108,7 +114,7 @@ Current headline (Record VMC-QF-Vault-11 + Vault-12): lifetime ratio vs S-01 = *
 
 1. **Axiom/geometry-level:** A01–A04 state what would refute the substrate postulates (coupling-budget violation, balance-law break, cadence-leak scaling failure); G01 adds the arithmetic criterion — an independent recomputation must reproduce δθ = 2π − 5·arccos(1/3) (`_data/02_GEOMETRY_TOPOLOGY/G01/verify_G01_deficit.py`).
 2. **Simulation-level:** D05 §6 — if the five-fold defect played no pinning role (Φ_ℓ decays as in the flat cluster), the minimal-model hypothesis is refuted. Current status: criterion confirmed at the reference γ (Vault-11) and mapped across the sweep range (Vault-12: R ≈ 2.1 → 1.65, ×2 surviving to γ ≈ 0.3).
-3. **Scale-level:** S04 — four explicit criteria (R_τ, v_ratio, S_Q, percolation) that the bridge to mesoscopics must pass. **Executed 2026-09-30 (Vault-13 + Vault-14):** causality (v_ratio = 0.40 ≤ 1) ✓ and A03 balance (residue within δ_tol) ✓; percolation ✓ with ρ_c corrected to 0.4075; the lifetime-enhancement criterion is **closed by Vault-14**: with the D01 §8 saturation operator switched on, R_τ > 1 holds in both dt conventions and **genuine macro protection requires χ ≥ 2.0** (dt-robust) — near threshold the gain is denominator-driven (micro instability at χ_collapse = 0.14), and the dt-converged baseline is R_τ(β=0) ≈ 2.06 (the Vault-13 value 0.965 was beat-revival-inflated by the coarse dephasing reconstruction; E4 qualifier registered, history not erased). The chain is closed for the linear engine and for the engine + registered feedback operator: every criterion now has a measured value under a stated engine convention.
+3. **Scale-level:** S04 — four explicit criteria (R_τ, v_ratio, S_Q, percolation) that the bridge to mesoscopics must pass. **Executed 2026-09-30 (Vault-13 + Vault-14):** causality (v_ratio = 0.40 ≤ 1) ✓ and A03 balance (residue within δ_tol) ✓; percolation ✓ with ρ_c corrected to 0.4075; the lifetime-enhancement criterion is **closed by Vault-14**: with the D01 §8 saturation operator switched on, R_τ > 1 holds in both dt conventions and **genuine macro protection requires χ ≥ 2.0** (dt-robust) — near threshold the gain is denominator-driven (micro instability at χ_collapse = 0.14), and the dt-converged baseline is R_τ(β=0) ≈ 2.06 (the Vault-13 value 0.965 was beat-revival-inflated by the coarse dephasing reconstruction; E4 qualifier registered, history not erased); **bounded in the plane by Vault-15**: the R_τ > 1 region is a narrow low-γ pocket (γ ≈ 0.02–0.10), the map is flat for γ ≥ 0.10, and the boundary curves are convention-sensitive (reported under both dt contracts). The chain is closed for the linear engine and for the engine + registered feedback operator: every criterion now has a measured value under a stated engine convention, with its region of validity mapped.
 
 ---
 

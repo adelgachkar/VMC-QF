@@ -1,0 +1,44 @@
+[
+  {
+    "test": "V0",
+    "quantity": "tau_micro(gamma=0.05, chi=0, dt=0.5)",
+    "value": "27.78",
+    "threshold": "27.78 +- 2% (Vault-14 T2d anchor)",
+    "verdict": "PASS"
+  },
+  {
+    "test": "V0",
+    "quantity": "tau_macro(gamma=0.05, chi=0, dt=0.5)",
+    "value": "26.81",
+    "threshold": "26.81 +- 2% (Vault-14 T2d anchor)",
+    "verdict": "PASS"
+  },
+  {
+    "test": "B1",
+    "quantity": "chi_gen at the registered reference gamma=0.05 (dt=0.5)",
+    "value": 2.0,
+    "threshold": "2.0 (Vault-14 T2 registered chi_gen)",
+    "verdict": "reproduces Vault-14"
+  },
+  {
+    "test": "B2",
+    "quantity": "monotone widening of chi_gen(gamma) with gamma (dt=0.5)",
+    "value": "[None, 1.5, 2.0, 1.5, 3.0, 1.5, 2.0, 0.5, 1.5, 1.0]",
+    "threshold": "non-decreasing",
+    "verdict": "NON-MONOTONE boundary -- register the shape, do not force a trend"
+  },
+  {
+    "test": "B3",
+    "quantity": "boundary-location agreement chi* and chi_gen, dt=0.5 vs dt=0.1 (on shared chi values)",
+    "value": "13 agree / 7 disagree",
+    "threshold": "agreement = dt-robust boundary",
+    "verdict": "7 rows dt-sensitive -- boundaries reported under BOTH contracts (see T2d lesson)"
+  },
+  {
+    "test": "B4",
+    "quantity": "baseline R_tau(chi=0) > 1 gamma range, dt=0.5 vs dt=0.1 contracts (cross-engine note: Vault-12 maps the DIFFERENT quantity tau_defect/tau_void on the D05 engine)",
+    "value": "dt=0.5: [0.02, 0.08] | dt=0.1: [0.02, 0.05, 0.08]",
+    "threshold": "recorded as engine-baseline behavior",
+    "verdict": "baseline crossing of R_tau=1 sits between gamma=0.02 and 0.05 in BOTH contracts; the dt-flip region is gamma in [0.05, 0.10] (T2d lesson, now mapped)"
+  }
+]

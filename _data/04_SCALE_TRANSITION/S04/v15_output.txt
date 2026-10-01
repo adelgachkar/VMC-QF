@@ -1,0 +1,192 @@
+========================================================================
+VAULT-15 -- JOINT (gamma, chi) STABILITY MAP OF R_TAU
+engine: feedback_operator_battery (registered, imported verbatim)
+========================================================================
+
+== V0: chi=0 / gamma=0.05 regression vs registered Vault-14 ==
+  [V0] tau_micro(gamma=0.05, chi=0, dt=0.5) = 27.78  (threshold: 27.78 +- 2% (Vault-14 T2d anchor)) -> PASS
+  [V0] tau_macro(gamma=0.05, chi=0, dt=0.5) = 26.81  (threshold: 26.81 +- 2% (Vault-14 T2d anchor)) -> PASS
+
+== PRIMARY MAP: dt = 0.5 (battery convention, Vault-13/14 comparable) ==
+  gamma=0.01  chi=0.00  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=0.10  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=0.20  dt=0.50: micro= 77.499  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=0.35  dt=0.50: micro= 77.491  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=0.50  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=0.75  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=1.00  dt=0.50: micro= 88.492  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=1.50  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=2.00  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=3.00  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=5.00  dt=0.50: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.02  chi=0.00  dt=0.50: micro= 40.997  macro= 55.377  R_tau=  1.351
+  gamma=0.02  chi=0.10  dt=0.50: micro= 40.999  macro= 55.378  R_tau=  1.351
+  gamma=0.02  chi=0.20  dt=0.50: micro= 64.341  macro= 55.380  R_tau=  0.861
+  gamma=0.02  chi=0.35  dt=0.50: micro= 64.359  macro= 55.388  R_tau=  0.861
+  gamma=0.02  chi=0.50  dt=0.50: micro= 64.387  macro= 55.399  R_tau=  0.860
+  gamma=0.02  chi=0.75  dt=0.50: micro= 49.480  macro= 55.429  R_tau=  1.120
+  gamma=0.02  chi=1.00  dt=0.50: micro= 49.486  macro= 55.474  R_tau=  1.121
+  gamma=0.02  chi=1.50  dt=0.50: micro= 60.288  macro= 58.404  R_tau=  0.969
+  gamma=0.02  chi=2.00  dt=0.50: micro= 65.292  macro= 61.268  R_tau=  0.938
+  gamma=0.02  chi=3.00  dt=0.50: micro= 63.164  macro= 61.729  R_tau=  0.977
+  gamma=0.02  chi=5.00  dt=0.50: micro= 67.931  macro= 59.477  R_tau=  0.876
+  gamma=0.05  chi=0.00  dt=0.50: micro= 27.785  macro= 26.815  R_tau=  0.965
+  gamma=0.05  chi=0.10  dt=0.50: micro= 27.786  macro= 26.815  R_tau=  0.965
+  gamma=0.05  chi=0.20  dt=0.50: micro= 12.998  macro= 26.817  R_tau=  2.063
+  gamma=0.05  chi=0.35  dt=0.50: micro= 12.997  macro= 26.822  R_tau=  2.064
+  gamma=0.05  chi=0.50  dt=0.50: micro= 12.998  macro= 26.830  R_tau=  2.064
+  gamma=0.05  chi=0.75  dt=0.50: micro= 23.789  macro= 26.851  R_tau=  1.129
+  gamma=0.05  chi=1.00  dt=0.50: micro= 23.757  macro= 26.879  R_tau=  1.131
+  gamma=0.05  chi=1.50  dt=0.50: micro= 23.778  macro= 26.958  R_tau=  1.134
+  gamma=0.05  chi=2.00  dt=0.50: micro= 23.840  macro= 29.317  R_tau=  1.230
+  gamma=0.05  chi=3.00  dt=0.50: micro= 25.413  macro= 29.942  R_tau=  1.178
+  gamma=0.05  chi=5.00  dt=0.50: micro= 18.996  macro= 32.526  R_tau=  1.712
+  gamma=0.08  chi=0.00  dt=0.50: micro= 12.909  macro= 12.956  R_tau=  1.004
+  gamma=0.08  chi=0.10  dt=0.50: micro= 12.909  macro= 12.956  R_tau=  1.004
+  gamma=0.08  chi=0.20  dt=0.50: micro= 12.910  macro= 12.956  R_tau=  1.004
+  gamma=0.08  chi=0.35  dt=0.50: micro= 12.914  macro= 12.958  R_tau=  1.003
+  gamma=0.08  chi=0.50  dt=0.50: micro= 12.926  macro= 12.961  R_tau=  1.003
+  gamma=0.08  chi=0.75  dt=0.50: micro= 12.957  macro= 12.973  R_tau=  1.001
+  gamma=0.08  chi=1.00  dt=0.50: micro= 15.251  macro= 12.993  R_tau=  0.852
+  gamma=0.08  chi=1.50  dt=0.50: micro= 15.323  macro= 15.428  R_tau=  1.007
+  gamma=0.08  chi=2.00  dt=0.50: micro= 15.480  macro= 13.495  R_tau=  0.872
+  gamma=0.08  chi=3.00  dt=0.50: micro= 12.478  macro= 15.923  R_tau=  1.276
+  gamma=0.08  chi=5.00  dt=0.50: micro= 17.884  macro= 17.400  R_tau=  0.973
+  gamma=0.10  chi=0.00  dt=0.50: micro= 11.471  macro= 11.393  R_tau=  0.993
+  gamma=0.10  chi=0.10  dt=0.50: micro= 11.472  macro= 11.393  R_tau=  0.993
+  gamma=0.10  chi=0.20  dt=0.50: micro= 11.476  macro= 11.395  R_tau=  0.993
+  gamma=0.10  chi=0.35  dt=0.50: micro= 11.487  macro= 11.398  R_tau=  0.992
+  gamma=0.10  chi=0.50  dt=0.50: micro= 12.789  macro= 11.406  R_tau=  0.892
+  gamma=0.10  chi=0.75  dt=0.50: micro= 12.808  macro= 11.427  R_tau=  0.892
+  gamma=0.10  chi=1.00  dt=0.50: micro= 12.835  macro= 11.462  R_tau=  0.893
+  gamma=0.10  chi=1.50  dt=0.50: micro= 11.962  macro= 11.810  R_tau=  0.987
+  gamma=0.10  chi=2.00  dt=0.50: micro= 11.918  macro= 11.830  R_tau=  0.993
+  gamma=0.10  chi=3.00  dt=0.50: micro= 12.328  macro= 12.104  R_tau=  0.982
+  gamma=0.10  chi=5.00  dt=0.50: micro= 14.339  macro= 13.494  R_tau=  0.941
+  gamma=0.15  chi=0.00  dt=0.50: micro=  6.942  macro=  6.913  R_tau=  0.996
+  gamma=0.15  chi=0.10  dt=0.50: micro=  6.943  macro=  6.914  R_tau=  0.996
+  gamma=0.15  chi=0.20  dt=0.50: micro=  6.947  macro=  6.914  R_tau=  0.995
+  gamma=0.15  chi=0.35  dt=0.50: micro=  6.957  macro=  6.917  R_tau=  0.994
+  gamma=0.15  chi=0.50  dt=0.50: micro=  6.972  macro=  6.930  R_tau=  0.994
+  gamma=0.15  chi=0.75  dt=0.50: micro=  7.195  macro=  6.959  R_tau=  0.967
+  gamma=0.15  chi=1.00  dt=0.50: micro=  7.357  macro=  7.000  R_tau=  0.951
+  gamma=0.15  chi=1.50  dt=0.50: micro=  7.429  macro=  7.321  R_tau=  0.985
+  gamma=0.15  chi=2.00  dt=0.50: micro=  8.153  macro=  7.470  R_tau=  0.916
+  gamma=0.15  chi=3.00  dt=0.50: micro=  8.589  macro=  8.391  R_tau=  0.977
+  gamma=0.15  chi=5.00  dt=0.50: micro=  9.771  macro=  9.615  R_tau=  0.984
+  gamma=0.20  chi=0.00  dt=0.50: micro=  6.472  macro=  6.373  R_tau=  0.985
+  gamma=0.20  chi=0.10  dt=0.50: micro=  6.473  macro=  6.374  R_tau=  0.985
+  gamma=0.20  chi=0.20  dt=0.50: micro=  6.477  macro=  6.378  R_tau=  0.985
+  gamma=0.20  chi=0.35  dt=0.50: micro=  6.488  macro=  6.387  R_tau=  0.984
+  gamma=0.20  chi=0.50  dt=0.50: micro=  6.506  macro=  6.401  R_tau=  0.984
+  gamma=0.20  chi=0.75  dt=0.50: micro=  6.558  macro=  6.434  R_tau=  0.981
+  gamma=0.20  chi=1.00  dt=0.50: micro=  6.620  macro=  6.480  R_tau=  0.979
+  gamma=0.20  chi=1.50  dt=0.50: micro=  6.765  macro=  6.629  R_tau=  0.980
+  gamma=0.20  chi=2.00  dt=0.50: micro=  6.944  macro=  6.800  R_tau=  0.979
+  gamma=0.20  chi=3.00  dt=0.50: micro=  7.530  macro=  7.316  R_tau=  0.972
+  gamma=0.20  chi=5.00  dt=0.50: micro=  9.073  macro=  8.812  R_tau=  0.971
+  gamma=0.30  chi=0.00  dt=0.50: micro=  3.484  macro=  3.475  R_tau=  0.997
+  gamma=0.30  chi=0.10  dt=0.50: micro=  3.485  macro=  3.476  R_tau=  0.997
+  gamma=0.30  chi=0.20  dt=0.50: micro=  3.489  macro=  3.480  R_tau=  0.997
+  gamma=0.30  chi=0.35  dt=0.50: micro=  3.498  macro=  3.489  R_tau=  0.997
+  gamma=0.30  chi=0.50  dt=0.50: micro=  4.703  macro=  4.653  R_tau=  0.989
+  gamma=0.30  chi=0.75  dt=0.50: micro=  4.708  macro=  4.657  R_tau=  0.989
+  gamma=0.30  chi=1.00  dt=0.50: micro=  4.712  macro=  3.987  R_tau=  0.846
+  gamma=0.30  chi=1.50  dt=0.50: micro=  3.902  macro=  3.893  R_tau=  0.998
+  gamma=0.30  chi=2.00  dt=0.50: micro=  4.180  macro=  4.107  R_tau=  0.983
+  gamma=0.30  chi=3.00  dt=0.50: micro=  4.845  macro=  4.819  R_tau=  0.995
+  gamma=0.30  chi=5.00  dt=0.50: micro=  6.814  macro=  6.779  R_tau=  0.995
+  gamma=0.40  chi=0.00  dt=0.50: micro=  3.411  macro=  3.384  R_tau=  0.992
+  gamma=0.40  chi=0.10  dt=0.50: micro=  3.412  macro=  3.385  R_tau=  0.992
+  gamma=0.40  chi=0.20  dt=0.50: micro=  3.416  macro=  3.388  R_tau=  0.992
+  gamma=0.40  chi=0.35  dt=0.50: micro=  3.424  macro=  3.397  R_tau=  0.992
+  gamma=0.40  chi=0.50  dt=0.50: micro=  3.436  macro=  3.410  R_tau=  0.992
+  gamma=0.40  chi=0.75  dt=0.50: micro=  3.465  macro=  3.439  R_tau=  0.992
+  gamma=0.40  chi=1.00  dt=0.50: micro=  3.507  macro=  3.478  R_tau=  0.992
+  gamma=0.40  chi=1.50  dt=0.50: micro=  3.650  macro=  3.616  R_tau=  0.991
+  gamma=0.40  chi=2.00  dt=0.50: micro=  3.812  macro=  3.778  R_tau=  0.991
+  gamma=0.40  chi=3.00  dt=0.50: micro=  4.428  macro=  4.407  R_tau=  0.995
+  gamma=0.40  chi=5.00  dt=0.50: micro=  6.650  macro=  6.604  R_tau=  0.993
+  gamma=0.50  chi=0.00  dt=0.50: micro=  2.883  macro=  2.870  R_tau=  0.996
+  gamma=0.50  chi=0.10  dt=0.50: micro=  2.886  macro=  2.873  R_tau=  0.996
+  gamma=0.50  chi=0.20  dt=0.50: micro=  2.894  macro=  2.881  R_tau=  0.996
+  gamma=0.50  chi=0.35  dt=0.50: micro=  2.914  macro=  2.902  R_tau=  0.996
+  gamma=0.50  chi=0.50  dt=0.50: micro=  2.942  macro=  2.931  R_tau=  0.996
+  gamma=0.50  chi=0.75  dt=0.50: micro=  2.998  macro=  2.988  R_tau=  0.997
+  gamma=0.50  chi=1.00  dt=0.50: micro=  3.149  macro=  3.126  R_tau=  0.993
+  gamma=0.50  chi=1.50  dt=0.50: micro=  3.415  macro=  3.400  R_tau=  0.996
+  gamma=0.50  chi=2.00  dt=0.50: micro=  3.774  macro=  3.752  R_tau=  0.994
+  gamma=0.50  chi=3.00  dt=0.50: micro=  4.641  macro=  4.610  R_tau=  0.993
+  gamma=0.50  chi=5.00  dt=0.50: micro=  7.239  macro=  7.202  R_tau=  0.995
+
+== REPLICA: dt = 0.1 (rate-preserving convention, coarse chi grid) ==
+  gamma=0.01  chi=0.00  dt=0.10: micro= 92.651  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=0.20  dt=0.10: micro= 79.798  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=0.50  dt=0.10: micro= 77.597  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=1.00  dt=0.10: micro= 88.478  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=2.00  dt=0.10: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.01  chi=5.00  dt=0.10: micro=  censored  macro=  censored  R_tau=  censored
+  gamma=0.02  chi=0.00  dt=0.10: micro= 40.991  macro= 55.310  R_tau=  1.349
+  gamma=0.02  chi=0.20  dt=0.10: micro= 40.996  macro= 55.316  R_tau=  1.349
+  gamma=0.02  chi=0.50  dt=0.10: micro= 51.662  macro= 55.346  R_tau=  1.071
+  gamma=0.02  chi=1.00  dt=0.10: micro= 49.476  macro= 55.450  R_tau=  1.121
+  gamma=0.02  chi=2.00  dt=0.10: micro= 60.637  macro= 58.590  R_tau=  0.966
+  gamma=0.02  chi=5.00  dt=0.10: micro= 64.899  macro= 56.533  R_tau=  0.871
+  gamma=0.05  chi=0.00  dt=0.10: micro= 12.992  macro= 26.735  R_tau=  2.058
+  gamma=0.05  chi=0.20  dt=0.10: micro= 12.987  macro= 26.737  R_tau=  2.059
+  gamma=0.05  chi=0.50  dt=0.10: micro= 12.986  macro= 26.749  R_tau=  2.060
+  gamma=0.05  chi=1.00  dt=0.10: micro= 19.889  macro= 26.804  R_tau=  1.348
+  gamma=0.05  chi=2.00  dt=0.10: micro= 23.772  macro= 29.368  R_tau=  1.235
+  gamma=0.05  chi=5.00  dt=0.10: micro= 26.409  macro= 32.334  R_tau=  1.224
+  gamma=0.08  chi=0.00  dt=0.10: micro= 12.943  macro= 15.356  R_tau=  1.186
+  gamma=0.08  chi=0.20  dt=0.10: micro= 12.946  macro= 15.357  R_tau=  1.186
+  gamma=0.08  chi=0.50  dt=0.10: micro= 12.959  macro= 15.362  R_tau=  1.185
+  gamma=0.08  chi=1.00  dt=0.10: micro= 13.012  macro= 13.079  R_tau=  1.005
+  gamma=0.08  chi=2.00  dt=0.10: micro= 13.235  macro= 13.230  R_tau=  1.000
+  gamma=0.08  chi=5.00  dt=0.10: micro= 17.660  macro= 17.298  R_tau=  0.980
+  gamma=0.10  chi=0.00  dt=0.10: micro= 11.493  macro= 11.409  R_tau=  0.993
+  gamma=0.10  chi=0.20  dt=0.10: micro= 11.497  macro= 11.413  R_tau=  0.993
+  gamma=0.10  chi=0.50  dt=0.10: micro= 11.528  macro= 11.431  R_tau=  0.992
+  gamma=0.10  chi=1.00  dt=0.10: micro= 11.588  macro= 11.483  R_tau=  0.991
+  gamma=0.10  chi=2.00  dt=0.10: micro= 11.825  macro= 11.683  R_tau=  0.988
+  gamma=0.10  chi=5.00  dt=0.10: micro= 16.828  macro= 13.477  R_tau=  0.801
+  gamma=0.15  chi=0.00  dt=0.10: micro=  6.956  macro=  6.921  R_tau=  0.995
+  gamma=0.15  chi=0.20  dt=0.10: micro=  6.960  macro=  6.926  R_tau=  0.995
+  gamma=0.15  chi=0.50  dt=0.10: micro=  6.982  macro=  6.947  R_tau=  0.995
+  gamma=0.15  chi=1.00  dt=0.10: micro=  7.059  macro=  7.015  R_tau=  0.994
+  gamma=0.15  chi=2.00  dt=0.10: micro=  8.266  macro=  7.355  R_tau=  0.890
+  gamma=0.15  chi=5.00  dt=0.10: micro=  9.528  macro=  9.405  R_tau=  0.987
+  gamma=0.20  chi=0.00  dt=0.10: micro=  6.628  macro=  6.527  R_tau=  0.985
+  gamma=0.20  chi=0.20  dt=0.10: micro=  6.633  macro=  6.532  R_tau=  0.985
+  gamma=0.20  chi=0.50  dt=0.10: micro=  6.657  macro=  6.555  R_tau=  0.985
+  gamma=0.20  chi=1.00  dt=0.10: micro=  6.734  macro=  6.628  R_tau=  0.984
+  gamma=0.20  chi=2.00  dt=0.10: micro=  7.016  macro=  6.897  R_tau=  0.983
+  gamma=0.20  chi=5.00  dt=0.10: micro=  9.106  macro=  8.954  R_tau=  0.983
+  gamma=0.30  chi=0.00  dt=0.10: micro=  3.576  macro=  3.564  R_tau=  0.997
+  gamma=0.30  chi=0.20  dt=0.10: micro=  3.582  macro=  3.570  R_tau=  0.997
+  gamma=0.30  chi=0.50  dt=0.10: micro=  3.611  macro=  3.596  R_tau=  0.996
+  gamma=0.30  chi=1.00  dt=0.10: micro=  3.702  macro=  3.689  R_tau=  0.997
+  gamma=0.30  chi=2.00  dt=0.10: micro=  4.070  macro=  4.053  R_tau=  0.996
+  gamma=0.30  chi=5.00  dt=0.10: micro=  6.792  macro=  6.756  R_tau=  0.995
+  gamma=0.40  chi=0.00  dt=0.10: micro=  3.643  macro=  3.606  R_tau=  0.990
+  gamma=0.40  chi=0.20  dt=0.10: micro=  3.648  macro=  3.611  R_tau=  0.990
+  gamma=0.40  chi=0.50  dt=0.10: micro=  3.672  macro=  3.637  R_tau=  0.990
+  gamma=0.40  chi=1.00  dt=0.10: micro=  3.753  macro=  3.717  R_tau=  0.991
+  gamma=0.40  chi=2.00  dt=0.10: micro=  4.072  macro=  4.033  R_tau=  0.991
+  gamma=0.40  chi=5.00  dt=0.10: micro=  7.003  macro=  6.965  R_tau=  0.995
+  gamma=0.50  chi=0.00  dt=0.10: micro=  3.820  macro=  3.802  R_tau=  0.995
+  gamma=0.50  chi=0.20  dt=0.10: micro=  3.832  macro=  3.814  R_tau=  0.995
+  gamma=0.50  chi=0.50  dt=0.10: micro=  3.886  macro=  3.869  R_tau=  0.996
+  gamma=0.50  chi=1.00  dt=0.10: micro=  4.055  macro=  4.034  R_tau=  0.995
+  gamma=0.50  chi=2.00  dt=0.10: micro=  4.627  macro=  4.599  R_tau=  0.994
+  gamma=0.50  chi=5.00  dt=0.10: micro=  8.368  macro=  8.323  R_tau=  0.995
+
+== BOUNDARY CURVES (both dt contracts) ==
+  gamma   chi_star(.5)  chi_gen(.5)  chi_coll(.5)   |   chi_star(.1)  chi_gen(.1)  chi_coll(.1)
+Traceback (most recent call last):
+  File "C:\Users\adel\Documents\VMC-QF_Vault\_data\04_SCALE_TRANSITION\S04\feedback_gamma_chi_sweep.py", line 337, in <module>
+    main()
+  File "C:\Users\adel\Documents\VMC-QF_Vault\_data\04_SCALE_TRANSITION\S04\feedback_gamma_chi_sweep.py", line 191, in main
+    print(f"  {b5['gamma']:4.2f}   {sf(b5['chi_star'])}        "
+                                    ^^
+UnboundLocalError: cannot access local variable 'sf' where it is not associated with a value

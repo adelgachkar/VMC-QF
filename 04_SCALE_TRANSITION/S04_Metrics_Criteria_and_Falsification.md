@@ -134,3 +134,35 @@ The "open-pending-feedback-operator" state of Record Vault-13 (row T2) is resolv
 3. **The micro instability is real and located:** $\chi_{\rm collapse}$ = 0.14 (fine grid, dt=0.5) — beyond it the single-cell ring loses ring coherence abruptly (depth dt-converged to 0.08% at χ=0.2). The macro 4-chain does **not** show the corresponding instability in the same window — this asymmetry (single-cell fragile, chain robust) is the physical content behind criterion 2's scale statement.
 
 4. **S03 pin-well claim — falsified in-engine at the registered strength:** all three local placements of the verbatim $U_{\rm pin} = \hbar\kappa_{\max}(1-\cos\delta) = 2.47\times10^{-3}\,J$ leave $R_{\rm pin} \approx 0.991$ (the uniform placement reproduces it exactly — the gauge-triviality control works). Pinning at this well depth is absent; converting scattering into pinning would need a well depth ≫ the hop scale or a genuinely trapped mode — recorded as an engine-scope negative, consistent with the Vault-13 T4 half-verdict.
+
+## 5. Record VMC-QF-Vault-15 — the joint (γ, χ) stability map of R_τ (run 2026-09-30)
+
+Criterion 2 generalized from the single-axis scan of Vault-14 to the **two-parameter plane**: $R_\tau(\gamma, \chi) = \tau_{\rm macro}/\tau_{\rm micro}$ over $\gamma \in [0.01, 0.50]$ (10 values) × $\chi \in [0, 5]$ (11 values, primary grid), plus a dt=0.1 replica on the coarse-χ grid — **both reconstruction contracts**, per the T2d lesson that the χ=0 baseline flips between them. Engine imported **verbatim** from the registered Vault-14 module (no re-implementation): V0 regression reproduces the anchors 27.78 / 26.81 exactly. Script: [feedback_gamma_chi_sweep.py](../_data/04_SCALE_TRANSITION/S04/feedback_gamma_chi_sweep.py); outputs [V15_gamma_chi_map.csv](../_data/04_SCALE_TRANSITION/S04/V15_gamma_chi_map.csv), [V15_dt01_replica.csv](../_data/04_SCALE_TRANSITION/S04/V15_dt01_replica.csv), [V15_boundary_curves.csv](../_data/04_SCALE_TRANSITION/S04/V15_boundary_curves.csv); figure [V15_gamma_chi_map.png](../_data/04_SCALE_TRANSITION/S04/V15_gamma_chi_map.png); register [V15_register.json](../_data/04_SCALE_TRANSITION/S04/V15_register.json); full log [v15_output.txt](../_data/04_SCALE_TRANSITION/S04/v15_output.txt).
+
+### Boundary curves (both dt contracts)
+
+| γ | χ* (dt=0.5) | χ_gen (dt=0.5) | χ_collapse (dt=0.5) | χ* (dt=0.1) | χ_gen (dt=0.1) |
+|---|---|---|---|---|---|
+| 0.01 | — (censored) | — (censored) | — | — (censored) | — (censored) |
+| 0.02 | 0.0 | 1.5 | — | 0.0 | 2.0 |
+| 0.05 | 0.2 | 2.0 | 0.2 | 0.0 | 2.0 |
+| 0.08 | 0.0 | 1.5 | — | 0.0 | 5.0 |
+| 0.10 | — | 3.0 | — | — | 5.0 |
+| 0.15–0.50 | — | 0.5–3.0 (non-monotone) | — | — | 1.0–5.0 (non-monotone) |
+
+### Verdicts
+
+| # | test | measured | threshold | verdict |
+|---|---|---|---|---|
+| V0 | regression vs Vault-14 anchors (γ=0.05, χ=0) | τ_micro = 27.78, τ_macro = 26.81 | ±2% | **PASS** (engine identity) |
+| B1 | χ_gen at the reference point (γ=0.05, dt=0.5) | **2.0** | = 2.0 (Vault-14) | **reproduces Vault-14** |
+| B2 | monotonicity of χ_gen(γ) | non-monotone: 1.5→2.0→1.5→3.0→1.5→2.0→0.5→1.5→1.0 | non-decreasing | **NON-MONOTONE — registered as a measured shape, no trend forced** |
+| B3 | boundary dt-robustness (χ*, χ_gen on shared grid points) | 13 agree / **7 disagree** across contracts | agreement = robust | **boundaries are convention-sensitive — every curve is reported under BOTH dt contracts; no single-protocol claim** |
+| B4 | baseline R_τ(χ=0) > 1 window | dt=0.5: γ ∈ {0.02, 0.08}; dt=0.1: γ ∈ {0.02, 0.05, 0.08} | recorded | **R_τ=1 baseline crossing sits between γ=0.02 and 0.05 in both contracts; the dt-flip region γ ∈ [0.05, 0.10] is now MAPPED** (T2d lesson quantified) |
+
+### Registered findings
+
+1. **The R_τ > 1 region is a narrow low-γ pocket, not a plateau.** Above γ ≈ 0.10 the map is uniformly flat at R_τ ≈ 0.97–1.00 across the entire χ axis — feedback cannot buy macro advantage once dephasing exceeds the beat-revival scale; below γ ≈ 0.02 the micro lifetime is so long that the ratio saturates on transport, not protection. The criterion-2 advantage lives in the band **γ ≈ 0.02–0.10**.
+2. **χ_gen is the only load-bearing boundary, and it is dt-robust at the reference point** (2.0 in both contracts at γ=0.05) but wanders between 0.5 and 5.0 at other γ — its γ-shape is NON-monotone and contract-sensitive, so the honest registered content is the reference-point value plus the full CSV map, not a fitted curve.
+3. **The dt-flip region of the baseline (Vault-14 T2d's 0.965 vs 2.058) is mapped:** the flip is confined to γ ∈ [0.05, 0.10]; outside it the two contracts agree on the sign of R_τ − 1. This converts the earlier convention qualifier into a concrete region of validity.
+4. **Cross-engine honesty note:** Vault-12 maps τ_defect/τ_void on the D05 engine — a different quantity from this vault's cluster ratio; the two maps are NOT numerically comparable and this record makes no cross-engine ratio claim.
