@@ -65,7 +65,7 @@ language: en
 | 11 | [S01 — Scale Bridge](../04_SCALE_TRANSITION/S01_Scale_Bridge_Definitions.md) | candidate | coarse-graining order parameters, ε_cut = 10⁻³, conditional charge Q_eff |
 | 12 | [S02 — Effective Dynamics](../04_SCALE_TRANSITION/S02_Effective_Dynamics_and_Causality.md) | ratified | mesoscopic Lindblad equation, effective Lieb–Robinson bound |
 | 13 | [S03 — Topological Scaling](../04_SCALE_TRANSITION/S03_Topological_and_Memory_Scaling.md) | audited | defect percolation ρ_c ≈ 0.4075 (measured, Vault-13), memory scaling law, phase hydrodynamics |
-| 14 | [S04 — Metrics & Falsification](../04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md) | audited | four scale criteria executed: Vault-13 (causality ✓, balance ✓, percolation ✓ with ρ_c corrected) + Vault-14 (criterion 2 closed: R_τ > 1 with the D01 §8 feedback operator, genuine macro gain at χ ≥ 2.0; Vault-13 R_τ(β=0) = 0.965 carries a dt-convention qualifier — dt-converged baseline ≈ 2.06) + Vault-15 (joint (γ, χ) map: R_τ > 1 is a low-γ pocket γ ≈ 0.02–0.10, flat map for γ ≥ 0.10, boundaries under both dt contracts) |
+| 14 | [S04 — Metrics & Falsification](../04_SCALE_TRANSITION/S04_Metrics_Criteria_and_Falsification.md) | audited | four scale criteria executed: Vault-13 (causality ✓, balance ✓, percolation ✓ with ρ_c corrected) + Vault-14 (criterion 2 closed: R_τ > 1 with the D01 §8 feedback operator, genuine macro gain at χ ≥ 2.0; Vault-13 R_τ(β=0) = 0.965 carries a dt-convention qualifier — dt-converged baseline ≈ 2.06) + Vault-15 (joint (γ, χ) map: R_τ > 1 is a low-γ pocket γ ≈ 0.02–0.10, flat map for γ ≥ 0.10, boundaries under both dt contracts) + Vault-15q (beat-scale test: the pocket edge γ ≈ 0.10 sits where Γ_env·τ_beat crosses 1 under the dt=0.1 contract — finding 1's mechanism measured, contract-labeled) |
 
 ---
 
@@ -102,6 +102,10 @@ language: en
 | `V15_boundary_curves.csv` | χ*/χ_gen/χ_collapse per γ under both dt contracts |
 | `V15_gamma_chi_map.png` | two-panel figure: R_τ heatmap with R_τ=1 contour + the three boundary curves |
 | `v15_output.txt` | full Vault-15 run log (2026-09-30) |
+| `beat_scale_test.py` | **Record Vault-15q engine host** — beat-scale test of the pocket's upper edge (contrast-envelope decay vs the measured beat period, both dt contracts) |
+| `V15q_beatscale.csv` | per-γ table: τ_beat, Γ_env (both contracts), the dimensionless group Γ_env·τ_beat, registered R_τ |
+| `V15q_beatscale.png` | two-panel figure: Γ_env·τ_beat vs γ with the pocket shaded, next to the registered baseline R_τ |
+| `v15q_output.txt` | full Vault-15q run log (2026-10-01) |
 | `D05_key_times_comparison.csv` | side-by-side key rows (S-01/S-02/S-04) |
 | `D05_scenario_summary.csv` | per-scenario summary at final τ |
 | `simulate_D05.py` | historical phenomenological script (retained, superseded) |

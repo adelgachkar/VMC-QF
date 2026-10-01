@@ -1,0 +1,41 @@
+micro H spectrum: min=-1.618034 max=2.228799 width W=3.846833
+distinct gaps: [0.0498   0.051859 0.820092 1.366175 1.558906]
+tau_osc (spectrum, pi/W with W=3.8468) = 0.8167
+tau_beat naive = 2*pi/W = 1.6333
+========================================================================
+VAULT-15q -- BEAT-SCALE TEST OF THE POCKET'S UPPER EDGE
+========================================================================
+gamma=0.02: tau_osc=  3.288  G_env(.5)=0.0491  G_env(.1)=0.0474  grp(.5)=0.161  grp(.1)=0.156  R(.5)=1.351  R(.1)=1.349
+gamma=0.05: tau_osc=  3.288  G_env(.5)=0.1101  G_env(.1)=0.1186  grp(.5)=0.362  grp(.1)=0.390  R(.5)=0.965  R(.1)=2.058
+gamma=0.08: tau_osc=  3.288  G_env(.5)=0.1964  G_env(.1)=0.2156  grp(.5)=0.646  grp(.1)=0.709  R(.5)=1.004  R(.1)=1.186
+gamma=0.10: tau_osc=  3.288  G_env(.5)=nan  G_env(.1)=0.2937  grp(.5)=nan  grp(.1)=0.966  R(.5)=0.993  R(.1)=0.993
+gamma=0.15: tau_osc=  3.288  G_env(.5)=nan  G_env(.1)=0.5460  grp(.5)=nan  grp(.1)=1.795  R(.5)=0.996  R(.1)=0.995
+gamma=0.20: tau_osc=  3.288  G_env(.5)=nan  G_env(.1)=0.7182  grp(.5)=nan  grp(.1)=2.361  R(.5)=0.985  R(.1)=0.985
+gamma=0.30: tau_osc=  3.288  G_env(.5)=nan  G_env(.1)=1.3723  grp(.5)=nan  grp(.1)=4.512  R(.5)=0.997  R(.1)=0.997
+gamma=0.40: tau_osc=  3.288  G_env(.5)=nan  G_env(.1)=nan  grp(.5)=nan  grp(.1)=nan  R(.5)=0.992  R(.1)=0.99
+gamma=0.50: tau_osc=  3.288  G_env(.5)=nan  G_env(.1)=1.3750  grp(.5)=nan  grp(.1)=4.521  R(.5)=0.996  R(.1)=0.995
+
+tau_osc (spectrum, pi/W) = 0.8167;  measured peak-to-peak = 3.2881 (ADOPTED as tau_beat)
+  [A] measured contrast oscillation period vs the naive spectral bound pi/W = 3.2881 vs 0.8167 (ratio 4.03)  (threshold: naive bound rejected; measured period ADOPTED as tau_beat) -> MISMATCH LABELED -- the twist state couples only to the ring-star sub-ladder, not the full width W; tau_beat = 3.2881 (measured) is adopted for the group below
+  [B] dimensionless group Gamma_env * tau_beat at the pocket edge (gamma=0.08 -> 0.10 -> 0.15), dt=0.5 = 0.646 -> nan -> nan  (threshold: the dephasing-wins-per-beat criterion would place the edge where the group crosses ~1) -> group does NOT cross 1 at the edge (all 0.65-nan) -- the upper edge is NOT set by the naive dephasing-wins-per-beat scale
+  [B] same group at dt=0.1 (converged-rate contract) = 0.709 -> 0.966 -> 1.795  (threshold: cross-contract consistency of the edge mechanism) -> consistent
+  [C] Spearman(group, R_tau) inside the pocket (gamma <= 0.08, dt=0.5) = -0.500  (threshold: sign test only -- 3 points, descriptive) -> negative (more dephasing per beat -> smaller R_tau), consistent with the beat-scale mechanism
+(rank correlation across 3 pocket points is descriptive only; the load-bearing test is verdict B's group crossing)
+
+== FULL ROW TABLE ==
+  gamma  tau_osc  G_env(.5)  G_env(.1)  grp(.5)  grp(.1)  R(.5)   R(.1)
+  0.02    3.288    0.0491    0.0474    0.161    0.156   1.351   1.349
+  0.05    3.288    0.1101    0.1186    0.362    0.390   0.965   2.058
+  0.08    3.288    0.1964    0.2156    0.646    0.709   1.004   1.186
+  0.10    3.288       nan    0.2937      nan    0.966   0.993   0.993
+  0.15    3.288       nan    0.5460      nan    1.795   0.996   0.995
+  0.20    3.288       nan    0.7182      nan    2.361   0.985   0.985
+  0.30    3.288       nan    1.3723      nan    4.512   0.997   0.997
+  0.40    3.288       nan       nan      nan      nan   0.992   0.990
+  0.50    3.288       nan    1.3750      nan    4.521   0.996   0.995
+
+CSV written: V15q_beatscale.csv
+Figure written: V15q_beatscale.png (300 dpi)
+Register JSON written: V15q_register.json
+
+DONE.

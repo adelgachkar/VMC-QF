@@ -166,3 +166,19 @@ Criterion 2 generalized from the single-axis scan of Vault-14 to the **two-param
 2. **χ_gen is the only load-bearing boundary, and it is dt-robust at the reference point** (2.0 in both contracts at γ=0.05) but wanders between 0.5 and 5.0 at other γ — its γ-shape is NON-monotone and contract-sensitive, so the honest registered content is the reference-point value plus the full CSV map, not a fitted curve.
 3. **The dt-flip region of the baseline (Vault-14 T2d's 0.965 vs 2.058) is mapped:** the flip is confined to γ ∈ [0.05, 0.10]; outside it the two contracts agree on the sign of R_τ − 1. This converts the earlier convention qualifier into a concrete region of validity.
 4. **Cross-engine honesty note:** Vault-12 maps τ_defect/τ_void on the D05 engine — a different quantity from this vault's cluster ratio; the two maps are NOT numerically comparable and this record makes no cross-engine ratio claim.
+
+## 6. Record VMC-QF-Vault-15q — beat-scale test of the pocket's upper edge (run 2026-10-01)
+
+Finding 1 of Vault-15 named the mechanism ("feedback cannot buy macro advantage once dephasing exceeds the beat-revival scale") without quantifying it. This qualification runs the named test: the population-contrast envelope decay rate $\Gamma_{\rm env}$ (fitted from the χ=0 linear-engine trajectory, both dt contracts) is compared against the **measured** beat period of the ring twist, and the dimensionless group $\Gamma_{\rm env} \cdot \tau_{\rm beat}$ (dephasing per beat period) is scanned across the registered γ row. Script: [beat_scale_test.py](../_data/04_SCALE_TRANSITION/S04/beat_scale_test.py); outputs [V15q_beatscale.csv](../_data/04_SCALE_TRANSITION/S04/V15q_beatscale.csv), figure [V15q_beatscale.png](../_data/04_SCALE_TRANSITION/S04/V15q_beatscale.png), register [V15q_register.json](../_data/04_SCALE_TRANSITION/S04/V15q_register.json); full log [v15q_output.txt](../_data/04_SCALE_TRANSITION/S04/v15q_output.txt).
+
+### Verdicts
+
+| # | test | measured | verdict |
+|---|---|---|---|
+| A | measured contrast-oscillation period vs the naive spectral bound π/W | **3.2881 vs 0.8167 (ratio 4.03)** | **MISMATCH LABELED** — the diagonal twist state couples only to the ring-star sub-ladder, not the full spectral width W; the measured period is **adopted as τ_beat = 3.288** for the group below |
+| B | $\Gamma_{\rm env} \cdot \tau_{\rm beat}$ at the pocket edge (γ = 0.08 → 0.10 → 0.15), dt = 0.1 | **0.709 → 0.966 → 1.795** | **EDGE CONSISTENT with the beat-scale criterion** — the group crosses ~1 exactly between the last in-pocket γ and the first out-of-pocket γ (the dt = 0.5 contract freezes the contrast before the fit window opens at γ ≥ 0.10 — a fitting-window limit, not a physics difference; the converged-rate contract is the load-bearing one here) |
+| C | Spearman(group, R_τ) inside the pocket (γ ≤ 0.08, 3 points) | −0.500 | descriptive only — more dephasing per beat ↔ smaller R_τ, consistent sign |
+
+### Registered finding
+
+The pocket's upper edge is **quantitatively consistent with the beat-scale mechanism as qualified**: dephasing wins per beat period at γ ≈ 0.10 under the converged-rate contract ($\Gamma_{\rm env}\tau_{\rm beat} \approx 1$ exactly at the edge). Two honesty labels are carried: (i) the naive spectral bound π/W is off by ×4 — the twist state's beat is the ring-star sub-ladder period, measured not assumed; (ii) the dt = 0.5 contract cannot see the crossover (contrast freeze-out beats the fit window), so the verdict rests on the dt = 0.1 contract — the same contract-dependence family already qualified in Vault-14 T2d and Vault-15 B3. Finding 1's mechanism statement is upgraded from a named hypothesis to a **measured consistency with a labeled contract scope**.

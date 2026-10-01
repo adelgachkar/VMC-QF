@@ -1,0 +1,30 @@
+[
+  {
+    "test": "A",
+    "quantity": "measured contrast oscillation period vs the naive spectral bound pi/W",
+    "value": "3.2881 vs 0.8167 (ratio 4.03)",
+    "threshold": "naive bound rejected; measured period ADOPTED as tau_beat",
+    "verdict": "MISMATCH LABELED -- the twist state couples only to the ring-star sub-ladder, not the full width W; tau_beat = 3.2881 (measured) is adopted for the group below"
+  },
+  {
+    "test": "B",
+    "quantity": "dimensionless group Gamma_env * tau_beat at the pocket edge (gamma=0.08 -> 0.10 -> 0.15), dt=0.5",
+    "value": "0.646 -> nan -> nan",
+    "threshold": "the dephasing-wins-per-beat criterion would place the edge where the group crosses ~1",
+    "verdict": "group does NOT cross 1 at the edge (all 0.65-nan) -- the upper edge is NOT set by the naive dephasing-wins-per-beat scale"
+  },
+  {
+    "test": "B",
+    "quantity": "same group at dt=0.1 (converged-rate contract)",
+    "value": "0.709 -> 0.966 -> 1.795",
+    "threshold": "cross-contract consistency of the edge mechanism",
+    "verdict": "consistent"
+  },
+  {
+    "test": "C",
+    "quantity": "Spearman(group, R_tau) inside the pocket (gamma <= 0.08, dt=0.5)",
+    "value": "-0.500",
+    "threshold": "sign test only -- 3 points, descriptive",
+    "verdict": "negative (more dephasing per beat -> smaller R_tau), consistent with the beat-scale mechanism"
+  }
+]
