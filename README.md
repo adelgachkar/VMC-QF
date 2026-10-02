@@ -4,7 +4,7 @@
 >
 > VMC-QF is a self-contained theoretical vault: it builds emergent spacetime structure — metric, causality, particles — from a discrete graph of finite-dimensional quantum cavities with intrinsic cadence time, without assuming any background manifold.
 
-**Author:** Adel Gachkar (ORCID: [0009-0006-7713-6004](https://orcid.org/0009-0006-7713-6004))
+**Author:** Adel Gachkar (ORCID: [0009-0006-7713-6004](https://orcid.org/0009-0006-7713-6004) · adelgachkar@gmail.com)
 **License:** MIT · **Status:** revised-draft / candidate (see per-note frontmatter) · **Language:** English
 
 ---
