@@ -1,10 +1,14 @@
 # VMC-QF — Vacuum Microcavity Quantum Foam
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23094459.svg)](https://doi.org/10.5281/zenodo.23094459)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23094460.svg)](https://doi.org/10.5281/zenodo.23094460) · version DOI (v0.3.1); the concept DOI above always resolves to the latest version.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 > **A manifold-free quantum substrate: microcavity networks, discrete cadence time, and topological solitons on a five-around-one geometric frustration.**
 >
 > VMC-QF is a self-contained theoretical vault: it builds emergent spacetime structure — metric, causality, particles — from a discrete graph of finite-dimensional quantum cavities with intrinsic cadence time, without assuming any background manifold.
 
-**Author:** Adel Gachkar (ORCID: [0009-0006-7713-6004](https://orcid.org/0009-0006-7713-6004) · adelgachkar@gmail.com)
+**Author:** Adel Gachkar (ORCID: [0009-0006-7713-6004](https://orcid.org/0009-0006-7713-6004) · adelgachkar@gmail.com)  
 **License:** MIT · **Status:** revised-draft / candidate (see per-note frontmatter) · **Language:** English
 
 ---
@@ -33,30 +37,51 @@
 
 Data: `_data/03_DYNAMICS_SOLITON/D05/` — exact CPTP trajectories and sweeps (S-01/S-02/S-04 + two γ-sweeps) + `simulate_D05_cptp.py` (exact engine, verification battery included). The earlier phenomenological script `simulate_D05.py` is retained as a historical record.
 
+---
+
 ## Epistemic status (read first)
 
 - **No empirical cosmological or experimental claim is made.** All quantitative results are model-level outputs of explicitly labeled simulation protocols (see the Execution Register in D05).
 - The registered constants are **derived structural inputs of the five-around-one packing**: δθ = 2π − 5·arccos(1/3) = 7.356103° ≈ 0.1284 rad (complete tetrahedral derivation and machine verification in G01 §3); per-cell fractional charge δθ/2π = 0.0204336 (family label 0.02044). Used consistently across G01–S04.
-- The D05 **exact CPTP execution (Record VMC-QF-Vault-11, 2026-09-30) confirms the "defect at least doubles the coherence lifetime" acceptance criterion at γ = 0.1** for both registered defect implementations: site detuning ratio 2.042, D04 edge-phase flux ratio 2.083 (verified block==full to ~10⁻¹³). The **relative-stability map (Record Vault-12)** then bounded the claim honestly: R(γ) erodes monotonically from ≈2.1 (weak-γ plateau) to ≈1.65 (γ = 0.5); the ×2 criterion survives to γ ≈ 0.3 and fails gradually beyond — no universal constant ratio is claimed. The **scale-feedback battery (Record Vault-14)** closed the last open criterion: with the D01 §8 saturation operator switched on, R_τ > 1 is dt-robust and genuine macro protection requires χ ≥ 2.0 J, while the dt crosscheck exposed that the Vault-13 baseline R_τ(β=0) = 0.965 was an engine-convention artifact (dt-converged value ≈ 2.06; E4 qualifier registered, history not erased). The **joint (γ, χ) map (Record Vault-15)** then bounded criterion 2 in the plane: the R_τ > 1 region is a narrow low-γ pocket (γ ≈ 0.02–0.10); above γ ≈ 0.10 the map is flat at R_τ ≈ 0.97–1.00 across the whole χ axis — feedback cannot buy macro advantage once dephasing exceeds the beat-revival scale — and all boundary curves are reported under both dt contracts (χ* and χ_gen are convention-sensitive; χ_gen = 2.0 at the reference point is not). The **beat-scale test (Record Vault-15q)** then measured the named mechanism: the pocket edge sits where Γ_env·τ_beat crosses 1 (0.709 → 0.966 → 1.795 across γ = 0.08/0.10/0.15, dt = 0.1 contract), with the twist-state beat period measured (3.288, ×4 the naive spectral bound — labeled) and the mechanism upgraded from named hypothesis to measured consistency with contract scope. The earlier negative reference run (section 8) and the phenomenological record (Vault-10) are retained as historical records. All in-silico, model-level — no experimental claim.
+- The D05 **exact CPTP execution (Record VMC-QF-Vault-11, 2026-09-30) confirms the "defect at least doubles the coherence lifetime" acceptance criterion at γ = 0.1** for both registered defect implementations: site detuning ratio 2.042, D04 edge-phase flux ratio 2.083 (verified block==full to ~10⁻¹³). The **relative-stability map (Record Vault-12)** then bounded the claim honestly: R(γ) erodes monotonically from ≈ 2.1 (weak-γ plateau) to ≈ 1.65 (γ = 0.5); the ×2 criterion survives to γ ≈ 0.3 and fails gradually beyond — no universal constant ratio is claimed. The **scale-feedback battery (Record Vault-14)** closed the last open criterion: with the D01 §8 saturation operator switched on, R_τ > 1 is dt-robust and genuine macro protection requires χ ≥ 2.0 J, while the dt crosscheck exposed that the Vault-13 baseline R_τ(β=0) = 0.965 was an engine-convention artifact (dt-converged value ≈ 2.06; E4 qualifier registered, history not erased). The **joint (γ, χ) map (Record Vault-15)** then bounded criterion 2 in the plane: the R_τ > 1 region is a narrow low-γ pocket (γ ≈ 0.02–0.10); above γ ≈ 0.10 the map is flat at R_τ ≈ 0.97–1.00 across the whole χ axis — feedback cannot buy macro advantage once dephasing exceeds the beat-revival scale — and all boundary curves are reported under both dt contracts (χ* and χ_gen are convention-sensitive; χ_gen = 2.0 at the reference point is not). The **beat-scale test (Record Vault-15q)** then measured the named mechanism: the pocket edge sits where Γ_env·τ_beat crosses 1 (0.709 → 0.966 → 1.795 across γ = 0.08 / 0.10 / 0.15, dt = 0.1 contract), with the twist-state beat period measured (3.288, ×4 the naive π/W bound — labeled) and the mechanism upgraded from named hypothesis to measured consistency with contract scope. The earlier negative reference run (section 8) and the phenomenological record (Vault-10) are retained as historical records. All in-silico, model-level — no experimental claim.
 - Every layer carries its own explicit falsification criteria.
+
+---
 
 ## Registered constants
 
 | Constant | Value | Registered in |
 |---|---|---|
-| Angular deficit δθ | **2π − 5·arccos(1/3)** = 7.356103° = 0.1284 rad (derived, machine-verified) | G01 §3 |
-| Per-cell fractional charge | δθ/2π = 0.0204336 (family label 0.02044) | G01 §4.3 |
+| Angular deficit δθ | **2π − 5·arccos(1/3)** = 7.356103° ≈ 0.1284 rad (derived, machine-verified) | G01 §3 |
+| Per-cell fractional charge | δθ / 2π = 0.0204336 (family label 0.02044) | G01 §4.3 |
 | Coherence cutoff ε_cut | 10⁻³ | S01, D05, S04 |
 | Defect percolation threshold ρ_c | ≈ 0.4075 (measured, L=64; supersedes untraceable 0.382) | S03, Vault-13 |
 | Feedback strength for genuine macro gain χ_gen | **2.0 J** (dt-robust; near-threshold gain is denominator-driven, micro collapse at χ_collapse = 0.14) | S04, Vault-14 |
 | dt-converged baseline R_τ(β=0) | ≈ **2.06** (the Vault-13 row 0.965 carries a beat-revival engine-convention qualifier) | S04, Vault-14 |
 | Joint (γ, χ) stability pocket | R_τ > 1 confined to **γ ≈ 0.02–0.10**; flat R_τ ≈ 0.97–1.00 for γ ≥ 0.10 across the whole χ axis; boundary curves convention-sensitive (both dt contracts reported) | S04, Vault-15 |
-| Beat-scale closure of the pocket edge | Γ_env·τ_beat = **0.709 → 0.966 → 1.795** across γ = 0.08/0.10/0.15 (dt = 0.1 contract); τ_beat = 3.288 measured (×4 the naive π/W bound — labeled); mechanism measured, contract-labeled | S04, Vault-15q |
+| Beat-scale closure of the pocket edge | Γ_env·τ_beat = **0.709 → 0.966 → 1.795** across γ = 0.08 / 0.10 / 0.15 (dt = 0.1 contract); τ_beat = 3.288 measured (×4 the naive π/W bound — labeled); mechanism measured, contract-labeled | S04, Vault-15q |
 | Critical scaling exponent α | ≈ 1.42 (model-level) | S03 |
+
+---
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff). If you use this framework, please cite the Zenodo record (DOI badge above once published).
+If you use this framework or numerical routines in your research, please cite the registered Zenodo archive:
+```bibtex
+@software{gachkar_adel_2026_23094460,
+  author       = {Gachkar, Adel},
+  title        = {{VMC-QF — Vacuum Microcavity Quantum Foam: A Manifold-Free Quantum Substrate with Cadence Time and Topological Solitons}},
+  month        = oct,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {0.3.1},
+  doi          = {10.5281/zenodo.23094460},
+  url          = {https://doi.org/10.5281/zenodo.23094460}
+}
+```
+See also [CITATION.cff](CITATION.cff) for standard GitHub metadata integration.
+
+---
 
 ## Related family repositories
 
